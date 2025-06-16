@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "description": "Transform your new tab into a productivity hub with elegant time display, smart shortcuts, and focus tools",
   "author": "mosaddiq",
-  "homepage_url": "https://github.com/hellomosaddiq/nexus-new-tab",
+  "homepage_url": "https://hellomosaddiq.github.io/nexus-new-tab/",
 
   "chrome_url_overrides": {
     "newtab": "src/pages/newtab/index.html"
