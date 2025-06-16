@@ -254,6 +254,12 @@ dev-storage/
 marketing/working/
 marketing/drafts/
 
+# Chrome Web Store submission materials (confidential)
+CHROME_WEB_STORE_SUBMISSION_GUIDE.md
+chrome-web-store-assets/
+store-submission-notes.md
+submission-strategy.md
+
 # ===== KEEP THESE IMPORTANT FILES =====
 # Explicitly keep important files that might be ignored by patterns above
 !assets/icons/
