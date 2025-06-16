@@ -178,6 +178,7 @@ extension-build/
 docs/_site/
 docs/.jekyll-cache/
 docs/.jekyll-metadata
+site/
 
 # Asset source files (keep final assets, ignore sources)
 assets/source/

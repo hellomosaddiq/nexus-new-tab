@@ -1,8 +1,11 @@
-# GitHub Pages Deployment Guide
+# MkDocs GitHub Pages Deployment Guide
 
-This guide will help you deploy the NEXUS website to GitHub Pages from the docs/ folder.
+This guide explains how NEXUS documentation is automatically deployed to GitHub Pages using MkDocs and GitHub Actions.
 
-## 🚀 Quick Setup
+## 🚀 Automatic Deployment
+
+### How It Works
+The documentation is automatically built and deployed using GitHub Actions whenever changes are pushed to the `main` branch.
 
 ### 1. Repository Settings
 1. Go to your repository: `https://github.com/hellomosaddiq/nexus-new-tab`
@@ -10,15 +13,15 @@ This guide will help you deploy the NEXUS website to GitHub Pages from the docs/
 3. Scroll down to **Pages** section (left sidebar)
 
 ### 2. Configure GitHub Pages
-1. **Source**: Select "Deploy from a branch"
-2. **Branch**: Select `main`
-3. **Folder**: Select `/docs`
-4. Click **Save**
+1. **Source**: Select "GitHub Actions"
+2. The workflow will automatically deploy from the `main` branch
+3. No manual folder selection needed
 
-### 3. Wait for Deployment
-- GitHub will automatically build and deploy your site
-- This usually takes 1-2 minutes
-- You'll see a green checkmark when it's ready
+### 3. Automatic Workflow
+- GitHub Actions automatically builds and deploys the site using MkDocs
+- Triggered on every push to `main` branch that affects documentation
+- Build time: ~2-3 minutes
+- You'll see a green checkmark when deployment is complete
 
 ### 4. Access Your Website
 Your website will be available at:
@@ -26,19 +29,12 @@ Your website will be available at:
 https://hellomosaddiq.github.io/nexus-new-tab/
 ```
 
-## 📁 File Structure
+## 📁 MkDocs Structure
 
-The docs/ folder contains:
+The documentation is built from:
 ```
 docs/
-├── index.html              # Main landing page
-├── styles.css              # NEXUS-inspired styling
-├── script.js               # Interactive features
-├── _config.yml             # GitHub Pages configuration
-├── assets/
-│   ├── icons/              # Extension icons + keyboard SVG
-│   └── screenshots/        # Extension screenshots
-├── README.md               # Documentation index
+├── index.md                # Homepage
 ├── installation.md         # Installation guide
 ├── user-guide.md          # User manual
 ├── keyboard-shortcuts.md   # Shortcuts reference
@@ -46,8 +42,30 @@ docs/
 ├── architecture.md        # Technical architecture
 ├── development.md         # Development guide
 ├── api-reference.md       # API documentation
-└── features/              # Feature-specific docs
+├── features/              # Feature documentation
+│   ├── ai-prediction.md
+│   ├── daily-quotes.md
+│   ├── focus-timer.md
+│   ├── quick-notes.md
+│   ├── smart-date.md
+│   └── themes.md
+├── technical/             # Technical documentation
+│   ├── accessibility.md
+│   ├── cross-browser.md
+│   ├── performance.md
+│   └── security.md
+└── assets/               # Images and resources
+    ├── icons/
+    └── screenshots/
 ```
+
+## 🔧 MkDocs Configuration
+
+The site is configured via `mkdocs.yml` in the root directory:
+- **Theme**: Material Design (dark theme)
+- **Colors**: Blue primary and accent (matching NEXUS)
+- **Typography**: Inter + JetBrains Mono
+- **Features**: Search, navigation, code highlighting
 
 ## 🎨 Design Features
 

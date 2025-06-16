@@ -1,0 +1,150 @@
+site_name: NEXUS New Tab Extension
+site_description: Transform your new tab into a productivity powerhouse with AI-powered shortcuts, smart date insights, and beautiful themes.
+site_url: https://hellomosaddiq.github.io/nexus-new-tab/
+repo_url: https://github.com/hellomosaddiq/nexus-new-tab
+repo_name: hellomosaddiq/nexus-new-tab
+edit_uri: edit/main/docs/
+
+# Theme Configuration
+theme:
+  name: material
+  palette:
+    # Dark theme only - matching NEXUS extension design
+    scheme: slate
+    primary: blue
+    accent: blue
+
+  font:
+    text: Inter
+    code: JetBrains Mono
+  
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.expand
+    - navigation.path
+    - navigation.top
+    - search.highlight
+    - search.share
+    - search.suggest
+    - content.code.copy
+    - content.code.select
+    - content.tabs.link
+    - toc.follow
+    - toc.integrate
+
+  icon:
+    repo: fontawesome/brands/github
+    edit: material/pencil
+    view: material/eye
+
+# Navigation Structure
+nav:
+  - Home: index.md
+  - Getting Started:
+    - Installation: installation.md
+    - User Guide: user-guide.md
+    - Keyboard Shortcuts: keyboard-shortcuts.md
+  - Features:
+    - AI Prediction: features/ai-prediction.md
+    - Daily Quotes: features/daily-quotes.md
+    - Focus Timer: features/focus-timer.md
+    - Quick Notes: features/quick-notes.md
+    - Smart Date: features/smart-date.md
+    - Themes: features/themes.md
+  - Technical:
+    - Architecture: architecture.md
+    - Performance: technical/performance.md
+    - Security: technical/security.md
+    - Accessibility: technical/accessibility.md
+    - Cross-Browser: technical/cross-browser.md
+  - Development:
+    - Development Guide: development.md
+    - API Reference: api-reference.md
+  - Support:
+    - Troubleshooting: troubleshooting.md
+
+# Plugins
+plugins:
+  - search:
+      separator: '[\s\-,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
+  - minify:
+      minify_html: true
+
+# Extensions
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - toc:
+      permalink: true
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.magiclink:
+      normalize_issue_symbols: true
+      repo_url_shorthand: true
+      user: hellomosaddiq
+      repo: nexus-new-tab
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.snippets
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+      combine_header_slug: true
+      slugify: !!python/object/apply:pymdownx.slugs.slugify
+        kwds:
+          case: lower
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+
+
+
+# Extra Configuration
+extra:
+  version:
+    provider: mike
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/hellomosaddiq/nexus-new-tab
+      name: GitHub Repository
+    - icon: fontawesome/brands/chrome
+      link: https://chrome.google.com/webstore
+      name: Chrome Web Store
+  analytics:
+    provider: google
+    property: !ENV GOOGLE_ANALYTICS_KEY
+  consent:
+    title: Cookie consent
+    description: >- 
+      We use cookies to recognize your repeated visits and preferences, as well
+      as to measure the effectiveness of our documentation and whether users
+      find what they're searching for. With your consent, you're helping us to
+      make our documentation better.
+
+# Copyright
+copyright: >
+  Copyright &copy; 2025 NEXUS New Tab Extension –
+  <a href="#__consent">Change cookie settings</a>
