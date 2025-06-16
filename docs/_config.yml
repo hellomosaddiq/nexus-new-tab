@@ -26,8 +26,19 @@ markdown: kramdown
 highlighter: rouge
 permalink: pretty
 
-# Exclude files
+# Exclude files (only exclude what we don't want)
 exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - .sass-cache
+  - .jekyll-cache
+  - .jekyll-metadata
+
+# Include files
+include:
+  - assets/
   - README.md
   - installation.md
   - user-guide.md
@@ -39,10 +50,6 @@ exclude:
   - features/
   - technical/
 
-# Include files
-include:
-  - assets/
-
 # Collections
 collections_dir: .
 
@@ -52,4 +59,4 @@ defaults:
       path: ""
     values:
       layout: default
-      image: "/assets/screenshots/NEXUS_01_Hero_Blue_1920x1080.png.png"
+      image: "/assets/screenshots/NEXUS_01_Hero_Blue_1920x1080.png"
