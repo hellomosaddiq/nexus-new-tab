@@ -1,0 +1,55 @@
+# NEXUS Chrome Extension - GitHub Pages Configuration
+title: "NEXUS - New Tab Productivity Hub"
+description: "Transform your new tab into a productivity powerhouse with AI-powered shortcuts and beautiful themes."
+url: "https://hellomosaddiq.github.io"
+baseurl: "/nexus-new-tab"
+
+# GitHub Pages settings
+plugins:
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# SEO settings
+author: "mosaddiq"
+twitter:
+  username: hellomosaddiq
+  card: summary_large_image
+
+# Social media
+social:
+  name: "NEXUS Chrome Extension"
+  links:
+    - "https://github.com/hellomosaddiq/nexus-new-tab"
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+permalink: pretty
+
+# Exclude files
+exclude:
+  - README.md
+  - installation.md
+  - user-guide.md
+  - keyboard-shortcuts.md
+  - troubleshooting.md
+  - architecture.md
+  - development.md
+  - api-reference.md
+  - features/
+  - technical/
+
+# Include files
+include:
+  - assets/
+
+# Collections
+collections_dir: .
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
+      image: "/assets/screenshots/NEXUS_01_Hero_Blue_1920x1080.png.png"
