@@ -6,10 +6,14 @@
 
 **Transform your new tab into a productivity powerhouse**
 
-[![Chrome Web Store](https://img.shields.io/badge/Chrome-Web%20Store-blue?style=for-the-badge&logo=google-chrome)](https://chrome.google.com/webstore)
-[![Version](https://img.shields.io/badge/version-1.0.0-green?style=for-the-badge)](https://github.com/hellomosaddiq/nexus-new-tab)
+[![Download Latest Release](https://img.shields.io/github/v/release/hellomosaddiq/nexus-new-tab?style=for-the-badge&logo=github&logoColor=white&color=blue&label=Download%20Free)](https://github.com/hellomosaddiq/nexus-new-tab/releases/latest)
+[![Chrome Extension](https://img.shields.io/badge/Chrome-Extension-4285F4?style=for-the-badge&logo=googlechrome&logoColor=white)](https://github.com/hellomosaddiq/nexus-new-tab)
+[![Free Download](https://img.shields.io/badge/FREE-Download-00C851?style=for-the-badge&logo=download&logoColor=white)](https://github.com/hellomosaddiq/nexus-new-tab/releases/latest)
 [![License](https://img.shields.io/badge/license-MIT-blue?style=for-the-badge)](LICENSE)
-[![JavaScript](https://img.shields.io/badge/JavaScript-Vanilla-yellow?style=for-the-badge&logo=javascript)](https://github.com/hellomosaddiq/nexus-new-tab)
+
+[![GitHub Stars](https://img.shields.io/github/stars/hellomosaddiq/nexus-new-tab?style=social)](https://github.com/hellomosaddiq/nexus-new-tab/stargazers)
+[![GitHub Forks](https://img.shields.io/github/forks/hellomosaddiq/nexus-new-tab?style=social)](https://github.com/hellomosaddiq/nexus-new-tab/network/members)
+[![GitHub Issues](https://img.shields.io/github/issues/hellomosaddiq/nexus-new-tab?style=social)](https://github.com/hellomosaddiq/nexus-new-tab/issues)
 
 </div>
 
@@ -126,13 +130,20 @@
 
 ## 🚀 Installation
 
-### Chrome Web Store (Recommended)
-1. Visit the [Chrome Web Store](https://chrome.google.com/webstore) (link coming soon)
-2. Click "Add to Chrome"
-3. Confirm installation
-4. Open a new tab to start using NEXUS
+### 📦 Direct Download (Recommended - FREE!)
+1. **Download** the latest release: [**NEXUS-New-Tab-v1.0.0.zip**](https://github.com/hellomosaddiq/nexus-new-tab/releases/latest)
+2. **Extract** the zip file to a folder on your computer
+3. **Open Chrome** and go to `chrome://extensions/`
+4. **Enable "Developer mode"** (toggle in top right)
+5. **Click "Load unpacked"** and select the extracted folder
+6. **Open a new tab** to start using NEXUS New Tab!
 
-### Manual Installation (Developer Mode)
+> 📖 **Need help?** Follow our [**Complete Installation Guide**](DIRECT-INSTALL-GUIDE.md) for step-by-step instructions with screenshots.
+
+### 🏪 Chrome Web Store (Coming Soon)
+Official Chrome Web Store listing is in development for one-click installation.
+
+### 🛠️ Developer Installation
 1. Clone this repository:
    ```bash
    git clone https://github.com/hellomosaddiq/nexus-new-tab.git
@@ -433,10 +444,10 @@ This project is open source and available under the MIT License.
 
 ## 🌟 Ready to Transform Your New Tab Experience?
 
-**Join thousands of users who've already upgraded their productivity**
+**Download NEXUS New Tab for FREE and join the productivity revolution!**
 
-[![Get Started](https://img.shields.io/badge/🚀_Get_Started-Install_Now-blue?style=for-the-badge&labelColor=000)](https://github.com/hellomosaddiq/nexus-new-tab#-installation)
-[![View Docs](https://img.shields.io/badge/📚_Documentation-Learn_More-green?style=for-the-badge&labelColor=000)](docs/README.md)
+[![Download Free](https://img.shields.io/badge/📦_Download_FREE-Get_NEXUS_Now-blue?style=for-the-badge&labelColor=000)](https://github.com/hellomosaddiq/nexus-new-tab/releases/latest)
+[![Installation Guide](https://img.shields.io/badge/📖_Installation-Step_by_Step-green?style=for-the-badge&labelColor=000)](DIRECT-INSTALL-GUIDE.md)
 [![Star Repo](https://img.shields.io/badge/⭐_Star_Repo-Show_Support-yellow?style=for-the-badge&labelColor=000)](https://github.com/hellomosaddiq/nexus-new-tab)
 
 **Made with ❤️ by [mosaddiq](https://github.com/hellomosaddiq)**
