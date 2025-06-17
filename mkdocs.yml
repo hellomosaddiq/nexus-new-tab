@@ -1,5 +1,5 @@
-site_name: NEXUS New Tab Extension
-site_description: Transform your new tab into a productivity powerhouse with AI-powered shortcuts, smart date insights, and beautiful themes.
+site_name: NEXUS New Tab
+site_description: Transform your new tab into a productivity powerhouse
 site_url: https://hellomosaddiq.github.io/nexus-new-tab/
 repo_url: https://github.com/hellomosaddiq/nexus-new-tab
 repo_name: hellomosaddiq/nexus-new-tab
@@ -17,7 +17,7 @@ theme:
   font:
     text: Inter
     code: JetBrains Mono
-  
+
   features:
     - navigation.tabs
     - navigation.tabs.sticky
@@ -138,7 +138,7 @@ extra:
     property: !ENV GOOGLE_ANALYTICS_KEY
   consent:
     title: Cookie consent
-    description: >- 
+    description: >-
       We use cookies to recognize your repeated visits and preferences, as well
       as to measure the effectiveness of our documentation and whether users
       find what they're searching for. With your consent, you're helping us to
@@ -146,5 +146,5 @@ extra:
 
 # Copyright
 copyright: >
-  Copyright &copy; 2025 NEXUS New Tab Extension –
+  Copyright &copy; 2025 NEXUS New Tab –
   <a href="#__consent">Change cookie settings</a>

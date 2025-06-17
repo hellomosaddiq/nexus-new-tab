@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "NEXUS",
+  "name": "NEXUS New Tab",
   "version": "1.0.0",
-  "description": "Transform your new tab into a productivity hub with elegant time display, smart shortcuts, and focus tools",
+  "description": "Transform your new tab into a productivity powerhouse",
   "author": "mosaddiq",
   "homepage_url": "https://hellomosaddiq.github.io/nexus-new-tab/",
 
@@ -28,7 +28,7 @@
   },
 
   "action": {
-    "default_title": "NEXUS - New Tab Hub",
+    "default_title": "NEXUS New Tab",
     "default_icon": {
       "16": "assets/icons/nexus-16.png",
       "32": "assets/icons/nexus-32.png",

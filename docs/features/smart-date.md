@@ -5,10 +5,10 @@ NEXUS offers 12 intelligent date insights that provide contextual information ab
 ## 🎯 Available Features
 
 ### 1. Week Number
-**Display**: "Week 25"  
-**Description**: Shows the current week number of the year (1-52)  
-**Use Case**: Project planning, scheduling, ISO week standards  
-**Algorithm**: ISO 8601 week numbering system  
+**Display**: "Week 25"
+**Description**: Shows the current week number of the year (1-52)
+**Use Case**: Project planning, scheduling, ISO week standards
+**Algorithm**: ISO 8601 week numbering system
 
 ```javascript
 // Implementation concept
@@ -17,60 +17,60 @@ const weekNumber = getISOWeek(new Date());
 ```
 
 ### 2. Year Progress
-**Display**: "46% of 2025"  
-**Description**: Percentage of the current year completed  
-**Use Case**: Annual goal tracking, time awareness  
-**Algorithm**: Days elapsed / Total days in year × 100  
+**Display**: "46% of 2025"
+**Description**: Percentage of the current year completed
+**Use Case**: Annual goal tracking, time awareness
+**Algorithm**: Days elapsed / Total days in year × 100
 
 **Visual**: Includes subtle progress indicator
 
 ### 3. Weekend Status
-**Display**: "3 days to weekend" or "Weekend!"  
-**Description**: Countdown to weekend or weekend indicator  
-**Use Case**: Work-life balance, motivation  
-**Logic**: 
+**Display**: "3 days to weekend" or "Weekend!"
+**Description**: Countdown to weekend or weekend indicator
+**Use Case**: Work-life balance, motivation
+**Logic**:
 - Monday-Thursday: Shows days until Saturday
 - Friday: "Tomorrow is weekend!"
 - Saturday-Sunday: "Weekend!" or "Enjoy weekend!"
 
 ### 4. Working Days
-**Display**: "22 working days"  
-**Description**: Business days remaining in current month  
-**Use Case**: Project deadlines, business planning  
-**Algorithm**: Excludes weekends, includes current day if it's a weekday  
+**Display**: "22 working days"
+**Description**: Business days remaining in current month
+**Use Case**: Project deadlines, business planning
+**Algorithm**: Excludes weekends, includes current day if it's a weekday
 
 ### 5. Quarter Progress
-**Display**: "Q2: 67%"  
-**Description**: Current quarter completion percentage  
-**Use Case**: Business reporting, quarterly goals  
+**Display**: "Q2: 67%"
+**Description**: Current quarter completion percentage
+**Use Case**: Business reporting, quarterly goals
 **Quarters**:
 - Q1: January-March
-- Q2: April-June  
+- Q2: April-June
 - Q3: July-September
 - Q4: October-December
 
 ### 6. Month Progress
-**Display**: "June: 53%"  
-**Description**: Current month completion percentage  
-**Use Case**: Monthly goals, habit tracking  
-**Algorithm**: (Current day - 1) / Days in month × 100  
+**Display**: "June: 53%"
+**Description**: Current month completion percentage
+**Use Case**: Monthly goals, habit tracking
+**Algorithm**: (Current day - 1) / Days in month × 100
 
 ### 7. Week Progress
-**Display**: "Week: 71%"  
-**Description**: Current week completion percentage  
-**Use Case**: Weekly planning, productivity tracking  
-**Algorithm**: Days completed in current week / 7 × 100  
+**Display**: "Week: 71%"
+**Description**: Current week completion percentage
+**Use Case**: Weekly planning, productivity tracking
+**Algorithm**: Days completed in current week / 7 × 100
 
 ### 8. Days Since New Year
-**Display**: "167 days"  
-**Description**: Days elapsed since January 1st  
-**Use Case**: Time awareness, annual tracking  
-**Algorithm**: Simple date difference from January 1st  
+**Display**: "167 days"
+**Description**: Days elapsed since January 1st
+**Use Case**: Time awareness, annual tracking
+**Algorithm**: Simple date difference from January 1st
 
 ### 9. Season Info
-**Display**: "Summer Day 15"  
-**Description**: Current season and day within that season  
-**Use Case**: Seasonal awareness, natural rhythms  
+**Display**: "Summer Day 15"
+**Description**: Current season and day within that season
+**Use Case**: Seasonal awareness, natural rhythms
 **Seasons** (Northern Hemisphere):
 - Spring: March 20 - June 20
 - Summer: June 21 - September 22
@@ -78,24 +78,24 @@ const weekNumber = getISOWeek(new Date());
 - Winter: December 21 - March 19
 
 ### 10. Moon Phase
-**Display**: "Waxing Crescent"  
-**Description**: Current lunar phase  
-**Use Case**: Natural cycles, astronomy interest  
-**Phases**: New Moon, Waxing Crescent, First Quarter, Waxing Gibbous, Full Moon, Waning Gibbous, Last Quarter, Waning Crescent  
+**Display**: "Waxing Crescent"
+**Description**: Current lunar phase
+**Use Case**: Natural cycles, astronomy interest
+**Phases**: New Moon, Waxing Crescent, First Quarter, Waxing Gibbous, Full Moon, Waning Gibbous, Last Quarter, Waning Crescent
 
 **Algorithm**: Astronomical calculation based on lunar cycle (29.53 days)
 
 ### 11. Daylight Info
-**Display**: "Sunset: 8:24 PM"  
-**Description**: Sunset time and daylight hours  
-**Use Case**: Planning outdoor activities, circadian rhythm  
-**Note**: Uses approximate calculations, may vary by location  
+**Display**: "Sunset: 8:24 PM"
+**Description**: Sunset time and daylight hours
+**Use Case**: Planning outdoor activities, circadian rhythm
+**Note**: Uses approximate calculations, may vary by location
 
 ### 12. Days to Weekend
-**Display**: "2 days"  
-**Description**: Simple countdown to next weekend  
-**Use Case**: Motivation, work-week tracking  
-**Logic**: Always shows days until Saturday (0-6)  
+**Display**: "2 days"
+**Description**: Simple countdown to next weekend
+**Use Case**: Motivation, work-week tracking
+**Logic**: Always shows days until Saturday (0-6)
 
 ## ⚙️ Configuration
 
@@ -144,7 +144,7 @@ const weekNumber = getISOWeek(new Date());
 const dateCache = {
     lastCalculated: null,
     cachedValues: {},
-    
+
     getFeature(featureName) {
         const now = new Date();
         if (this.shouldRecalculate(now)) {
@@ -181,14 +181,14 @@ const dateCache = {
 - **Cultural calendar** systems (lunar, fiscal years)
 - **Timezone-specific** calculations
 
-## 📊 Usage Analytics
+## 📊 Recommended Combinations
 
-### Popular Combinations
-Based on user feedback and logical groupings:
+### Suggested Groupings
+Based on logical functionality and user needs:
 
-1. **Productivity Trio**: Week Number + Working Days + Quarter Progress
-2. **Progress Tracker**: Year Progress + Month Progress + Week Progress  
-3. **Natural Rhythm**: Season Info + Moon Phase + Daylight Info
+1. **Productivity Focus**: Week Number + Working Days + Quarter Progress
+2. **Progress Tracking**: Year Progress + Month Progress + Week Progress
+3. **Natural Awareness**: Season Info + Moon Phase + Sunset Time
 4. **Work-Life Balance**: Weekend Status + Working Days + Week Progress
 
 ### Performance Impact

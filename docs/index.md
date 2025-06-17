@@ -1,15 +1,68 @@
-# NEXUS New Tab Extension
+# NEXUS New Tab
 
-Transform your new tab into a productivity powerhouse with AI-powered shortcuts, smart date insights, and beautiful themes.
+<div align="center">
 
-## Features
+![NEXUS Hero](../assets/screenshots/NEXUS_01_Hero_Blue_1920x1080.png)
 
-- 🤖 **AI-Powered Quick Shortcuts** - Machine learning engine that learns from your browsing patterns
-- 📅 **12 Intelligent Date Insights** - Real-time progress tracking and productivity metrics
-- 🎨 **9 Beautiful Color Themes** - Blue, Purple, Green, Orange, Pink, Red, Cyan, Yellow, and Indigo
-- ⏱️ **Advanced Pomodoro Timer** - Science-backed 25-minute focus sessions
-- 📝 **Intelligent Quick Notes** - Lightning-fast note capture with auto-save
-- ♿ **Universal Accessibility** - ARIA 1.2 implementation and enhanced contrast ratios
+**Transform your new tab into a productivity powerhouse**
+
+[![Chrome Web Store](https://img.shields.io/badge/Chrome-Web%20Store-blue?style=for-the-badge&logo=google-chrome)](https://chrome.google.com/webstore)
+[![Version](https://img.shields.io/badge/version-1.0.0-green?style=for-the-badge)](https://github.com/hellomosaddiq/nexus-new-tab)
+[![License](https://img.shields.io/badge/license-MIT-blue?style=for-the-badge)](LICENSE)
+
+</div>
+
+## ✨ Key Features
+
+### 🤖 **AI-Powered Quick Shortcuts**
+Machine learning engine that learns from your browsing patterns and predicts your most-used sites.
+
+![NEXUS Quick Shortcuts](../assets/screenshots/NEXUS_02_Shortcuts_Purple_1920x1080.png)
+
+- **3 intelligent tab types**: Bookmarks, Top Sites, and Recent
+- **Fuzzy search** with real-time filtering across all data sources
+- **Smart favicon caching** with IndexedDB for lightning-fast performance
+- **Cross-browser session restoration** for recently closed tabs
+
+### 🎨 **Beautiful Customization**
+Choose from 9 stunning color themes and 5 premium typography options to match your style.
+
+![NEXUS Themes](../assets/screenshots/NEXUS_03_Settings_Themes_1920x1080.png)
+
+- **9 Color Themes**: Blue, Purple, Green, Orange, Pink, Red, Cyan, Yellow, and Indigo
+- **5 Typography Themes**: Modern Sans, Classic Pro, Developer, Elegant, and Minimal
+- **Grid background** toggle and smooth animations
+- **Real-time preview** of all customization options
+
+### ⏱️ **Focus Timer**
+Simple 25-minute Pomodoro timer to boost your productivity and maintain focus.
+
+![NEXUS Focus Timer](../assets/screenshots/NEXUS_04_FocusTimer_Orange_1920x1080.png)
+
+- **25-minute focus sessions** with visual progress tracking
+- **Start, pause, reset controls** with animated circular display
+- **Completion notifications** with auto-reset functionality
+- **Theme integration** - timer colors match your selected theme
+
+### 📝 **Quick Notes**
+Instant note-taking with auto-save functionality for capturing ideas on the fly.
+
+![NEXUS Quick Notes](../assets/screenshots/NEXUS_05_QuickNotes_Cyan_1920x1080.png)
+
+- **Plain text notepad** with 100K character limit
+- **Auto-save functionality** with 1-second debounce
+- **Clean modal interface** with glassmorphism design
+- **Local storage** - notes stay on your device
+
+### 📅 **Smart Date Insights**
+- **12 Intelligent Date Features** - Real-time progress tracking and productivity metrics
+- **Weekend Status, Week Number, Year Progress** and 9 more insights
+- **Choose up to 3 features** to display alongside your clock
+
+### ♿ **Universal Accessibility**
+- **ARIA 1.2 implementation** and enhanced contrast ratios
+- **Complete keyboard navigation** throughout the interface
+- **Screen reader support** with semantic landmarks
 
 ## Quick Start
 
@@ -34,7 +87,10 @@ Transform your new tab into a productivity powerhouse with AI-powered shortcuts,
 |-----|--------|-------------|
 | `K` | AI Quick Shortcuts | Machine learning-powered navigation with predictive search |
 | `S` | Advanced Settings | Comprehensive configuration panel with 4 organized tabs |
-| `N` | Intelligent Notes | Lightning-fast note capture with enterprise-grade auto-save |
+| `N` | Quick Notes | Plain text notepad with auto-save functionality |
+| `Q` | Refresh Quote | Get a new random inspirational quote |
+| `F` | Cycle Fonts | Switch between premium typography themes |
+| `R` | Reset Settings | Restore default configuration |
 | `Esc` | Universal Close | Smart close action that dismisses any active panel or modal |
 
 ## Contributing
@@ -80,6 +136,24 @@ This project is licensed under the MIT License - see the LICENSE file for detail
     Contributing guidelines, build instructions, and API reference for developers.
 
     [:octicons-arrow-right-24: Development](development.md)
+
+</div>
+
+## 🎨 Visual Showcase
+
+<div align="center">
+
+**Experience NEXUS in action across different themes and features**
+
+| Main Interface | Quick Shortcuts | Settings Panel |
+|:---:|:---:|:---:|
+| ![Hero](../assets/screenshots/NEXUS_01_Hero_Blue_1920x1080.png) | ![Shortcuts](../assets/screenshots/NEXUS_02_Shortcuts_Purple_1920x1080.png) | ![Settings](../assets/screenshots/NEXUS_03_Settings_Themes_1920x1080.png) |
+| **Clean, minimal design** | **AI-powered navigation** | **9 beautiful themes** |
+
+| Focus Timer | Quick Notes |
+|:---:|:---:|
+| ![Timer](../assets/screenshots/NEXUS_04_FocusTimer_Orange_1920x1080.png) | ![Notes](../assets/screenshots/NEXUS_05_QuickNotes_Cyan_1920x1080.png) |
+| **25-minute focus sessions** | **Instant note-taking** |
 
 </div>
 

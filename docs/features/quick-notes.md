@@ -1,6 +1,6 @@
 # Quick Notes
 
-NEXUS includes a powerful quick notes system that allows you to capture thoughts, ideas, and information instantly without leaving your new tab. The system features auto-save functionality, rich text support, and seamless integration with your workflow.
+NEXUS includes a simple quick notes system that allows you to capture thoughts, ideas, and information instantly without leaving your new tab. The system features auto-save functionality and seamless integration with your workflow.
 
 ## 📝 Overview
 
@@ -18,8 +18,8 @@ Quick Notes provide an instant, always-accessible notepad directly in your new t
 - **Instant Access** - Available on every new tab
 - **Auto-Save** - Automatic saving every second while typing
 - **Persistent Storage** - Notes survive browser restarts and crashes
-- **Cross-Device Sync** - Sync notes across devices (if enabled)
-- **Rich Text Support** - Basic formatting and structure
+- **Plain Text** - Simple text notepad without formatting
+- **Character Counter** - 100K character limit with real-time counter
 - **Keyboard Shortcuts** - Quick access and navigation
 - **Privacy-First** - All data stored locally on your device
 
@@ -54,9 +54,9 @@ The notes interface is designed for minimal distraction:
 
 #### **Text Area Features**
 - **Large Text Area** - Generous space for writing
-- **Monospace Option** - Switch to monospace font for code
-- **Line Numbers** - Optional line numbering for structured notes
-- **Word Count** - Real-time character and word counting
+- **Plain Text Only** - Simple text input without formatting
+- **Character Counter** - Shows character count with 100K limit
+- **Auto-Resize** - Text area adjusts to content
 
 ## 💾 Auto-Save System
 
@@ -71,10 +71,9 @@ The notes system uses sophisticated auto-save technology:
 
 #### **Dual Storage Strategy**
 ```javascript
-// Primary storage (synced across devices)
-chrome.storage.sync.set({
-  'quickNotesContent': noteContent,
-  'lastModified': Date.now()
+// Primary storage (local device only)
+chrome.storage.local.set({
+  'quickNotesContent': noteContent
 });
 
 // Fallback storage (immediate local access)
@@ -99,64 +98,35 @@ Multiple layers ensure your notes are never lost:
 #### **Recovery Features**
 - **Crash Recovery** - Automatic recovery after browser crashes
 - **Version History** - Basic undo/redo functionality
-- **Conflict Resolution** - Smart handling of sync conflicts
+- **Local Storage** - Simple local storage without conflicts
 - **Data Validation** - Ensures data integrity across saves
 
-## 🎨 Formatting & Features
+## 📝 Simple Text Features
 
-### Text Formatting
-Basic formatting options for better organization:
+### Plain Text Notepad
+Basic text editing capabilities:
 
-#### **Markdown Support**
-- **Headers** - Use `#`, `##`, `###` for different header levels
-- **Bold Text** - Wrap text in `**bold**` for emphasis
-- **Italic Text** - Use `*italic*` for subtle emphasis
-- **Code Blocks** - Wrap code in backticks for `inline code`
-- **Lists** - Use `-` or `*` for bullet points
+#### **Text Input**
+- **Plain Text** - Simple text input without formatting
+- **Line Wrapping** - Automatic text wrapping for long lines
+- **Character Counter** - Real-time character count with 100K limit
+- **Auto-Save** - Automatic saving with 1-second debounce
 
-#### **Smart Text Features**
-- **Auto-Indentation** - Intelligent indentation for lists and code
-- **Tab Support** - Tab key for indentation (doesn't lose focus)
-- **Line Wrapping** - Soft wrap for long lines
-- **Smart Quotes** - Automatic quote formatting
-
-### Organization Features
-Tools to keep your notes organized:
-
-#### **Search & Navigation**
-- **Find in Notes** - `Ctrl/Cmd + F` to search within notes
-- **Quick Jump** - Navigate to specific sections quickly
-- **Bookmark Lines** - Mark important lines for quick access
-- **Fold Sections** - Collapse sections for better overview
-
-#### **Content Structure**
-- **Section Dividers** - Use `---` for visual section breaks
-- **Date Stamps** - Automatic date insertion with shortcuts
-- **Templates** - Quick insertion of common note structures
-- **Tags** - Simple tagging system for categorization
+#### **Basic Features**
+- **Persistent Storage** - Notes saved across browser sessions
+- **Dual Storage** - Extension storage with localStorage fallback
+- **Modal Interface** - Clean overlay design with glassmorphism
+- **Responsive Design** - Adapts to different screen sizes
 
 ## ⌨️ Keyboard Shortcuts
 
 ### Essential Shortcuts
 Master these shortcuts for efficient note-taking:
 
-#### **Access & Navigation**
+#### **Basic Shortcuts**
 - **`N`** - Toggle notes overlay
 - **`Esc`** - Close notes overlay
-- **`Ctrl/Cmd + S`** - Manual save (auto-save is automatic)
-- **`Ctrl/Cmd + A`** - Select all text
-
-#### **Text Editing**
-- **`Tab`** - Indent line or selection
-- **`Shift + Tab`** - Unindent line or selection
-- **`Ctrl/Cmd + Z`** - Undo last change
-- **`Ctrl/Cmd + Y`** - Redo last undone change
-
-#### **Quick Insertion**
-- **`Ctrl/Cmd + D`** - Insert current date
-- **`Ctrl/Cmd + T`** - Insert current time
-- **`Ctrl/Cmd + L`** - Insert horizontal line divider
-- **`Ctrl/Cmd + /`** - Toggle comment formatting
+- **Standard text editing** - Cut, copy, paste, select all work as expected
 
 ### Advanced Shortcuts
 Power user features for enhanced productivity:
@@ -196,18 +166,15 @@ Customize the notes experience:
 - **Auto-Clear** - Automatically clear notes after specified time
 - **Backup Options** - Export/import notes for backup
 
-### Advanced Configuration
+### Basic Configuration
 ```javascript
-// Notes configuration object
+// Simple notes configuration
 const notesConfig = {
   autoSave: true,
   saveDelay: 1000,        // 1 second after typing stops
   maxLength: 100000,      // 100KB character limit
-  syncEnabled: true,
-  fontFamily: 'monospace',
-  fontSize: '14px',
-  lineHeight: 1.5,
-  showLineNumbers: false,
+  syncEnabled: false,     // Notes stored locally only
+  fontFamily: 'inherit',  // Uses theme font
   wordWrap: true
 };
 ```
@@ -232,17 +199,17 @@ Your notes are protected with multiple security measures:
 ### Data Management
 Tools to manage your notes data:
 
-#### **Export & Backup**
-- **Text Export** - Export notes as plain text file
-- **Markdown Export** - Export with formatting preserved
-- **JSON Export** - Export with metadata for full backup
-- **Scheduled Backups** - Automatic periodic backups
+#### **Basic Data Management**
+- **Manual Copy** - Copy notes text manually
+- **No Export Features** - No built-in export functionality
+- **No Backup System** - No automatic backup features
+- **Local Storage Only** - Notes stored on device only
 
 #### **Data Cleanup**
 - **Clear All Notes** - Complete notes reset option
 - **Selective Deletion** - Remove specific sections or content
 - **Storage Cleanup** - Remove orphaned or corrupted data
-- **Sync Reset** - Reset synchronization state
+- **Local Reset** - Reset local storage state
 
 ## 🛠️ Troubleshooting
 
@@ -259,18 +226,18 @@ If auto-save isn't working:
 #### **Notes Disappeared**
 If notes are missing:
 
-1. **Check Sync Status** - Notes may be syncing from another device
+1. **Check Local Storage** - Notes are stored locally only
 2. **Storage Recovery** - Check localStorage fallback
 3. **Recent Changes** - Look for accidental deletion
-4. **Backup Restore** - Restore from recent backup if available
+4. **Extension Reload** - Try reloading the extension
 
-#### **Sync Issues**
-If notes aren't syncing across devices:
+#### **Storage Issues**
+If notes aren't saving properly:
 
-1. **Chrome Sync** - Ensure Chrome sync is enabled
-2. **Storage Permissions** - Check extension sync permissions
-3. **Network Connection** - Verify internet connectivity
-4. **Conflict Resolution** - Manually resolve sync conflicts
+1. **Local Storage** - Check browser local storage availability
+2. **Storage Permissions** - Check extension storage permissions
+3. **Storage Quota** - Verify browser storage isn't full
+4. **Extension Reload** - Try reloading the extension
 
 ### Performance Optimization
 

@@ -41,7 +41,7 @@ NEXUS provides full feature support for these browsers:
 | Quick Notes | ✅ | ✅ | ✅ | ✅ |
 | Theme System | ✅ | ✅ | ✅ | ✅ |
 | Smart Date Features | ✅ | ✅ | ✅ | ✅ |
-| Cross-Device Sync | ✅ | ✅ | ⚠️ | ❌ |
+| Settings Sync | ✅ | ✅ | ✅ | ⚠️ |
 
 **Legend**: ✅ Full Support | ⚠️ Partial Support | ❌ Not Supported
 
@@ -78,7 +78,7 @@ const checkFeatureSupport = () => {
     tabs: !!api.tabs,
     notifications: !!api.notifications
   };
-  
+
   return features;
 };
 ```

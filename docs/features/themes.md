@@ -108,11 +108,11 @@ The theme system uses CSS custom properties for instant theme switching:
   --accent-hover: #2563eb;
   --accent-light: rgba(59, 130, 246, 0.1);
   --accent-glow: rgba(59, 130, 246, 0.3);
-  
+
   /* Typography Variables */
   --font-primary: 'Inter', sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
-  
+
   /* Semantic Color Variables */
   --text-primary: #f9fafb;
   --text-secondary: #d1d5db;
@@ -192,9 +192,9 @@ Users can change themes through multiple methods:
 5. Changes apply instantly
 
 #### **Keyboard Shortcuts**
-- **Next Color Theme**: `Ctrl/Cmd + Shift + T`
-- **Previous Color Theme**: `Ctrl/Cmd + Shift + R`
-- **Reset to Default**: `Ctrl/Cmd + Shift + D`
+- **Cycle Typography Themes**: `F` key
+- **Reset All Settings**: `R` key (includes themes)
+- **Open Settings**: `S` key to access theme options
 
 #### **Quick Access**
 - Themes can be changed without opening full settings

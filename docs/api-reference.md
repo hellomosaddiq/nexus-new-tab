@@ -21,9 +21,9 @@ class Nexus {
 #### Key Methods
 
 ##### `init()`
-**Purpose**: Initialize the entire NEXUS application  
-**Returns**: `Promise<void>`  
-**Usage**: Called automatically on page load  
+**Purpose**: Initialize the entire NEXUS application
+**Returns**: `Promise<void>`
+**Usage**: Called automatically on page load
 
 ```javascript
 const nexus = new Nexus();
@@ -31,8 +31,8 @@ await nexus.init();
 ```
 
 ##### `updateSettings(newSettings)`
-**Purpose**: Update application settings and persist to storage  
-**Parameters**: 
+**Purpose**: Update application settings and persist to storage
+**Parameters**:
 - `newSettings` (Object) - Partial settings object to merge
 **Returns**: `Promise<void>`
 
@@ -44,8 +44,8 @@ await nexus.updateSettings({
 ```
 
 ##### `updateTheme()`
-**Purpose**: Apply current theme to the interface  
-**Returns**: `void`  
+**Purpose**: Apply current theme to the interface
+**Returns**: `void`
 **Side Effects**: Updates CSS custom properties
 
 ## 🚀 Quick Shortcuts API
@@ -67,8 +67,8 @@ class QuickShortcuts {
 #### Key Methods
 
 ##### `show()`
-**Purpose**: Display the shortcuts panel with AI predictions  
-**Returns**: `Promise<void>`  
+**Purpose**: Display the shortcuts panel with AI predictions
+**Returns**: `Promise<void>`
 **Side Effects**: Loads data, applies AI predictions, shows UI
 
 ```javascript
@@ -77,13 +77,13 @@ await shortcuts.show();
 ```
 
 ##### `loadData()`
-**Purpose**: Load all data sources (bookmarks, top sites, recent tabs)  
-**Returns**: `Promise<void>`  
-**Data Sources**: Bookmarks, Top Sites, Recent Tabs, Search Engines
+**Purpose**: Load all data sources (bookmarks, top sites, recent tabs)
+**Returns**: `Promise<void>`
+**Data Sources**: Bookmarks, Top Sites, Recent Tabs (combines closed tabs + history)
 
 ##### `getPredictedTab()`
-**Purpose**: Get AI prediction for preferred tab type  
-**Returns**: `string` - Tab type ('bookmarks', 'topsites', 'recent', 'search')  
+**Purpose**: Get AI prediction for preferred tab type
+**Returns**: `string` - Tab type ('bookmarks', 'topsites', 'recent')
 **Algorithm**: Uses TabMemory system with confidence scoring
 
 ## 🧠 Tab Memory API
@@ -104,19 +104,19 @@ class TabMemory {
 #### Key Methods
 
 ##### `recordInteraction(tabType, timestamp)`
-**Purpose**: Record user interaction for learning  
+**Purpose**: Record user interaction for learning
 **Parameters**:
 - `tabType` (string) - Type of tab clicked
 - `timestamp` (number) - Interaction timestamp
 **Returns**: `void`
 
 ##### `getPredictedTab()`
-**Purpose**: Get predicted tab type based on learned patterns  
-**Returns**: `string` - Predicted tab type  
+**Purpose**: Get predicted tab type based on learned patterns
+**Returns**: `string` - Predicted tab type
 **Algorithm**: Confidence scoring with 0.42 threshold
 
 ##### `getAnalytics()`
-**Purpose**: Get analytics data for debugging  
+**Purpose**: Get analytics data for debugging
 **Returns**: `Object` - Analytics data including confidence scores
 
 ## 💾 Cache Manager API
@@ -138,20 +138,20 @@ class CacheManager {
 #### Key Methods
 
 ##### `getFavicon(url)`
-**Purpose**: Get cached favicon or fetch if not available  
-**Parameters**: 
+**Purpose**: Get cached favicon or fetch if not available
+**Parameters**:
 - `url` (string) - Website URL
 **Returns**: `Promise<string>` - Favicon data URL or generated icon
 
 ##### `cacheFavicon(url, faviconData)`
-**Purpose**: Store favicon in cache  
+**Purpose**: Store favicon in cache
 **Parameters**:
-- `url` (string) - Website URL  
+- `url` (string) - Website URL
 - `faviconData` (string) - Favicon data URL
 **Returns**: `Promise<void>`
 
 ##### `getStorageUsage()`
-**Purpose**: Get current cache storage usage  
+**Purpose**: Get current cache storage usage
 **Returns**: `Promise<Object>` - Usage statistics
 
 ```javascript
@@ -177,18 +177,18 @@ class NotificationSystem {
 #### Key Methods
 
 ##### `show(type, title, message, duration)`
-**Purpose**: Display notification to user  
+**Purpose**: Display notification to user
 **Parameters**:
 - `type` (string) - 'success', 'error', 'warning', 'info'
 - `title` (string) - Notification title
-- `message` (string) - Notification message  
+- `message` (string) - Notification message
 - `duration` (number) - Auto-hide duration in ms
 **Returns**: `string` - Notification ID
 
 ```javascript
 const id = notificationSystem.show(
-    'success', 
-    'Settings Saved', 
+    'success',
+    'Settings Saved',
     'Your preferences have been updated',
     3000
 );
@@ -202,7 +202,7 @@ Theme system uses CSS custom properties for dynamic theming.
 #### Available Themes
 ```javascript
 const colorThemes = [
-    'blue', 'purple', 'green', 'orange', 
+    'blue', 'purple', 'green', 'orange',
     'pink', 'red', 'cyan', 'yellow', 'indigo'
 ];
 
@@ -240,17 +240,17 @@ const defaultSettings = {
     showSeconds: false,          // boolean
     gridBackground: true,        // boolean
     smoothAnimations: true,      // boolean
-    
+
     // Appearance settings
     clockFont: 'JetBrains Mono', // string
     colorTheme: 'blue',          // string
     typographyTheme: 'classic-pro', // string
-    
+
     // Feature settings
     smartDateFeatures: true,     // boolean
     selectedSmartDateFeatures: [ // array of strings
         'week-number',
-        'year-progress', 
+        'year-progress',
         'weekend-status'
     ],
     focusTimer: false,           // boolean

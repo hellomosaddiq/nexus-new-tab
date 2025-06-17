@@ -53,9 +53,10 @@ Strict CSP prevents common attack vectors:
 ### Privacy-First Design
 NEXUS implements privacy by design principles:
 
-#### **Local Data Storage**
-- **Device-Only Storage** - All data stored locally on user's device
-- **No External Servers** - Zero data transmission to external services
+#### **Secure Data Storage**
+- **Settings Sync** - Settings sync across devices via Chrome's secure sync storage
+- **Notes Local** - Quick notes stored locally on user's device only
+- **No External Servers** - No third-party servers, uses Chrome's built-in sync
 - **No Analytics Tracking** - No user behavior tracking or analytics
 - **No Telemetry** - No usage data collection or reporting
 
@@ -212,7 +213,7 @@ Configurable security options:
 
 #### **Privacy Controls**
 - **Data Retention** - Configure how long data is stored
-- **Sync Preferences** - Control cross-device data synchronization
+- **Sync Preferences** - Settings sync via Chrome sync storage (notes stay local)
 - **Feature Permissions** - Granular control over feature access
 - **Data Export** - Secure data export and backup options
 

@@ -171,7 +171,7 @@ Having issues with NEXUS? This comprehensive guide will help you resolve common 
 ## 🌐 Browser-Specific Issues
 
 ### Chrome Issues
-- **Sync problems** - Sign out/in to Chrome account
+- **Settings sync problems** - Sign out/in to Chrome account (affects settings only)
 - **Profile corruption** - Create new Chrome profile
 - **Update issues** - Manually update Chrome
 

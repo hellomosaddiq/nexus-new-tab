@@ -1,5 +1,5 @@
 <!--
-===== NEXUS INTELLIGENT NEW TAB PAGE =====
+===== NEXUS NEW TAB =====
 
 Advanced HTML5 document structure with comprehensive accessibility compliance,
 performance optimizations, and semantic markup for optimal user experience
@@ -38,9 +38,8 @@ STANDARDS: HTML5, WCAG 2.1 AA, Performance Best Practices
     <!-- Essential document encoding and viewport configuration -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-        content="NEXUS - Intelligent new tab page with time display, shortcuts, and productivity features">
-    <title>NEXUS - New Tab</title>
+    <meta name="description" content="NEXUS New Tab - Transform your new tab into a productivity powerhouse">
+    <title>NEXUS New Tab</title>
 
     <!-- ===== CRITICAL FONT PRELOADING ===== -->
     <!-- Preload essential fonts to prevent FOUT (Flash of Unstyled Text) -->
@@ -63,6 +62,7 @@ STANDARDS: HTML5, WCAG 2.1 AA, Performance Best Practices
 
 <!-- ===== DOCUMENT BODY ===== -->
 <!-- Main document body with semantic structure and accessibility landmarks -->
+
 <body>
     <!-- ===== DECORATIVE BACKGROUND SYSTEM ===== -->
     <!-- Aceternity-inspired static grid background for visual appeal -->
@@ -183,7 +183,8 @@ STANDARDS: HTML5, WCAG 2.1 AA, Performance Best Practices
 
     <!-- ===== COMPREHENSIVE SETTINGS PANEL ===== -->
     <!-- Modal dialog panel with tabbed interface and full accessibility support -->
-    <div class="settings-panel" id="settings-panel" role="dialog" aria-labelledby="settings-title" aria-hidden="true" inert>
+    <div class="settings-panel" id="settings-panel" role="dialog" aria-labelledby="settings-title" aria-hidden="true"
+        inert>
         <!-- Modal backdrop for focus trapping and visual separation -->
         <div class="panel-backdrop" aria-hidden="true"></div>
 
@@ -197,7 +198,9 @@ STANDARDS: HTML5, WCAG 2.1 AA, Performance Best Practices
                     <!-- Main panel title with proper heading level -->
                     <h2 class="panel-title" id="settings-title">Settings</h2>
                     <!-- Descriptive subtitle with developer attribution -->
-                    <p class="panel-subtitle">Customize your NEXUS experience <span class="developer-credit">• by mosaddiq</span></p>
+                    <p class="panel-subtitle">Customize your NEXUS New Tab experience <span class="developer-credit">•
+                            by
+                            mosaddiq</span></p>
                 </div>
 
                 <!-- Accessible close button with clear labeling -->
@@ -224,8 +227,10 @@ STANDARDS: HTML5, WCAG 2.1 AA, Performance Best Practices
 
                     <!-- ===== DISPLAY TAB ===== -->
                     <!-- Time and display configuration options -->
-                    <button class="settings-tab active" data-tab="display" role="tab" aria-selected="true" aria-controls="settings-tab-content">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <button class="settings-tab active" data-tab="display" role="tab" aria-selected="true"
+                        aria-controls="settings-tab-content">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
                             <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
                             <line x1="8" y1="21" x2="16" y2="21"></line>
                             <line x1="12" y1="17" x2="12" y2="21"></line>
@@ -235,29 +240,41 @@ STANDARDS: HTML5, WCAG 2.1 AA, Performance Best Practices
 
                     <!-- ===== APPEARANCE TAB ===== -->
                     <!-- Visual styling and theme configuration -->
-                    <button class="settings-tab" data-tab="appearance" role="tab" aria-selected="false" aria-controls="settings-tab-content">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <button class="settings-tab" data-tab="appearance" role="tab" aria-selected="false"
+                        aria-controls="settings-tab-content">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
                             <circle cx="12" cy="12" r="5"></circle>
-                            <path d="M12 1v2m0 18v2M4.22 4.22l1.42 1.42m12.72 12.72l1.42 1.42M1 12h2m18 0h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"></path>
+                            <path
+                                d="M12 1v2m0 18v2M4.22 4.22l1.42 1.42m12.72 12.72l1.42 1.42M1 12h2m18 0h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42">
+                            </path>
                         </svg>
                         <span>Appearance</span>
                     </button>
 
                     <!-- ===== FEATURES TAB ===== -->
                     <!-- Productivity features and functionality toggles -->
-                    <button class="settings-tab" data-tab="features" role="tab" aria-selected="false" aria-controls="settings-tab-content">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+                    <button class="settings-tab" data-tab="features" role="tab" aria-selected="false"
+                        aria-controls="settings-tab-content">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path
+                                d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z">
+                            </path>
                         </svg>
                         <span>Features</span>
                     </button>
 
                     <!-- ===== SYSTEM TAB ===== -->
                     <!-- System settings, data management, and help -->
-                    <button class="settings-tab" data-tab="system" role="tab" aria-selected="false" aria-controls="settings-tab-content">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <button class="settings-tab" data-tab="system" role="tab" aria-selected="false"
+                        aria-controls="settings-tab-content">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
                             <circle cx="12" cy="12" r="3"></circle>
-                            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1 1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                            <path
+                                d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1 1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z">
+                            </path>
                         </svg>
                         <span>System</span>
                     </button>
@@ -287,7 +304,8 @@ STANDARDS: HTML5, WCAG 2.1 AA, Performance Best Practices
                                     <div class="setting-item">
                                         <div class="setting-info">
                                             <label class="setting-label" for="time-format">24-Hour Format</label>
-                                            <p class="setting-description">Use 24-hour time format instead of 12-hour</p>
+                                            <p class="setting-description">Use 24-hour time format instead of 12-hour
+                                            </p>
                                         </div>
                                         <div class="setting-control">
                                             <input type="checkbox" id="time-format" class="setting-toggle"
@@ -314,162 +332,188 @@ STANDARDS: HTML5, WCAG 2.1 AA, Performance Best Practices
                                     <!-- Main toggle for smart date insights functionality -->
                                     <div class="setting-item">
                                         <div class="setting-info">
-                                            <label class="setting-label" for="smart-date-features">Smart Date Features</label>
-                                            <p class="setting-description">Enable additional date information and insights</p>
+                                            <label class="setting-label" for="smart-date-features">Smart Date
+                                                Features</label>
+                                            <p class="setting-description">Enable additional date information and
+                                                insights</p>
                                         </div>
                                         <div class="setting-control">
                                             <input type="checkbox" id="smart-date-features" class="setting-toggle"
                                                 aria-describedby="smart-date-desc">
-                                            <label for="smart-date-features" class="toggle-slider" aria-hidden="true"></label>
+                                            <label for="smart-date-features" class="toggle-slider"
+                                                aria-hidden="true"></label>
                                         </div>
                                     </div>
 
-                            <!-- ===== SMART DATE FEATURE SELECTION ===== -->
-                            <!-- Advanced feature selection interface with categorization and limits -->
-                            <div class="setting-item setting-item-full smart-date-options" id="smart-date-options">
-                                <div class="setting-info">
-                                    <label class="setting-label">Choose Features to Display</label>
-                                    <p class="setting-description">Select up to 3 features to show on your main screen</p>
-                                    <!-- Real-time selection counter for user feedback -->
-                                    <div class="selection-counter">
-                                        <span id="selection-count">0</span>/3 selected
+                                    <!-- ===== SMART DATE FEATURE SELECTION ===== -->
+                                    <!-- Advanced feature selection interface with categorization and limits -->
+                                    <div class="setting-item setting-item-full smart-date-options"
+                                        id="smart-date-options">
+                                        <div class="setting-info">
+                                            <label class="setting-label">Choose Features to Display</label>
+                                            <p class="setting-description">Select up to 3 features to show on your main
+                                                screen</p>
+                                            <!-- Real-time selection counter for user feedback -->
+                                            <div class="selection-counter">
+                                                <span id="selection-count">0</span>/3 selected
+                                            </div>
+                                        </div>
+
+                                        <!-- ===== CATEGORIZED FEATURE OPTIONS ===== -->
+                                        <!-- Organized feature categories for better user experience -->
+                                        <div class="feature-categories">
+                                            <!-- ===== TIME TRACKING CATEGORY ===== -->
+                                            <!-- Temporal awareness and time-based insights -->
+                                            <div class="feature-category">
+                                                <h4 class="category-title">Time Tracking</h4>
+                                                <div class="feature-options">
+                                                    <!-- Week number display with default selection -->
+                                                    <label class="feature-option">
+                                                        <input type="checkbox" name="smart-date-feature"
+                                                            value="week-number" checked>
+                                                        <div class="feature-content">
+                                                            <span class="feature-name">Week Number</span>
+                                                            <span class="feature-desc">Current week of the year</span>
+                                                        </div>
+                                                    </label>
+                                                    <!-- Days since New Year tracking -->
+                                                    <label class="feature-option">
+                                                        <input type="checkbox" name="smart-date-feature"
+                                                            value="days-since-ny">
+                                                        <div class="feature-content">
+                                                            <span class="feature-name">Days Since New Year</span>
+                                                            <span class="feature-desc">Days elapsed from January
+                                                                1st</span>
+                                                        </div>
+                                                    </label>
+
+                                                    <!-- Weekend countdown for work-life balance -->
+                                                    <label class="feature-option">
+                                                        <input type="checkbox" name="smart-date-feature"
+                                                            value="days-to-weekend">
+                                                        <div class="feature-content">
+                                                            <span class="feature-name">Days to Weekend</span>
+                                                            <span class="feature-desc">Countdown to
+                                                                Saturday/Sunday</span>
+                                                        </div>
+                                                    </label>
+
+                                                    <!-- Business days tracking for productivity -->
+                                                    <label class="feature-option">
+                                                        <input type="checkbox" name="smart-date-feature"
+                                                            value="working-days">
+                                                        <div class="feature-content">
+                                                            <span class="feature-name">Working Days Left</span>
+                                                            <span class="feature-desc">Business days remaining in
+                                                                month</span>
+                                                        </div>
+                                                    </label>
+                                                </div>
+                                            </div>
+
+                                            <!-- ===== PROGRESS TRACKING CATEGORY ===== -->
+                                            <!-- Temporal progress visualization and goal tracking -->
+                                            <div class="feature-category">
+                                                <h4 class="category-title">Progress Tracking</h4>
+                                                <div class="feature-options">
+                                                    <!-- Annual progress with default selection -->
+                                                    <label class="feature-option">
+                                                        <input type="checkbox" name="smart-date-feature"
+                                                            value="year-progress" checked>
+                                                        <div class="feature-content">
+                                                            <span class="feature-name">Year Progress</span>
+                                                            <span class="feature-desc">Percentage of year
+                                                                completed</span>
+                                                        </div>
+                                                    </label>
+
+                                                    <!-- Quarterly business tracking -->
+                                                    <label class="feature-option">
+                                                        <input type="checkbox" name="smart-date-feature"
+                                                            value="quarter-progress">
+                                                        <div class="feature-content">
+                                                            <span class="feature-name">Quarter Progress</span>
+                                                            <span class="feature-desc">Q1/Q2/Q3/Q4 completion
+                                                                status</span>
+                                                        </div>
+                                                    </label>
+
+                                                    <!-- Monthly goal tracking -->
+                                                    <label class="feature-option">
+                                                        <input type="checkbox" name="smart-date-feature"
+                                                            value="month-progress">
+                                                        <div class="feature-content">
+                                                            <span class="feature-name">Month Progress</span>
+                                                            <span class="feature-desc">Monthly completion
+                                                                percentage</span>
+                                                        </div>
+                                                    </label>
+
+                                                    <!-- Weekly productivity tracking -->
+                                                    <label class="feature-option">
+                                                        <input type="checkbox" name="smart-date-feature"
+                                                            value="week-progress">
+                                                        <div class="feature-content">
+                                                            <span class="feature-name">Week Progress</span>
+                                                            <span class="feature-desc">Weekly completion
+                                                                percentage</span>
+                                                        </div>
+                                                    </label>
+                                                </div>
+                                            </div>
+
+                                            <!-- ===== CONTEXT & AWARENESS CATEGORY ===== -->
+                                            <!-- Environmental and contextual information for enhanced awareness -->
+                                            <div class="feature-category">
+                                                <h4 class="category-title">Context & Awareness</h4>
+                                                <div class="feature-options">
+                                                    <!-- Weekend status with default selection -->
+                                                    <label class="feature-option">
+                                                        <input type="checkbox" name="smart-date-feature"
+                                                            value="weekend-status" checked>
+                                                        <div class="feature-content">
+                                                            <span class="feature-name">Weekend Status</span>
+                                                            <span class="feature-desc">Today's day type
+                                                                (weekday/weekend)</span>
+                                                        </div>
+                                                    </label>
+
+                                                    <!-- Seasonal awareness for natural rhythm -->
+                                                    <label class="feature-option">
+                                                        <input type="checkbox" name="smart-date-feature"
+                                                            value="season-info">
+                                                        <div class="feature-content">
+                                                            <span class="feature-name">Season Info</span>
+                                                            <span class="feature-desc">Current season and day
+                                                                count</span>
+                                                        </div>
+                                                    </label>
+
+                                                    <!-- Lunar cycle tracking for natural awareness -->
+                                                    <label class="feature-option">
+                                                        <input type="checkbox" name="smart-date-feature"
+                                                            value="moon-phase">
+                                                        <div class="feature-content">
+                                                            <span class="feature-name">Moon Phase</span>
+                                                            <span class="feature-desc">Current lunar cycle stage</span>
+                                                        </div>
+                                                    </label>
+
+                                                    <!-- Daylight information for circadian awareness -->
+                                                    <label class="feature-option">
+                                                        <input type="checkbox" name="smart-date-feature"
+                                                            value="daylight-info">
+                                                        <div class="feature-content">
+                                                            <span class="feature-name">Daylight Info</span>
+                                                            <span class="feature-desc">Sunrise/sunset times</span>
+                                                        </div>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-
-                                <!-- ===== CATEGORIZED FEATURE OPTIONS ===== -->
-                                <!-- Organized feature categories for better user experience -->
-                                <div class="feature-categories">
-                                    <!-- ===== TIME TRACKING CATEGORY ===== -->
-                                    <!-- Temporal awareness and time-based insights -->
-                                    <div class="feature-category">
-                                        <h4 class="category-title">Time Tracking</h4>
-                                        <div class="feature-options">
-                                            <!-- Week number display with default selection -->
-                                            <label class="feature-option">
-                                                <input type="checkbox" name="smart-date-feature" value="week-number" checked>
-                                                <div class="feature-content">
-                                                    <span class="feature-name">Week Number</span>
-                                                    <span class="feature-desc">Current week of the year</span>
-                                                </div>
-                                            </label>
-                                            <!-- Days since New Year tracking -->
-                                            <label class="feature-option">
-                                                <input type="checkbox" name="smart-date-feature" value="days-since-ny">
-                                                <div class="feature-content">
-                                                    <span class="feature-name">Days Since New Year</span>
-                                                    <span class="feature-desc">Days elapsed from January 1st</span>
-                                                </div>
-                                            </label>
-
-                                            <!-- Weekend countdown for work-life balance -->
-                                            <label class="feature-option">
-                                                <input type="checkbox" name="smart-date-feature" value="days-to-weekend">
-                                                <div class="feature-content">
-                                                    <span class="feature-name">Days to Weekend</span>
-                                                    <span class="feature-desc">Countdown to Saturday/Sunday</span>
-                                                </div>
-                                            </label>
-
-                                            <!-- Business days tracking for productivity -->
-                                            <label class="feature-option">
-                                                <input type="checkbox" name="smart-date-feature" value="working-days">
-                                                <div class="feature-content">
-                                                    <span class="feature-name">Working Days Left</span>
-                                                    <span class="feature-desc">Business days remaining in month</span>
-                                                </div>
-                                            </label>
-                                        </div>
-                                    </div>
-
-                                    <!-- ===== PROGRESS TRACKING CATEGORY ===== -->
-                                    <!-- Temporal progress visualization and goal tracking -->
-                                    <div class="feature-category">
-                                        <h4 class="category-title">Progress Tracking</h4>
-                                        <div class="feature-options">
-                                            <!-- Annual progress with default selection -->
-                                            <label class="feature-option">
-                                                <input type="checkbox" name="smart-date-feature" value="year-progress" checked>
-                                                <div class="feature-content">
-                                                    <span class="feature-name">Year Progress</span>
-                                                    <span class="feature-desc">Percentage of year completed</span>
-                                                </div>
-                                            </label>
-
-                                            <!-- Quarterly business tracking -->
-                                            <label class="feature-option">
-                                                <input type="checkbox" name="smart-date-feature" value="quarter-progress">
-                                                <div class="feature-content">
-                                                    <span class="feature-name">Quarter Progress</span>
-                                                    <span class="feature-desc">Q1/Q2/Q3/Q4 completion status</span>
-                                                </div>
-                                            </label>
-
-                                            <!-- Monthly goal tracking -->
-                                            <label class="feature-option">
-                                                <input type="checkbox" name="smart-date-feature" value="month-progress">
-                                                <div class="feature-content">
-                                                    <span class="feature-name">Month Progress</span>
-                                                    <span class="feature-desc">Monthly completion percentage</span>
-                                                </div>
-                                            </label>
-
-                                            <!-- Weekly productivity tracking -->
-                                            <label class="feature-option">
-                                                <input type="checkbox" name="smart-date-feature" value="week-progress">
-                                                <div class="feature-content">
-                                                    <span class="feature-name">Week Progress</span>
-                                                    <span class="feature-desc">Weekly completion percentage</span>
-                                                </div>
-                                            </label>
-                                        </div>
-                                    </div>
-
-                                    <!-- ===== CONTEXT & AWARENESS CATEGORY ===== -->
-                                    <!-- Environmental and contextual information for enhanced awareness -->
-                                    <div class="feature-category">
-                                        <h4 class="category-title">Context & Awareness</h4>
-                                        <div class="feature-options">
-                                            <!-- Weekend status with default selection -->
-                                            <label class="feature-option">
-                                                <input type="checkbox" name="smart-date-feature" value="weekend-status" checked>
-                                                <div class="feature-content">
-                                                    <span class="feature-name">Weekend Status</span>
-                                                    <span class="feature-desc">Today's day type (weekday/weekend)</span>
-                                                </div>
-                                            </label>
-
-                                            <!-- Seasonal awareness for natural rhythm -->
-                                            <label class="feature-option">
-                                                <input type="checkbox" name="smart-date-feature" value="season-info">
-                                                <div class="feature-content">
-                                                    <span class="feature-name">Season Info</span>
-                                                    <span class="feature-desc">Current season and day count</span>
-                                                </div>
-                                            </label>
-
-                                            <!-- Lunar cycle tracking for natural awareness -->
-                                            <label class="feature-option">
-                                                <input type="checkbox" name="smart-date-feature" value="moon-phase">
-                                                <div class="feature-content">
-                                                    <span class="feature-name">Moon Phase</span>
-                                                    <span class="feature-desc">Current lunar cycle stage</span>
-                                                </div>
-                                            </label>
-
-                                            <!-- Daylight information for circadian awareness -->
-                                            <label class="feature-option">
-                                                <input type="checkbox" name="smart-date-feature" value="daylight-info">
-                                                <div class="feature-content">
-                                                    <span class="feature-name">Daylight Info</span>
-                                                    <span class="feature-desc">Sunrise/sunset times</span>
-                                                </div>
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
+                            </section>
                         </div>
 
                         <!-- ===== APPEARANCE TAB CONTENT ===== -->
@@ -487,33 +531,33 @@ STANDARDS: HTML5, WCAG 2.1 AA, Performance Best Practices
 
 
 
-                            <!-- ===== COLOR THEME SELECTION ===== -->
-                            <!-- Dynamic color scheme selector with visual previews -->
-                            <div class="setting-item setting-item-full">
-                                <div class="setting-info">
-                                    <label class="setting-label">Color Theme</label>
-                                    <p class="setting-description">Choose your preferred color scheme</p>
-                                </div>
-                                <!-- JavaScript-populated color theme grid with interactive previews -->
-                                <div class="color-theme-grid" id="color-theme-grid">
-                                    <!-- Color themes will be populated by JavaScript -->
-                                </div>
-                            </div>
+                                    <!-- ===== COLOR THEME SELECTION ===== -->
+                                    <!-- Dynamic color scheme selector with visual previews -->
+                                    <div class="setting-item setting-item-full">
+                                        <div class="setting-info">
+                                            <label class="setting-label">Color Theme</label>
+                                            <p class="setting-description">Choose your preferred color scheme</p>
+                                        </div>
+                                        <!-- JavaScript-populated color theme grid with interactive previews -->
+                                        <div class="color-theme-grid" id="color-theme-grid">
+                                            <!-- Color themes will be populated by JavaScript -->
+                                        </div>
+                                    </div>
 
-                            <!-- ===== TYPOGRAPHY THEME SELECTION ===== -->
-                            <!-- Advanced font selection with modern typography options -->
-                            <div class="setting-item setting-item-full">
-                                <div class="setting-info">
-                                    <label class="setting-label">Typography</label>
-                                    <p class="setting-description">Choose your font style</p>
+                                    <!-- ===== TYPOGRAPHY THEME SELECTION ===== -->
+                                    <!-- Advanced font selection with modern typography options -->
+                                    <div class="setting-item setting-item-full">
+                                        <div class="setting-info">
+                                            <label class="setting-label">Typography</label>
+                                            <p class="setting-description">Choose your font style</p>
+                                        </div>
+                                        <!-- JavaScript-populated typography selector with font previews -->
+                                        <div class="typography-selector" id="typography-selector">
+                                            <!-- Modern typography selector will be populated by JavaScript -->
+                                        </div>
+                                    </div>
                                 </div>
-                                <!-- JavaScript-populated typography selector with font previews -->
-                                <div class="typography-selector" id="typography-selector">
-                                    <!-- Modern typography selector will be populated by JavaScript -->
-                                </div>
-                            </div>
-                        </div>
-                    </section>
+                            </section>
 
                             <!-- ===== INTERFACE SECTION ===== -->
                             <!-- Visual effects and animation controls -->
@@ -534,7 +578,8 @@ STANDARDS: HTML5, WCAG 2.1 AA, Performance Best Practices
                                         <div class="setting-control">
                                             <input type="checkbox" id="grid-background" class="setting-toggle" checked
                                                 aria-describedby="grid-background-desc">
-                                            <label for="grid-background" class="toggle-slider" aria-hidden="true"></label>
+                                            <label for="grid-background" class="toggle-slider"
+                                                aria-hidden="true"></label>
                                         </div>
                                     </div>
 
@@ -542,17 +587,20 @@ STANDARDS: HTML5, WCAG 2.1 AA, Performance Best Practices
                                     <!-- Animation and transition control with default enabled -->
                                     <div class="setting-item">
                                         <div class="setting-info">
-                                            <label class="setting-label" for="smooth-animations">Smooth Animations</label>
-                                            <p class="setting-description">Enable smooth transitions and micro-interactions</p>
+                                            <label class="setting-label" for="smooth-animations">Smooth
+                                                Animations</label>
+                                            <p class="setting-description">Enable smooth transitions and
+                                                micro-interactions</p>
                                         </div>
                                         <div class="setting-control">
                                             <input type="checkbox" id="smooth-animations" class="setting-toggle" checked
                                                 aria-describedby="smooth-animations-desc">
-                                            <label for="smooth-animations" class="toggle-slider" aria-hidden="true"></label>
+                                            <label for="smooth-animations" class="toggle-slider"
+                                                aria-hidden="true"></label>
                                         </div>
                                     </div>
-                        </div>
-                    </section>
+                                </div>
+                            </section>
                         </div>
 
                         <!-- ===== FEATURES TAB CONTENT ===== -->
@@ -595,8 +643,8 @@ STANDARDS: HTML5, WCAG 2.1 AA, Performance Best Practices
                                             <label for="quick-notes" class="toggle-slider" aria-hidden="true"></label>
                                         </div>
                                     </div>
-                        </div>
-                    </section>
+                                </div>
+                            </section>
                         </div>
 
                         <!-- ===== SYSTEM TAB CONTENT ===== -->
@@ -617,14 +665,15 @@ STANDARDS: HTML5, WCAG 2.1 AA, Performance Best Practices
                                     <div class="setting-item setting-item-full">
                                         <div class="setting-info">
                                             <label class="setting-label">Tab Memory</label>
-                                            <p class="setting-description">AI learns your browsing patterns to provide better
+                                            <p class="setting-description">AI learns your browsing patterns to provide
+                                                better
                                                 shortcuts</p>
                                         </div>
                                         <!-- Reset button with confirmation dialog integration -->
                                         <button class="reset-memory-btn" id="reset-memory-btn"
                                             aria-describedby="reset-memory-desc">
-                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                stroke-width="2" aria-hidden="true">
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                                stroke="currentColor" stroke-width="2" aria-hidden="true">
                                                 <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8" />
                                                 <path d="M21 3v5h-5" />
                                                 <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16" />
@@ -633,25 +682,25 @@ STANDARDS: HTML5, WCAG 2.1 AA, Performance Best Practices
                                             <span>Reset Tab Memory</span>
                                         </button>
                                     </div>
-                        </div>
-                    </section>
+                                </div>
+                            </section>
 
 
 
-                    <!-- ===== HELP & DOCUMENTATION SECTION ===== -->
-                    <!-- User guidance, shortcuts, and feature explanations -->
-                    <section class="settings-section">
-                        <div class="section-header">
-                            <h3 class="section-title">Help & Documentation</h3>
-                            <p class="section-description">Learn about features, shortcuts, and tips</p>
-                        </div>
-                        <div class="section-content">
-                            <!-- JavaScript-populated help content with interactive guides -->
-                            <div class="help-section" id="help-section">
-                                <!-- Modern help content will be populated by JavaScript -->
-                            </div>
-                        </div>
-                    </section>
+                            <!-- ===== HELP & DOCUMENTATION SECTION ===== -->
+                            <!-- User guidance, shortcuts, and feature explanations -->
+                            <section class="settings-section">
+                                <div class="section-header">
+                                    <h3 class="section-title">Help & Documentation</h3>
+                                    <p class="section-description">Learn about features, shortcuts, and tips</p>
+                                </div>
+                                <div class="section-content">
+                                    <!-- JavaScript-populated help content with interactive guides -->
+                                    <div class="help-section" id="help-section">
+                                        <!-- Modern help content will be populated by JavaScript -->
+                                    </div>
+                                </div>
+                            </section>
                         </div>
 
                     </div>
@@ -740,10 +789,10 @@ STANDARDS: HTML5, WCAG 2.1 AA, Performance Best Practices
     <script src="../../lib/browser-polyfill.js"></script>
 
     <!-- Core system modules (loaded in dependency order) -->
-    <script src="../../modules/cache-manager.js"></script>        <!-- IndexedDB caching system -->
-    <script src="../../modules/tab-memory.js"></script>           <!-- AI machine learning system -->
-    <script src="../../modules/notification-system.js"></script>  <!-- User feedback system -->
-    <script src="../../modules/quick-shortcuts.js"></script>      <!-- Dynamic tab management -->
+    <script src="../../modules/cache-manager.js"></script> <!-- IndexedDB caching system -->
+    <script src="../../modules/tab-memory.js"></script> <!-- AI machine learning system -->
+    <script src="../../modules/notification-system.js"></script> <!-- User feedback system -->
+    <script src="../../modules/quick-shortcuts.js"></script> <!-- Dynamic tab management -->
 
     <!-- Main application script (loaded last to ensure all dependencies are available) -->
     <script src="script.js"></script>

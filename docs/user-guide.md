@@ -1,271 +1,260 @@
-# User Guide
+# NEXUS User Guide
 
-Welcome to NEXUS! This comprehensive guide will help you master all the features and get the most out of your new tab experience.
+<div align="center">
+  <img src="../assets/icons/nexus-128.png" alt="NEXUS Logo" width="64" height="64">
+  <h2>Your Intelligent New Tab Productivity Hub</h2>
+</div>
+
+## 📋 Table of Contents
+- [Getting Started](#getting-started)
+- [Core Features](#core-features)
+- [Settings](#settings)
+- [Keyboard Shortcuts](#keyboard-shortcuts)
+- [Tips & Tricks](#tips--tricks)
+- [Troubleshooting](#troubleshooting)
+- [Support](#support)
 
 ## 🚀 Getting Started
 
-### First Launch
-When you first open a new tab with NEXUS installed, you'll see:
-- **Beautiful clock display** showing current time in 12-hour format
-- **Daily inspirational quote** with smart rotation system
-- **Smart date insights** (simplified default: weekend status only)
-- **Professional blue theme** with Inter typography for premium feel
-- **Static grid background** (optional, subtle gradient default)
-- **Clean, minimal interface** focused on productivity
+### Installation
+1. Visit the [Chrome Web Store](https://chrome.google.com/webstore/detail/your-extension-id)
+2. Click "Add to Chrome"
+3. Confirm the installation
+4. Open a new tab to start using NEXUS
 
-### Quick Setup
-1. **Press `S`** to open settings
-2. **Choose your theme** from 9 color options
-3. **Select typography** from 5 professional combinations
-4. **Configure smart date features** (choose up to 3 from 12 options)
-5. **Enable optional features** like Focus Timer and Quick Notes
+### First-Time Setup
+NEXUS comes with carefully selected default settings for an optimal experience:
+- 12-hour time format
+- Modern grid background
+- Professional blue theme
+- JetBrains Mono font for optimal readability
+- Smart date features enabled (Weekend Status)
 
-## 💬 Daily Quotes System
+## ✨ Core Features
 
-### Inspirational Content
-- **200+ curated quotes** across motivation, innovation, and wisdom categories
-- **Smart daily rotation** - Same quote all day, changes at midnight
-- **Context-aware selection** - Work hours (9-5) prioritize productivity quotes
-- **Anti-repetition algorithm** - Prevents showing recent quotes again
-- **Instant refresh** - Press `Q` anytime for a new random quote
-- **Professional curation** - Carefully selected for workplace appropriateness
+### Time Display
 
-### Quote Features
-- **Daily consistency** - Same quote across all browser sessions
-- **Work hours optimization** - Productivity quotes during 9 AM - 5 PM
-- **Random refresh** - `Q` key bypasses daily rotation for variety
-- **Visual feedback** - Smooth rotation animation with notifications
-- **Compact display** - Maximum 65 characters to prevent layout issues
+#### Digital Clock
+- **Format**: Toggle between 12/24 hour format in settings
+- **Seconds**: Enable/disable seconds display
+- **Font**: Choose from 5 premium typography themes
+- **Size**: Automatically adjusts to screen size
 
-## ⏰ Time Display
+#### Smart Date Features
+Access 12 intelligent date insights:
+1. Weekend Status
+2. Week Number
+3. Day of Year
+4. Year Progress
+5. Quarter Progress
+6. Month Progress
+7. Week Progress
+8. Season
+9. Moon Phase
+10. Sunset Time
+11. Working Days Left
+12. Days Since New Year
 
-### Clock Features
-- **12/24 hour format** - Toggle in Display settings (12-hour default)
-- **Optional seconds** - Show/hide seconds display
-- **Premium fonts** - 5 typography themes with local fonts
-- **Real-time updates** - Smooth, performance-optimized
+Enable/disable features in settings to customize your experience.
 
-### Smart Date Insights
-Choose up to 3 from 12 intelligent features:
+### Quick Shortcuts
 
-| Feature | Description | Example |
-|---------|-------------|---------|
-| **Week Number** | Current week of year | "Week 25" |
-| **Year Progress** | Percentage completed | "46% of 2025" |
-| **Weekend Status** | Days until weekend | "3 days to weekend" |
-| **Working Days** | Business days in month | "22 working days" |
-| **Quarter Progress** | Current quarter % | "Q2: 67%" |
-| **Month Progress** | Current month % | "June: 53%" |
-| **Week Progress** | Current week % | "Week: 71%" |
-| **Days Since New Year** | Days elapsed | "167 days" |
-| **Season Info** | Current season | "Summer Day 15" |
-| **Moon Phase** | Lunar phase | "Waxing Crescent" |
-| **Daylight Info** | Sunset time | "Sunset: 8:24 PM" |
-| **Days to Weekend** | Weekend countdown | "2 days" |
+#### AI-Powered Tab Prediction
+- Automatically suggests frequently visited sites
+- Learns from your browsing patterns
+- Updates in real-time
+- Customizable number of suggestions
 
-## ⚡ Quick Shortcuts
+#### Bookmark Organization
+- Quick access to bookmarks
+- Intelligent categorization
+- Search functionality
+- Custom sorting options
 
-### Accessing Shortcuts
-- **Press `K`** or click the shortcuts icon
-- **AI-powered predictions** - Learns your browsing patterns
-- **6 total items** - Mix of bookmarks, top sites, and recent tabs
+### Visual Customization
 
-### Data Sources
-1. **Bookmarks** - Your saved bookmarks with favicons
-2. **Top Sites** - Most visited sites from browser
-3. **Recent Tabs** - Recently closed tabs + history
-4. **Search Engines** - Curated developer-friendly search engines
+#### Color Themes
+Choose from 9 premium themes:
+1. Blue (Default)
+2. Dark
+3. Light
+4. Purple
+5. Green
+6. Red
+7. Orange
+8. Teal
+9. Pink
 
-### AI Tab Prediction
-- **Machine learning** - Learns which tab type you prefer
-- **Adaptive algorithms** - Adjusts based on your behavior
-- **Confidence scoring** - 0.42 threshold for predictions
-- **Pattern recognition** - Improves over time
+#### Typography Themes
+Select from 5 optimized font themes:
+1. JetBrains Mono (Default)
+2. Inter
+3. Cascadia Code
+4. Geist
+5. Satoshi
 
-### Search Functionality
-- **Fuzzy search** - Type to filter all items
-- **Real-time results** - Instant filtering
-- **Cross-source search** - Searches bookmarks, sites, and tabs
+#### Background
+- Toggle grid background
+- Adjust animation speed
+- Customize opacity
+- Enable/disable effects
 
-## 🎨 Customization
+### Focus Timer
 
-### Color Themes (9 Options)
-- **Blue** (Default) - Professional and calming
-- **Purple** - Creative and modern
-- **Green** - Natural and focused
-- **Orange** - Energetic and warm
-- **Pink** - Soft and friendly
-- **Red** - Bold and powerful
-- **Cyan** - Fresh and tech-focused
-- **Yellow** - Bright and optimistic
-- **Indigo** - Deep and sophisticated
+#### Simple Timer
+- Fixed 25-minute sessions
+- Visual progress tracking
+- Completion notifications
+- Auto-reset after completion
 
-### Typography Themes (5 Options)
-1. **Classic Professional** - Inter + SF Mono
-2. **Modern Tech** - Geist + JetBrains Mono
-3. **Creative Designer** - Satoshi + Cascadia Code
-4. **Apple Ecosystem** - SF Pro + SF Mono
-5. **Microsoft Modern** - Segoe UI + Cascadia Code
+#### Controls
+- Start: Begin focus session
+- Pause: Temporarily stop timer
+- Reset: Return to initial state
 
-### Display Options
-- **Grid background** - Static Aceternity-inspired grid pattern
-- **Smooth animations** - Hardware-accelerated transitions
-- **Clock font** - Choose from premium font collection
-- **Time format** - 12 or 24 hour with optional seconds
+### Quick Notes
 
-## ⏱️ Focus Timer
+#### Features
+- Plain text notepad
+- Auto-save functionality (1-second debounce)
+- Character counter (100K limit)
+- Clean modal interface
 
-### Pomodoro Technique
-- **25-minute sessions** - Standard Pomodoro duration
-- **Visual progress** - Animated circular display
-- **Start/Pause/Reset** - Full session control
-- **Completion notifications** - Smart alerts
+#### Usage
+1. Press 'N' to open notes overlay
+2. Start typing in plain text
+3. Notes auto-save every second
+4. Press 'Esc' to close
 
-### Using the Focus Timer
-1. **Enable in settings** - Features tab
-2. **Click start button** - Begin 25-minute session
-3. **Pause if needed** - Resume anytime
-4. **Reset when done** - Start fresh session
+## ⚙️ Settings
 
-### Timer Controls
-- **Start** - Begin countdown
-- **Pause** - Temporarily stop (resume anytime)
-- **Reset** - Return to 25:00
-- **Visual feedback** - Ring animation shows progress
+### Accessing Settings
+- Click gear icon in top-right
+- Press 'S' keyboard shortcut
+- Use settings button in any feature
 
-## 📝 Quick Notes
+### Available Settings
 
-### Instant Note Taking
-- **Press `N`** - Toggle notes overlay
-- **Auto-save** - Saves after 1 second of inactivity
-- **Persistent storage** - Notes saved across sessions
-- **Clean interface** - Glassmorphism design
+#### Time Display
+- Time format (12/24 hour)
+- Show/hide seconds
+- Clock font selection
+- Font size adjustment
 
-### Features
-- **Keyboard shortcuts** - `Ctrl+A` to select all
-- **Dual storage** - Extension storage + localStorage backup
-- **Auto-resize** - Textarea grows with content
-- **Save indicator** - Visual feedback when saved
+#### Visual
+- Color theme selection
+- Typography theme
+- Grid background toggle
+- Animation settings
 
-### Usage Tips
-- **Quick thoughts** - Capture ideas instantly
-- **Meeting notes** - Take notes during video calls
-- **Todo items** - Quick task lists
-- **Code snippets** - Save useful code
+#### Smart Features
+- Enable/disable smart date features
+- Select active date insights
+- Customize display order
+- Toggle animations
 
-## 📱 Mobile Experience
-
-### Touch-Optimized Design
-- **44px minimum touch targets** - Follows Apple Human Interface Guidelines
-- **Single-column layouts** - All panels adapt to mobile screens automatically
-- **Full-screen panels** - Settings, notes, and shortcuts use full viewport
-- **Smooth iOS scrolling** - Native-feeling scroll behavior on mobile devices
-- **Landscape optimization** - Efficient horizontal space usage in landscape mode
-
-### Mobile-Specific Features
-- **Focus timer repositioned** - Moved to bottom-left to avoid notification conflicts
-- **Touch-friendly controls** - All buttons and toggles optimized for finger interaction
-- **Responsive typography** - Text sizes adapt for mobile readability
-- **Gesture support** - Standard mobile gestures work throughout the interface
-
-### Cross-Device Consistency
-- **Same features everywhere** - Full functionality on mobile and desktop
-- **Synchronized settings** - Preferences sync across all devices
-- **Adaptive UI** - Interface automatically adjusts to screen size
-- **Performance optimized** - Fast loading and smooth interactions on all devices
+#### Productivity
+- Focus timer settings
+- Quick notes preferences
+- Shortcut customization
+- Notification options
 
 ## ⌨️ Keyboard Shortcuts
 
-| Shortcut | Action | Context |
-|----------|--------|---------|
-| `K` | Open Quick Shortcuts | Global |
-| `S` | Open Settings | Global |
-| `N` | Toggle Quick Notes | Global |
-| `Q` | Refresh Daily Quote | Global |
-| `F` | Cycle Clock Fonts | Global |
-| `R` | Reset All Settings | Global |
-| `Esc` | Close any panel | Global |
-| `Ctrl+A` | Select all text | Quick Notes |
+### Global Shortcuts
+- `K`: Open quick shortcuts panel
+- `S`: Open settings
+- `N`: Toggle quick notes
+- `Q`: Refresh daily quote
+- `F`: Cycle clock fonts
+- `R`: Reset settings to default
+- `Esc`: Close any open panel
 
-## ⚙️ Settings Panel
+### Focus Timer
+- Mouse controls only (no keyboard shortcuts)
 
-### Tabbed Organization
-The settings panel is organized into 4 logical tabs:
+### Navigation
+- `Tab`: Navigate between elements
+- `Enter`: Activate selected item
+- `Esc`: Close current panel
 
-#### Display Tab
-- Time format (12/24 hour)
-- Show/hide seconds
-- Grid background toggle
-- Animation preferences
-- Clock font selection
+## 💡 Tips & Tricks
 
-#### Appearance Tab
-- Color theme selection (9 themes)
-- Typography theme selection (5 themes)
-- Theme preview
-- Font customization
+### Performance
+- Settings sync across devices, notes stored locally
+- Smart caching with IndexedDB for faster loading
+- Disable animations if experiencing performance issues
+- Extension automatically manages cache cleanup
 
-#### Features Tab
-- Smart date feature selection (choose up to 3)
-- Focus timer enable/disable
-- Quick notes enable/disable
-- Minimum selection validation
+### Productivity
+- Customize smart date features for your needs
+- Use focus timer for work sessions
+- Keep quick notes for instant capture
+- Leverage keyboard shortcuts
 
-#### System Tab
-- Storage management
-- Performance settings
-- Accessibility options
-- Cross-browser compatibility
-
-## ♿ Accessibility
-
-### Keyboard Navigation
-- **Tab through elements** - Full keyboard support
-- **Enter to activate** - Standard activation
-- **Escape to close** - Universal close action
-- **Arrow keys** - Navigate within panels
-
-### Screen Reader Support
-- **ARIA labels** - Comprehensive labeling
-- **Semantic HTML** - Proper landmarks
-- **Live regions** - Dynamic content announcements
-- **WCAG 2.1 AA** - Full compliance
-
-### Visual Accessibility
-- **High contrast** - Clear visual hierarchy
-- **Focus indicators** - Visible focus states
-- **Reduced motion** - Respects user preferences
-- **Color independence** - Not relying solely on color
+### Customization
+- Mix and match themes
+- Create your perfect layout
+- Adjust to your preferences
+- Save your ideal configuration
 
 ## 🔧 Troubleshooting
 
 ### Common Issues
-- **Settings not saving** - Check browser storage permissions
-- **Theme not applying** - Refresh the new tab page
-- **Performance issues** - Disable unused smart date features
-- **Extension not loading** - Check Chrome version (88+)
 
-### Performance Tips
-- **Limit smart features** - Choose only needed date insights
-- **Disable animations** - If experiencing lag
-- **Clear cache** - Reset extension data if needed
+#### Time Not Updating
+1. Check internet connection
+2. Refresh the page
+3. Verify time sync settings
+4. Clear browser cache
 
-## 📊 Privacy & Security
+#### Settings Not Saving
+1. Check storage permissions
+2. Verify sync is enabled
+3. Clear storage and retry
+4. Check for conflicts
 
-### Data Handling
-- **Local storage only** - All data stays on your device
-- **No analytics** - We don't track your usage
-- **No external requests** - Fully offline functionality
-- **Minimal permissions** - Only essential browser APIs
+#### Visual Glitches
+1. Clear browser cache
+2. Disable conflicting extensions
+3. Update browser
+4. Reset to defaults
 
-### Permissions Used
-- `storage` - Save settings and preferences
-- `bookmarks` - Access bookmarks for shortcuts
-- `topSites` - Show frequently visited sites
-- `sessions` - Access recently closed tabs
-- `history` - Provide recent tab suggestions
-- `tabs` - Manage tab operations
+### Getting Help
+- Check [GitHub Issues](https://github.com/hellomosaddiq/nexus-new-tab/issues)
+- Join [Discussions](https://github.com/hellomosaddiq/nexus-new-tab/discussions)
+- Contact support
+- Read [FAQ](faq.md)
+
+## 📈 Updates
+
+### Version History
+- 1.0.0: Initial release
+  - Core features
+  - Basic customization
+  - Essential productivity tools
+
+### Future Plans
+- Additional themes
+- Enhanced AI features
+- More productivity tools
+- Extended customization
+
+## 🆘 Support
+
+### Resources
+- [Documentation](README.md)
+- [GitHub Repository](https://github.com/hellomosaddiq/nexus-new-tab)
+- [Issue Tracker](https://github.com/hellomosaddiq/nexus-new-tab/issues)
+- [Discussions](https://github.com/hellomosaddiq/nexus-new-tab/discussions)
+
+### Contact
+- GitHub: [@hellomosaddiq](https://github.com/hellomosaddiq)
+- Email: [support@nexus-new-tab.com](mailto:support@nexus-new-tab.com)
+- Twitter: [@nexus_new_tab](https://twitter.com/nexus_new_tab)
 
 ---
 
-**Need more help?** Check out the [Troubleshooting Guide](troubleshooting.md) or open a [GitHub Discussion](https://github.com/hellomosaddiq/nexus-new-tab/discussions).
+<div align="center">
+  <sub>Last Updated: June 2025 | Version: 1.0.0</sub>
+</div>

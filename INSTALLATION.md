@@ -1,8 +1,6 @@
-# 📦 NEXUS Chrome Extension Installation Guide
+# 📦 NEXUS New Tab - Installation Guide
 
-Since NEXUS is not yet available on the Chrome Web Store, you can install it manually using the provided zip file.
-
-## 🚀 Quick Installation (5 minutes)
+## 🚀 Quick Installation
 
 ### Step 1: Download & Extract
 1. **Download** `NEXUS-Chrome-Extension-v1.0.0.zip`
@@ -30,24 +28,24 @@ Since NEXUS is not yet available on the Chrome Web Store, you can install it man
 ### Welcome Experience
 When you first open a new tab with NEXUS:
 - **Beautiful clock display** with current time
-- **Daily inspirational quote** 
-- **Professional blue theme** with Inter typography
+- **Daily inspirational quote**
+- **Professional blue theme** with JetBrains Mono typography
 - **Simplified smart date** (weekend status)
 
 ### Essential Shortcuts to Try
-- **Press `K`** - Open Quick Shortcuts panel
-- **Press `S`** - Open Settings panel  
+- **Press `S`** - Open Settings panel
 - **Press `N`** - Toggle Quick Notes
 - **Press `Q`** - Refresh daily quote
-- **Press `F`** - Cycle clock fonts
+- **Press `R`** - Reset settings to default
+- **Press `Esc`** - Close any open panel
 
 ## ⚙️ Customization
 
 ### Themes & Appearance
 1. **Press `S`** to open Settings
 2. **Go to "Appearance" tab**
-3. **Try different color themes**: Blue, Purple, Orange, Cyan, Green
-4. **Switch typography themes**: Inter, Geist, Satoshi, JetBrains Mono, Cascadia Code
+3. **Try different color themes**: Blue, Dark, Light, Purple, Green, Red, Orange, Teal, Pink
+4. **Switch typography themes**: JetBrains Mono, Inter, Cascadia Code, Geist, Satoshi
 
 ### Smart Features
 1. **In Settings > Features tab**
@@ -94,10 +92,10 @@ NEXUS is fully mobile responsive! Test on:
 ## 🔒 Privacy & Security
 
 ### Data Storage
-- **All data stored locally** in your browser
+- **Settings sync** across devices via Chrome sync storage
+- **Notes stored locally** on your device only
 - **No external servers** or data transmission
 - **No tracking or analytics**
-- **Complete privacy** - your data stays with you
 
 ### Permissions Used
 - **Storage** - Save your settings and notes
@@ -115,7 +113,7 @@ NEXUS is fully mobile responsive! Test on:
 ### Documentation
 - `README.md` - Project overview
 - `docs/user-guide.md` - Comprehensive user manual
-- `docs/keyboard-shortcuts.md` - All shortcuts reference
+- `docs/architecture.md` - Technical implementation details
 - `docs/features/` - Individual feature documentation
 
 ## 🎉 Next Steps
@@ -149,7 +147,13 @@ NEXUS is fully mobile responsive! Test on:
 ---
 
 ### 🔗 Useful Links
-- **GitHub Repository**: [github.com/mosaddiq/nexus-new-tab](https://github.com/mosaddiq/nexus-new-tab)
-- **Documentation**: [nexus-docs.github.io](https://nexus-docs.github.io)
+- **GitHub Repository**: [github.com/hellomosaddiq/nexus-new-tab](https://github.com/hellomosaddiq/nexus-new-tab)
+- **Documentation**: [hellomosaddiq.github.io/nexus-new-tab](https://hellomosaddiq.github.io/nexus-new-tab)
 - **Chrome Extensions**: [chrome://extensions/](chrome://extensions/)
-- **Report Issues**: [GitHub Issues](https://github.com/mosaddiq/nexus-new-tab/issues)
+- **Report Issues**: [GitHub Issues](https://github.com/hellomosaddiq/nexus-new-tab/issues)
+
+---
+
+<div align="center">
+  <sub>Last Updated: June 2025 | Version: 1.0.0</sub>
+</div>

@@ -130,17 +130,17 @@ try {
 - **Keyboard shortcuts** - Accessible via keyboard only
 - **Visual indicators** - Clear focus states
 
-## 🎯 Usage Analytics
+## 🎯 Simple Operation
 
-### User Engagement
-- **Refresh frequency** - Track manual quote refreshes
-- **Time of day patterns** - Understand usage patterns
-- **Category preferences** - Analyze which quote types resonate
+### Basic Functionality
+- **Manual refresh** - Press Q to get new quote
+- **Daily rotation** - Automatic quote changes daily
+- **No tracking** - No analytics or usage data collected
 
-### Performance Metrics
-- **Load time** - Quote display performance
-- **Memory usage** - System resource efficiency
-- **Error rates** - System reliability tracking
+### Performance
+- **Fast loading** - Quotes load instantly
+- **Minimal memory** - Lightweight implementation
+- **Reliable display** - Simple, consistent operation
 
 ## 🔮 Future Enhancements
 

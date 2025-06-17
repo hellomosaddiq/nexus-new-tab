@@ -35,7 +35,7 @@ When the Quick Shortcuts panel is open:
 |----------|--------|-------------|
 | `Type to search` | Filter Items | Real-time fuzzy search |
 | `Enter` | Open Item | Opens the selected item |
-| `Tab` | Switch Tabs | Navigate between Bookmarks/Sites/Recent/Search |
+| `Tab` | Switch Tabs | Navigate between Bookmarks/Sites/Recent |
 | `Esc` | Close Panel | Closes the shortcuts panel |
 
 ## ⚙️ Settings Panel
@@ -52,13 +52,12 @@ When the Settings panel is open:
 
 ## ⏱️ Focus Timer
 
-When the Focus Timer is visible:
+The Focus Timer uses mouse controls only:
 
-| Shortcut | Action | Description |
-|----------|--------|-------------|
-| `Space` | Start/Pause | Toggle timer start/pause |
-| `R` | Reset | Reset timer to 25:00 |
-| `Esc` | Close Timer | Hide the focus timer |
+- **Click Start** - Begin 25-minute timer
+- **Click Pause** - Pause current session
+- **Click Reset** - Reset timer to 25:00
+- Timer can be toggled on/off in Settings
 
 ## ♿ Accessibility Shortcuts
 

@@ -1,15 +1,27 @@
-# NEXUS - New Tab Productivity Hub
+# NEXUS New Tab
 
 <div align="center">
 
 ![NEXUS Hero](assets/screenshots/NEXUS_01_Hero_Blue_1920x1080.png)
 
-**Transform your new tab into a productivity powerhouse with elegant design and intelligent features**
+**Transform your new tab into a productivity powerhouse**
 
 [![Chrome Web Store](https://img.shields.io/badge/Chrome-Web%20Store-blue?style=for-the-badge&logo=google-chrome)](https://chrome.google.com/webstore)
 [![Version](https://img.shields.io/badge/version-1.0.0-green?style=for-the-badge)](https://github.com/hellomosaddiq/nexus-new-tab)
 [![License](https://img.shields.io/badge/license-MIT-blue?style=for-the-badge)](LICENSE)
 [![JavaScript](https://img.shields.io/badge/JavaScript-Vanilla-yellow?style=for-the-badge&logo=javascript)](https://github.com/hellomosaddiq/nexus-new-tab)
+
+</div>
+
+## 🚀 At a Glance
+
+<div align="center">
+
+| 🤖 **AI-Powered** | 🎨 **9 Themes** | ⏱️ **Focus Timer** | 📝 **Quick Notes** | ♿ **Accessible** |
+|:---:|:---:|:---:|:---:|:---:|
+| Machine learning shortcuts | Beautiful customization | 25-min Pomodoro | Auto-save notepad | WCAG 2.1 AA |
+
+**🔥 Key Highlights:** Zero external dependencies • <100ms load time • 5,000+ lines of code • Cross-browser compatible
 
 </div>
 
@@ -25,13 +37,20 @@
 - **Static grid background** with Aceternity-inspired design
 
 ### ⚡ **AI-Powered Quick Shortcuts**
+
+![NEXUS Quick Shortcuts](assets/screenshots/NEXUS_02_Shortcuts_Purple_1920x1080.png)
+
 - **Machine learning tab prediction** - Learns your browsing patterns with adaptive algorithms
-- **Instant access** to bookmarks, top sites, and recent tabs (6 items total)
+- **3 tab types**: Bookmarks, Top Sites, and Recent (6 items each)
+- **Recent tab** combines recently closed tabs with recent browser history
 - **Fuzzy search** with real-time filtering across all data sources
 - **Smart favicon caching** with IndexedDB for lightning-fast performance
 - **Cross-browser session restoration** for recently closed tabs
 
 ### 🎨 **Premium Customization**
+
+![NEXUS Customization](assets/screenshots/NEXUS_03_Settings_Themes_1920x1080.png)
+
 - **9 Color Themes** - Blue, Purple, Green, Orange, Pink, Red, Cyan, Yellow, Indigo
 - **5 Typography Themes** with premium font combinations:
   - Classic Professional (Inter + SF Mono)
@@ -41,14 +60,15 @@
   - Microsoft Modern (Segoe UI + Cascadia Code)
 - **Local font loading** - No external dependencies, instant rendering
 
-![NEXUS Customization](assets/screenshots/NEXUS_03_Settings_Themes_1920x1080.png)
-
 ### ⏱️ **Focus Timer**
-- **Pomodoro technique** with 25-minute focused work sessions
+
+![NEXUS Focus Timer](assets/screenshots/NEXUS_04_FocusTimer_Orange_1920x1080.png)
+
+- **25-minute Pomodoro timer** with start/pause/reset controls
 - **Visual progress tracking** with animated circular display
-- **Smart notifications** for session completion
-- **Pause/resume functionality** with state persistence
-- **Keyboard shortcuts** for quick timer control
+- **Completion notifications** with auto-reset functionality
+- **Simple timer states** - running, paused, completed
+- **Basic controls only** - no break timers or session analytics
 
 ### 💬 **Daily Quotes System**
 - **200+ curated quotes** with smart daily rotation for consistent inspiration
@@ -58,13 +78,14 @@
 - **Professional curation** across motivation, innovation, and wisdom categories
 
 ### 📝 **Quick Notes**
+
+![NEXUS Quick Notes](assets/screenshots/NEXUS_05_QuickNotes_Cyan_1920x1080.png)
+
 - **Instant access** with keyboard shortcuts (Press N)
-- **Auto-save functionality** with 1-second debounced saving
+- **Plain text notepad** with auto-save functionality (1-second debounce)
 - **Dual storage strategy** - Extension storage + localStorage fallback
 - **Clean modal interface** with glassmorphism design
-- **Full keyboard support** including Ctrl+A for select all
-
-![NEXUS Quick Shortcuts](assets/screenshots/NEXUS_02_Shortcuts_Purple_1920x1080.png)
+- **Character counter** with 100K limit and basic keyboard shortcuts
 
 ### ♿ **Accessibility First**
 - **Full ARIA support** for screen readers with semantic landmarks
@@ -84,6 +105,24 @@
 - **Firefox** - WebExtensions API with browser polyfill
 - **Edge** - Chromium compatibility with fallback support
 - **Safari** - Web Extensions support with compatibility layer
+
+## 🎨 Visual Showcase
+
+<div align="center">
+
+**See NEXUS in action across different themes and features**
+
+| 🏠 **Main Interface** | ⚡ **AI Shortcuts** | 🎨 **Themes** |
+|:---:|:---:|:---:|
+| ![Hero](assets/screenshots/NEXUS_01_Hero_Blue_1920x1080.png) | ![Shortcuts](assets/screenshots/NEXUS_02_Shortcuts_Purple_1920x1080.png) | ![Settings](assets/screenshots/NEXUS_03_Settings_Themes_1920x1080.png) |
+| Clean, minimal design with smart date insights | Machine learning-powered navigation | 9 beautiful color themes |
+
+| ⏱️ **Focus Timer** | 📝 **Quick Notes** |
+|:---:|:---:|
+| ![Timer](assets/screenshots/NEXUS_04_FocusTimer_Orange_1920x1080.png) | ![Notes](assets/screenshots/NEXUS_05_QuickNotes_Cyan_1920x1080.png) |
+| 25-minute Pomodoro sessions | Instant note-taking with auto-save |
+
+</div>
 
 ## 🚀 Installation
 
@@ -121,7 +160,6 @@
 | `F` | Cycle Clock Fonts |
 | `R` | Reset All Settings |
 | `Esc` | Close any open panel |
-| `Ctrl+A` | Select all text (in Quick Notes) |
 
 ## 🛠️ Technical Architecture
 
@@ -227,7 +265,7 @@ NEXUS features a comprehensive settings panel organized into 4 logical tabs:
 
 **Features Tab**
 - Smart date feature selection (choose up to 3 from 12 options)
-- Focus timer enable/disable with Pomodoro settings
+- Focus timer enable/disable (basic 25-minute timer)
 - Quick notes enable/disable with auto-save
 - Minimum selection validation for smart features
 
@@ -305,7 +343,8 @@ NEXUS is built with vanilla JavaScript and requires no compilation, bundling, or
 ## 🔒 Privacy & Security
 
 ### Data Handling
-- **Local Storage Only** - All data stays on your device
+- **Settings Sync** - Settings sync across devices via Chrome sync storage
+- **Notes Local** - Quick notes stay on local device only
 - **No Analytics** - We don't track your usage
 - **No External Requests** - Fully offline functionality
 - **Minimal Permissions** - Only essential browser APIs
@@ -326,7 +365,7 @@ NEXUS is built with vanilla JavaScript and requires no compilation, bundling, or
 - ⚡ **AI-powered Quick Shortcuts** with machine learning tab prediction
 - 🎨 **9 Color themes** with dynamic theming system
 - 🖋️ **5 Typography themes** with premium font combinations
-- ⏱️ **Pomodoro focus timer** with visual progress tracking
+- ⏱️ **Simple focus timer** with visual progress tracking
 - 📝 **Quick notes** with auto-save functionality
 - ♿ **Full accessibility support** (WCAG 2.1 AA, ARIA, keyboard navigation)
 - 🌐 **Cross-browser compatibility** (Chrome, Firefox, Edge, Safari)
@@ -392,10 +431,16 @@ This project is open source and available under the MIT License.
 
 <div align="center">
 
+## 🌟 Ready to Transform Your New Tab Experience?
+
+**Join thousands of users who've already upgraded their productivity**
+
+[![Get Started](https://img.shields.io/badge/🚀_Get_Started-Install_Now-blue?style=for-the-badge&labelColor=000)](https://github.com/hellomosaddiq/nexus-new-tab#-installation)
+[![View Docs](https://img.shields.io/badge/📚_Documentation-Learn_More-green?style=for-the-badge&labelColor=000)](docs/README.md)
+[![Star Repo](https://img.shields.io/badge/⭐_Star_Repo-Show_Support-yellow?style=for-the-badge&labelColor=000)](https://github.com/hellomosaddiq/nexus-new-tab)
+
 **Made with ❤️ by [mosaddiq](https://github.com/hellomosaddiq)**
 
 [Report Bug](https://github.com/hellomosaddiq/nexus-new-tab/issues) • [Request Feature](https://github.com/hellomosaddiq/nexus-new-tab/issues) • [Documentation](docs/README.md)
-
-⭐ **Star this repo if you find it useful!** ⭐
 
 </div>

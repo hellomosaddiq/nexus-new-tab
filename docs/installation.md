@@ -1,6 +1,6 @@
 # Installation Guide
 
-This guide will help you install NEXUS - New Tab Productivity Hub on your browser.
+This guide will help you install NEXUS New Tab on your browser.
 
 ## 🚀 Chrome Web Store (Recommended)
 

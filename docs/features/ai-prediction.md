@@ -29,7 +29,7 @@ const ADAPTIVE_THRESHOLD = 0.35;    // For consistent users (variance < 0.1)
 ## 📊 Prediction Categories
 
 ### Tab Types Analyzed
-The system learns your preferences across different tab categories:
+The system learns your preferences across three tab categories:
 
 #### **Bookmarks**
 - **Frequency Analysis** - Most accessed bookmarks
@@ -44,16 +44,10 @@ The system learns your preferences across different tab categories:
 - **Domain Relationships** - Related sites you frequently visit
 
 #### **Recent Tabs**
-- **Reopening Patterns** - Tabs you frequently reopen
+- **Recently Closed Tabs** - Tabs you recently closed and might reopen
+- **Recent Browser History** - Recent history items to fill gaps when needed
 - **Session Context** - Tabs related to current workflow
 - **Temporal Relationships** - Tabs accessed in sequence
-- **Cross-session Continuity** - Tabs that span multiple sessions
-
-#### **Browser History**
-- **Deep History Mining** - Relevant pages from your browsing history
-- **Contextual Relevance** - History items related to current activity
-- **Seasonal Patterns** - Sites you visit at specific times
-- **Search Intent Matching** - History items matching your search queries
 
 ## 🎯 Adaptive Learning Features
 

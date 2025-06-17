@@ -49,14 +49,11 @@ docs/
 │   ├── quick-notes.md
 │   ├── smart-date.md
 │   └── themes.md
-├── technical/             # Technical documentation
-│   ├── accessibility.md
-│   ├── cross-browser.md
-│   ├── performance.md
-│   └── security.md
-└── assets/               # Images and resources
-    ├── icons/
-    └── screenshots/
+└── technical/             # Technical documentation
+    ├── accessibility.md
+    ├── cross-browser.md
+    ├── performance.md
+    └── security.md
 ```
 
 ## 🔧 MkDocs Configuration
@@ -88,11 +85,11 @@ The website matches your NEXUS extension design:
 - `keyboard-layout.svg` - Your beautiful animated keyboard
 
 ### Screenshots
-- `NEXUS_01_Hero_Blue_1920x1080.png.png` - Main interface
-- `NEXUS_02_Shortcuts_Purple_1920x1080.png.png` - AI shortcuts
-- `NEXUS_03_Settings_Themes_1920x1080.png.png` - Theme settings
-- `NEXUS_04_FocusTimer_Orange_1920x1080.png.png` - Focus timer
-- `NEXUS_05_QuickNotes_Cyan_1920x1080.png.png` - Quick notes
+- `NEXUS_01_Hero_Blue_1920x1080.png` - Main interface
+- `NEXUS_02_Shortcuts_Purple_1920x1080.png` - AI shortcuts
+- `NEXUS_03_Settings_Themes_1920x1080.png` - Theme settings
+- `NEXUS_04_FocusTimer_Orange_1920x1080.png` - Focus timer
+- `NEXUS_05_QuickNotes_Cyan_1920x1080.png` - Quick notes
 
 ## 🔧 Customization
 

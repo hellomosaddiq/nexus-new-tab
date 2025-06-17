@@ -1,6 +1,6 @@
 # Focus Timer (Pomodoro)
 
-NEXUS includes a built-in Pomodoro focus timer designed to boost productivity through structured work sessions. The timer features visual progress tracking, smart notifications, and seamless integration with your workflow.
+NEXUS includes a simple 25-minute focus timer designed to boost productivity through focused work sessions. The timer features visual progress tracking, completion notifications, and basic timer controls.
 
 ## 🍅 Pomodoro Technique
 
@@ -9,10 +9,10 @@ The Pomodoro Technique is a time management method that uses a timer to break wo
 
 #### **Core Principles**
 1. **25-Minute Work Sessions** - Focused, uninterrupted work periods
-2. **5-Minute Short Breaks** - Brief rest between sessions
-3. **15-30 Minute Long Breaks** - Extended rest after 4 sessions
-4. **Task Focus** - One task per Pomodoro session
-5. **No Interruptions** - Maintain focus during active sessions
+2. **Simple Timer Controls** - Start, pause, reset functionality
+3. **Visual Progress** - Circular progress indicator
+4. **Completion Notification** - Alert when session completes
+5. **Auto-Reset** - Timer resets automatically after completion
 
 #### **Benefits**
 - **Improved Focus** - Eliminates distractions during work periods
@@ -34,194 +34,161 @@ The NEXUS focus timer provides clear visual feedback:
 - **Smooth Animations** - 60fps progress updates
 
 #### **Status Indicators**
-- **Work Session** - Blue progress ring with focus icon
-- **Short Break** - Green progress ring with rest icon
-- **Long Break** - Purple progress ring with extended rest icon
-- **Paused State** - Orange ring with pause indicator
-- **Completed** - Gold ring with completion celebration
+- **Running** - Active progress ring with countdown
+- **Paused** - Paused state with static ring
+- **Completed** - Completion state with celebration
+- **Reset** - Default state ready to start
 
 ### Timer Controls
 Intuitive controls for managing your focus sessions:
 
-#### **Start/Stop Controls**
+#### **Timer Controls**
 - **Start Button** - Begin a new 25-minute focus session
 - **Pause Button** - Temporarily pause the current session
-- **Resume Button** - Continue paused session from where you left off
 - **Reset Button** - Stop current session and reset to 25 minutes
-- **Skip Button** - Move to break period early (if needed)
 
-#### **Keyboard Shortcuts**
-- **Space Bar** - Start/pause timer
-- **R** - Reset current session
-- **Esc** - Stop timer and close
-- **Enter** - Start new session after completion
+#### **Basic Operation**
+- Click Start to begin 25-minute timer
+- Click Pause to temporarily stop
+- Click Reset to return to 25:00
+- Timer auto-resets after completion
 
 ### Smart Notifications
 Intelligent notification system that respects your workflow:
 
 #### **Session Completion**
 - **Visual Alert** - Prominent completion notification
-- **Audio Notification** - Optional sound alert (can be disabled)
 - **Browser Notification** - System notification if tab not active
 - **Progress Celebration** - Visual feedback for completed sessions
+- **Auto-Reset** - Timer automatically resets after completion
 
-#### **Break Reminders**
-- **Break Start** - Notification when break period begins
-- **Break End Warning** - 1-minute warning before break ends
-- **Return to Work** - Gentle reminder to start next session
-- **Long Break Suggestion** - Recommendation after 4 sessions
+#### **Simple Notifications**
+- **Session Complete** - Basic notification when 25 minutes complete
+- **Auto-Reset** - Timer automatically resets to 25:00
+- **Visual Feedback** - Progress ring shows completion state
 
 ## 🎯 Session Management
 
-### Session Types
-NEXUS supports different types of focus sessions:
+### Session Type
+NEXUS provides a single focus session type:
 
-#### **Standard Pomodoro (25 minutes)**
-- **Default Duration** - Classic 25-minute work session
-- **Optimal Focus** - Research-backed optimal focus period
-- **Universal Application** - Works for most tasks and users
-- **Proven Effectiveness** - Decades of productivity research
+#### **Fixed 25-Minute Timer**
+- **Single Duration** - Fixed 25-minute work session only
+- **No Customization** - Duration cannot be changed
+- **Simple Operation** - Start, pause, reset controls only
+- **Auto-Reset** - Automatically resets after completion
 
-#### **Custom Durations**
-- **15-Minute Sessions** - For shorter tasks or beginners
-- **30-Minute Sessions** - For deep work requiring longer focus
-- **45-Minute Sessions** - For complex tasks needing extended attention
-- **60-Minute Sessions** - For intensive work periods
+#### **No Customization Available**
+- **Fixed Duration** - Only 25-minute sessions available
+- **No Break Timers** - No break period functionality
+- **No Session Types** - Single timer type only
+- **No Duration Options** - Cannot change timer length
 
-#### **Break Periods**
-- **5-Minute Short Breaks** - Standard rest between sessions
-- **10-Minute Extended Breaks** - Longer rest for mental recovery
-- **15-30 Minute Long Breaks** - Extended rest after 4 sessions
-- **Custom Break Lengths** - User-configurable break durations
+### Simple Operation
+Basic timer functionality only:
 
-### Session Tracking
-Comprehensive tracking of your focus sessions:
+#### **Basic Controls**
+- **Start** - Begin 25-minute countdown
+- **Pause** - Temporarily stop timer
+- **Reset** - Return to 25:00
+- **Auto-Reset** - Automatically resets after completion
 
-#### **Daily Statistics**
-- **Sessions Completed** - Number of Pomodoros finished today
-- **Total Focus Time** - Cumulative focused work time
-- **Break Time Taken** - Total break duration
-- **Productivity Score** - Efficiency rating based on completion rate
-- **Streak Counter** - Consecutive days with completed sessions
+#### **No Analytics**
+- **No Session Tracking** - No statistics or analytics
+- **No Progress History** - No data persistence
+- **No Productivity Metrics** - No scoring or tracking
+- **No Streak Counters** - No habit tracking features
 
-#### **Weekly/Monthly Analytics**
-- **Trend Analysis** - Focus patterns over time
-- **Peak Performance** - Best focus times and days
-- **Goal Progress** - Progress toward focus time goals
-- **Habit Formation** - Consistency tracking and insights
+### Basic State Management
+Simple timer state handling:
 
-### State Persistence
-Your timer state is preserved across sessions:
-
-#### **Session Recovery**
-- **Browser Restart** - Timer continues after browser restart
-- **Tab Switching** - Timer runs in background when switching tabs
-- **System Sleep** - Handles computer sleep/wake cycles
-- **Extension Reload** - Recovers state after extension updates
-
-#### **Progress Saving**
-- **Automatic Saves** - Progress saved every 30 seconds
-- **Crash Recovery** - Recovers from unexpected browser crashes
-- **Cross-Device Sync** - Timer state synced across devices (if enabled)
-- **Backup Storage** - Multiple storage strategies for reliability
+#### **Limited Persistence**
+- **Tab Switching** - Timer continues when switching tabs
+- **Basic Recovery** - Simple state persistence during browser use
+- **Local Storage** - Timer state saved locally only
+- **Auto-Reset** - Timer resets automatically after completion
 
 ## ⚙️ Configuration Options
 
-### Timer Settings
-Customize the focus timer to match your workflow:
+### Minimal Settings
+Very basic timer configuration:
 
-#### **Duration Settings**
+#### **Fixed Duration Only**
 ```javascript
-// Default durations (customizable)
-const TIMER_DURATIONS = {
-  work: 25 * 60,        // 25 minutes
-  shortBreak: 5 * 60,   // 5 minutes
-  longBreak: 15 * 60,   // 15 minutes
-  longBreakInterval: 4   // After 4 sessions
-};
+// Fixed 25-minute timer only
+const TIMER_DURATION = 25 * 60; // 25 minutes in seconds
+// No customization available
 ```
 
-#### **Notification Preferences**
-- **Sound Alerts** - Enable/disable audio notifications
-- **Visual Alerts** - Control visual notification style
-- **Browser Notifications** - System notifications when tab inactive
-- **Break Reminders** - Customize break reminder timing
+#### **Basic Notifications**
+- **Completion Alert** - Simple notification when timer completes
+- **Visual Progress** - Circular progress ring shows countdown
+- **Auto-Reset** - Timer automatically resets after completion
 
-#### **Display Options**
-- **Progress Ring Style** - Choose from different visual styles
-- **Color Themes** - Timer colors match selected theme
-- **Size Options** - Compact or expanded timer display
-- **Position** - Timer placement on the new tab page
+#### **Simple Display**
+- **Theme Integration** - Timer colors match selected theme
+- **Mouse Controls** - Start, pause, reset buttons only
+- **Toggle Visibility** - Can be enabled/disabled in Settings
 
-### Accessibility Features
-The focus timer is designed for all users:
+### Basic Accessibility
+Simple accessibility features:
 
 #### **Visual Accessibility**
 - **High Contrast** - Enhanced visibility for low vision users
 - **Color Independence** - Information not conveyed by color alone
-- **Large Text Options** - Scalable text for better readability
-- **Focus Indicators** - Clear focus states for keyboard navigation
+- **Focus Indicators** - Clear focus states for navigation
 
-#### **Audio Accessibility**
-- **Screen Reader Support** - Full ARIA implementation
-- **Audio Descriptions** - Spoken timer status updates
-- **Customizable Alerts** - Various notification sound options
-- **Silent Mode** - Visual-only notifications available
+#### **Screen Reader Support**
+- **Basic ARIA** - Simple ARIA implementation
+- **Timer Status** - Screen reader announces timer state
+- **Visual-Only** - No audio notifications
 
-#### **Motor Accessibility**
-- **Keyboard Control** - Full functionality via keyboard
-- **Large Click Targets** - Easy-to-click buttons and controls
-- **Voice Control** - Compatible with voice control software
-- **Gesture Support** - Touch-friendly on supported devices
+#### **Simple Control**
+- **Mouse Controls** - Click-based interface
+- **Large Click Targets** - Easy-to-click buttons
+- **Touch-Friendly** - Works on touch devices
 
-## 🎨 Visual Design
+## 🎨 Simple Visual Design
 
-### Progress Visualization
-The timer uses sophisticated visual design:
+### Basic Progress Display
+Simple visual design:
 
 #### **Circular Progress Ring**
 ```css
-/* Smooth progress animation */
+/* Basic progress animation */
 .timer-progress {
   stroke-dasharray: 283; /* Circumference */
   stroke-dashoffset: 283;
   transition: stroke-dashoffset 1s linear;
-  transform-origin: center;
 }
 
-/* Color states */
-.work-session { stroke: var(--accent-color); }
-.short-break { stroke: #10b981; }
-.long-break { stroke: #8b5cf6; }
-.paused { stroke: #f59e0b; }
+/* Single color state */
+.timer-active { stroke: var(--accent-color); }
 ```
 
-#### **Animation System**
-- **60fps Updates** - Smooth progress animation
-- **Easing Functions** - Natural movement curves
-- **State Transitions** - Smooth transitions between states
-- **Performance Optimized** - Hardware-accelerated animations
+#### **Simple Animation**
+- **Basic Updates** - Simple progress animation
+- **Single State** - Only work session state
+- **Theme Colors** - Uses current theme accent color
 
 ### Theme Integration
-The timer seamlessly integrates with NEXUS themes:
+Basic theme integration:
 
-- **Color Harmony** - Timer colors match selected theme
-- **Typography Consistency** - Uses theme typography settings
-- **Visual Cohesion** - Maintains design language consistency
-- **Adaptive Styling** - Adjusts to light/dark theme preferences
+- **Color Matching** - Timer uses theme accent color
+- **Simple Styling** - Basic visual consistency
+- **No Advanced Features** - No complex state colors
 
-## 🔧 Technical Implementation
+## 🔧 Simple Implementation
 
-### Timer Architecture
+### Basic Timer Architecture
 ```javascript
-class FocusTimer {
+// Simple timer implementation
+class BasicFocusTimer {
   constructor() {
-    this.duration = 25 * 60; // 25 minutes in seconds
+    this.duration = 25 * 60; // Fixed 25 minutes
     this.remaining = this.duration;
     this.isRunning = false;
     this.isPaused = false;
-    this.sessionType = 'work';
-    this.completedSessions = 0;
   }
 
   start() {
@@ -232,38 +199,31 @@ class FocusTimer {
 
   pause() {
     this.isPaused = true;
-    this.saveState();
   }
 
   reset() {
     this.remaining = this.duration;
     this.isRunning = false;
     this.isPaused = false;
-    this.updateDisplay();
   }
 }
 ```
 
-### Performance Optimization
-- **Efficient Updates** - Only updates when necessary
-- **Background Operation** - Minimal CPU usage when tab inactive
-- **Memory Management** - Automatic cleanup of timer resources
-- **Battery Friendly** - Optimized for mobile device battery life
+### Basic Performance
+- **Simple Updates** - Basic timer functionality
+- **Minimal Features** - No advanced optimizations
+- **Basic State** - Simple state management
 
-### Storage Strategy
+### Simple Storage
 ```javascript
-// Timer state persistence
+// Basic timer state
 const timerState = {
   remaining: this.remaining,
   isRunning: this.isRunning,
-  isPaused: this.isPaused,
-  sessionType: this.sessionType,
-  startTime: this.startTime,
-  completedSessions: this.completedSessions
+  isPaused: this.isPaused
 };
 
-// Save to multiple storage locations
-chrome.storage.local.set({ timerState });
+// Local storage only
 localStorage.setItem('nexus-timer', JSON.stringify(timerState));
 ```
 
@@ -295,4 +255,4 @@ If timer affects browser performance:
 
 ---
 
-**The NEXUS Focus Timer provides a powerful, accessible, and beautifully designed Pomodoro timer that integrates seamlessly with your productivity workflow. Whether you're new to the Pomodoro Technique or a seasoned practitioner, the timer adapts to your needs while maintaining focus and motivation.**
+**The NEXUS Focus Timer provides a simple, basic 25-minute timer for focused work sessions. It offers essential start, pause, and reset functionality with visual progress tracking and auto-reset capability.**
