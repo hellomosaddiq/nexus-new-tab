@@ -254,12 +254,19 @@ dev-storage/
 # Marketing materials working files
 marketing/working/
 marketing/drafts/
+marketing-strategy/
 
 # Chrome Web Store submission materials (confidential)
 CHROME_WEB_STORE_SUBMISSION_GUIDE.md
 chrome-web-store-assets/
 store-submission-notes.md
 submission-strategy.md
+
+# Blog content and social media strategy (confidential)
+marketing-strategy/
+blog-content/
+social-media-strategy/
+content-calendar/
 
 # ===== KEEP THESE IMPORTANT FILES =====
 # Explicitly keep important files that might be ignored by patterns above
