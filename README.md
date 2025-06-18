@@ -56,6 +56,7 @@
 ![NEXUS Customization](assets/screenshots/NEXUS_03_Settings_Themes_1920x1080.png)
 
 - **9 Color Themes** - Blue, Purple, Green, Orange, Pink, Red, Cyan, Yellow, Indigo
+- **True dark mode support** - No more jarring white flashes when opening new tabs
 - **5 Typography Themes** with premium font combinations:
   - Classic Professional (Inter + SF Mono)
   - Modern Tech (Geist + JetBrains Mono)

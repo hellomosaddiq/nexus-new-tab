@@ -263,10 +263,8 @@ store-submission-notes.md
 submission-strategy.md
 
 # Blog content and social media strategy (confidential)
-marketing-strategy/
-blog-content/
-social-media-strategy/
-content-calendar/
+blog-posts/
+blog/
 
 # ===== KEEP THESE IMPORTANT FILES =====
 # Explicitly keep important files that might be ignored by patterns above

@@ -7,7 +7,7 @@ Having issues with NEXUS? This comprehensive guide will help you resolve common 
 ### Extension Not Loading
 
 #### Symptoms
-- Default Chrome new tab appears instead of NEXUS
+- Default Chrome new tab appears instead of NEXUS (with that jarring white search bar in dark mode)
 - Extension shows as installed but not working
 - Error messages in Chrome extensions page
 
