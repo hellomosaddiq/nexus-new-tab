@@ -6,6 +6,16 @@
 
 **Transform your new tab into a productivity powerhouse**
 
+## 📋 **Project Status**
+
+**NEXUS v1.0.0** is feature-complete and production-ready with all documented features working as intended.
+
+**Development Status:** Active development paused until June 2026 to focus on other commitments.
+
+**Maintenance:** Critical bug fixes will be addressed. Major feature updates planned for post-June 2026.
+
+---
+
 [![Download Latest Release](https://img.shields.io/github/v/release/hellomosaddiq/nexus-new-tab?style=for-the-badge&logo=github&logoColor=white&color=blue&label=Download%20Free)](https://github.com/hellomosaddiq/nexus-new-tab/releases/latest)
 [![Chrome Extension](https://img.shields.io/badge/Chrome-Extension-4285F4?style=for-the-badge&logo=googlechrome&logoColor=white)](https://github.com/hellomosaddiq/nexus-new-tab)
 [![Free Download](https://img.shields.io/badge/FREE-Download-00C851?style=for-the-badge&logo=download&logoColor=white)](https://github.com/hellomosaddiq/nexus-new-tab/releases/latest)
