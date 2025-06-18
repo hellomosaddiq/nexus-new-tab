@@ -266,6 +266,9 @@ submission-strategy.md
 blog-posts/
 blog/
 
+# Release packages
+*.zip
+
 # ===== KEEP THESE IMPORTANT FILES =====
 # Explicitly keep important files that might be ignored by patterns above
 !assets/icons/
