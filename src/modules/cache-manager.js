@@ -32,7 +32,7 @@
  * STORAGE STRATEGY:
  * - Favicons: Domain-keyed to prevent duplicates
  * - Fonts: Name-keyed for efficient lookup
- * - Resources: URL-keyed for CSS and external assets
+ * - Resources: URL-keyed for CSS and external icons
  * - Metadata: Key-value store for system configuration
  *
  * @author mosaddiq
@@ -92,7 +92,7 @@ class NexusCacheManager {
         this.stores = {
             favicons: 'favicons',     // Domain-keyed favicon storage
             fonts: 'fonts',           // Font family storage
-            resources: 'resources',   // CSS and external assets
+            resources: 'resources',   // CSS and external icons
             metadata: 'metadata'      // System configuration
         };
 
@@ -120,7 +120,7 @@ class NexusCacheManager {
      * DATABASE SCHEMA DESIGN:
      * - Favicons store: Domain-keyed to prevent duplicates
      * - Fonts store: Name-keyed for efficient font family lookup
-     * - Resources store: URL-keyed for CSS and external assets
+     * - Resources store: URL-keyed for CSS and external icons
      * - Metadata store: Key-value pairs for system configuration
      *
      * INDEXING STRATEGY:
@@ -175,7 +175,7 @@ class NexusCacheManager {
                 }
 
                 // ===== RESOURCES STORE CREATION =====
-                // URL-keyed store for CSS and external assets
+                // URL-keyed store for CSS and external icons
                 if (!db.objectStoreNames.contains(this.stores.resources)) {
                     const resourceStore = db.createObjectStore(this.stores.resources, { keyPath: 'url' });
                     resourceStore.createIndex('type', 'type', { unique: false });         // Resource categorization
@@ -610,7 +610,7 @@ class NexusCacheManager {
     /**
      * ===== RESOURCE CACHING SYSTEM =====
      *
-     * Advanced caching for CSS, external assets, and other web resources
+     * Advanced caching for CSS, external icons, and other web resources
      * with type-based categorization and intelligent expiry management.
      */
 
@@ -618,7 +618,7 @@ class NexusCacheManager {
      * Cache external resource with type categorization
      *
      * Stores external resources like CSS files, API responses, or other
-     * web assets with proper categorization and metadata for efficient
+     * web icons with proper categorization and metadata for efficient
      * retrieval and management.
      *
      * RESOURCE TYPES SUPPORTED:

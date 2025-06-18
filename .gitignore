@@ -88,7 +88,7 @@ target/
 key.pem
 *.zip
 
-# Web store assets (keep originals, ignore compressed)
+# Web store icons (keep originals, ignore compressed)
 web-store-assets/compressed/
 web-store-assets/optimized/
 
@@ -159,7 +159,7 @@ private-keys/
 manifest.v2.json
 manifest.backup.json
 
-# Chrome extension store assets (working files)
+# Chrome extension store icons (working files)
 store-assets/working/
 screenshots/raw/
 icons/source/
@@ -180,7 +180,7 @@ docs/.jekyll-cache/
 docs/.jekyll-metadata
 site/
 
-# Asset source files (keep final assets, ignore sources)
+# Asset source files (keep final icons, ignore sources)
 assets/source/
 assets/raw/
 assets/psd/
