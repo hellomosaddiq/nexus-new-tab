@@ -1,0 +1,22 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://hellomosaddiq.github.io/nexus-new-tab/sitemap.xml
+
+# Allow all search engines to crawl the documentation
+# NEXUS New Tab Extension Documentation
+
+# Disallow crawling of assets that don't need indexing
+Disallow: /assets/fonts/
+Disallow: /file-verify.txt
+
+# Allow important pages
+Allow: /
+Allow: /getting-started/
+Allow: /features/
+Allow: /customization/
+Allow: /privacy.html
+
+# Crawl delay (optional - be respectful to search engines)
+Crawl-delay: 1

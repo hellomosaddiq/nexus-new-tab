@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Focus Timer — NEXUS Documentation</title>
+    <meta name="description" content="Master the built-in Pomodoro timer with visual progress indicators, keyboard controls, and productivity tracking for enhanced focus sessions">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../../assets/icons/nexus-32.png">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../assets/css/docs-page.css">
+</head>
+<body>
+<!-- Minimal Preloader -->
+<div class="preloader" id="preloader">
+    <div class="preloader-content">
+        <div class="preloader-counter" id="preloaderCounter">0%</div>
+    </div>
+</div>
+
+<!-- Back Navigation -->
+<nav class="back-nav">
+    <a href="../index.html" class="back-link">
+        <span class="back-arrow">←</span>
+        <span class="back-text">Back to Documentation</span>
+    </a>
+</nav>
+
+<!-- Main Content -->
+<main class="main">
+    <article class="article">
+        <header class="article-header">
+            <h1 class="article-title">Focus Timer</h1>
+            <p class="article-subtitle">Pomodoro-style productivity timer with visual progress tracking</p>
+            <div class="article-meta">
+                <span class="meta-category">Features</span>
+                <span class="meta-separator">•</span>
+                <span class="meta-read-time">6 min read</span>
+                <span class="meta-separator">•</span>
+                <span class="meta-updated">Updated June 25, 2025</span>
+            </div>
+        </header>
+
+        <div class="article-content">
+            <div class="highlight-box">
+                <h4>25-Minute Focus Sessions</h4>
+                <p>NEXUS includes a built-in Pomodoro timer designed for distraction-free productivity. Start, pause, and track your focus sessions with elegant visual feedback and keyboard controls.</p>
+            </div>
+
+            <h2>Overview</h2>
+            <p>The Focus Timer implements the proven Pomodoro Technique with a 25-minute session duration. It features a circular progress indicator, keyboard controls, and automatic completion notifications to help you maintain deep focus.</p>
+
+            <h3>Key Features</h3>
+            <ul>
+                <li><strong>25-Minute Sessions</strong> - Standard Pomodoro duration for optimal focus</li>
+                <li><strong>Visual Progress Ring</strong> - SVG-based circular progress indicator with smooth animations</li>
+                <li><strong>Keyboard Control</strong> - Single-key operation with Space bar</li>
+                <li><strong>Session States</strong> - Running, paused, and completed states with visual feedback</li>
+                <li><strong>Auto-Reset</strong> - Automatic reset after completion with celebration notification</li>
+                <li><strong>Accessibility</strong> - Screen reader support and ARIA live updates</li>
+            </ul>
+
+            <h2>Getting Started</h2>
+
+            <h3>Enabling the Focus Timer</h3>
+            <ol class="installation-steps">
+                <li>
+                    <strong>Open Settings</strong>
+                    <p>Press <code>S</code> or click the gear icon to open the settings panel</p>
+                </li>
+                <li>
+                    <strong>Navigate to Features</strong>
+                    <p>Click on the "Features" tab in the settings panel</p>
+                </li>
+                <li>
+                    <strong>Enable Focus Timer</strong>
+                    <p>Toggle the "Focus Timer" switch to enable the feature</p>
+                </li>
+                <li>
+                    <strong>Close Settings</strong>
+                    <p>Press <code>Escape</code> or click outside the panel to close settings</p>
+                </li>
+            </ol>
+
+            <p>Once enabled, the focus timer will appear as a circular progress ring with control buttons.</p>
+
+            <h2>Using the Focus Timer</h2>
+
+            <h3>Starting a Session</h3>
+            <p>There are two ways to start a focus session:</p>
+            <ul>
+                <li><strong>Click Control</strong> - Click the play button (▶) in the timer controls</li>
+                <li><strong>Keyboard Navigation</strong> - Press <code>Tab</code> to focus the Start button, then <code>Space</code> to activate</li>
+            </ul>
+
+            <p>When you start a session:</p>
+            <ul>
+                <li>The timer begins counting down from 25:00</li>
+                <li>The progress ring fills gradually as time passes</li>
+                <li>The start button becomes highlighted (active state)</li>
+                <li>The timer ring shows a "running" visual state</li>
+            </ul>
+
+            <h3>Pausing a Session</h3>
+            <p>To pause an active session:</p>
+            <ul>
+                <li><strong>Click</strong> - Click the pause button (⏸) in the timer controls</li>
+                <li><strong>Keyboard</strong> - Press <code>Tab</code> to focus the Pause button, then <code>Space</code> to activate</li>
+            </ul>
+
+            <p>When paused:</p>
+            <ul>
+                <li>The countdown stops but preserves remaining time</li>
+                <li>The pause button becomes highlighted</li>
+                <li>The timer ring shows a "paused" visual state</li>
+                <li>You can resume by tabbing to Start and pressing <code>Space</code></li>
+            </ul>
+
+            <h3>Resetting the Timer</h3>
+            <p>To reset the timer to 25:00:</p>
+            <ul>
+                <li>Click the reset button (⏹) in the timer controls</li>
+                <li>The timer returns to the initial 25:00 state</li>
+                <li>All visual states are cleared</li>
+            </ul>
+
+            <h2>Visual Interface</h2>
+
+            <h3>Progress Ring</h3>
+            <p>The circular progress indicator provides real-time visual feedback:</p>
+            <ul>
+                <li><strong>Background Circle</strong> - Subtle outline showing the full timer duration</li>
+                <li><strong>Progress Circle</strong> - Fills clockwise as the session progresses</li>
+                <li><strong>Glow Effect</strong> - Animated glow that follows the progress</li>
+                <li><strong>State Colors</strong> - Different colors for running, paused, and completed states</li>
+            </ul>
+
+            <h3>Time Display</h3>
+            <p>The central time display shows:</p>
+            <ul>
+                <li><strong>MM:SS Format</strong> - Minutes and seconds remaining (e.g., "24:35")</li>
+                <li><strong>Live Updates</strong> - Updates every second during active sessions</li>
+                <li><strong>Focus Label</strong> - "Focus" text below the time for context</li>
+                <li><strong>Accessibility</strong> - Screen reader announcements for time updates</li>
+            </ul>
+
+            <h2>Session Completion</h2>
+
+            <h3>Automatic Completion</h3>
+            <p>When a 25-minute session completes:</p>
+            <ol class="installation-steps">
+                <li>
+                    <strong>Timer Stops</strong>
+                    <p>The countdown reaches 00:00 and stops automatically</p>
+                </li>
+                <li>
+                    <strong>Visual Celebration</strong>
+                    <p>The progress ring shows a "completed" state with special styling</p>
+                </li>
+                <li>
+                    <strong>Success Notification</strong>
+                    <p>A notification appears: "Focus Session Complete! Great job staying focused for 25 minutes"</p>
+                </li>
+                <li>
+                    <strong>Auto-Reset</strong>
+                    <p>After 3 seconds, the timer automatically resets to 25:00 for the next session</p>
+                </li>
+            </ol>
+
+            <h3>Celebration Features</h3>
+            <ul>
+                <li><strong>Success Message</strong> - Positive reinforcement for completing the session</li>
+                <li><strong>5-Second Display</strong> - Notification stays visible for 5 seconds</li>
+                <li><strong>Visual State</strong> - Special "completed" styling on the progress ring</li>
+                <li><strong>Smooth Transition</strong> - Elegant transition back to ready state</li>
+            </ul>
+
+            <h2>Keyboard Shortcuts</h2>
+
+            <div class="shortcuts-grid">
+                <div class="shortcut-item">
+                    <kbd>Tab</kbd>
+                    <div>
+                        <strong>Navigate to Timer</strong>
+                        <p>Focus timer control buttons</p>
+                    </div>
+                </div>
+                <div class="shortcut-item">
+                    <kbd>Space</kbd>
+                    <div>
+                        <strong>Activate Button</strong>
+                        <p>Start/pause when button is focused</p>
+                    </div>
+                </div>
+                <div class="shortcut-item">
+                    <kbd>S</kbd>
+                    <div>
+                        <strong>Open Settings</strong>
+                        <p>Access timer settings and feature toggles</p>
+                    </div>
+                </div>
+                <div class="shortcut-item">
+                    <kbd>Esc</kbd>
+                    <div>
+                        <strong>Close Panels</strong>
+                        <p>Close settings or other open panels</p>
+                    </div>
+                </div>
+            </div>
+
+            <h3>Timer Control Workflow</h3>
+            <ol>
+                <li>Press <code>Tab</code> to navigate to the Start button</li>
+                <li>Press <code>Space</code> to start the timer</li>
+                <li>Press <code>Tab</code> to move to Pause button when needed</li>
+                <li>Press <code>Space</code> to pause the timer</li>
+                <li>Press <code>Shift+Tab</code> to go back to Start button</li>
+                <li>Press <code>Space</code> to resume</li>
+            </ol>
+
+            <h2>Technical Implementation</h2>
+
+            <h3>Timer Mechanics</h3>
+            <ul>
+                <li><strong>Duration</strong> - 25 minutes (1,500 seconds) standard Pomodoro length</li>
+                <li><strong>Precision</strong> - 1-second intervals using setInterval</li>
+                <li><strong>State Management</strong> - Tracks running, paused, and remaining time</li>
+                <li><strong>Memory Efficient</strong> - Clears intervals when not in use</li>
+            </ul>
+
+            <h3>Visual Progress Calculation</h3>
+            <p>The circular progress uses SVG stroke-dashoffset animation:</p>
+            <ul>
+                <li><strong>Circle Radius</strong> - 70px for optimal visual balance</li>
+                <li><strong>Circumference</strong> - 439.82px (2 × π × 70)</li>
+                <li><strong>Progress Ratio</strong> - (elapsed time / total duration)</li>
+                <li><strong>Offset Calculation</strong> - circumference - (progress × circumference)</li>
+            </ul>
+
+            <h2>Productivity Tips</h2>
+
+            <h3>Effective Focus Sessions</h3>
+            <ul>
+                <li><strong>Single Task Focus</strong> - Work on one specific task during each session</li>
+                <li><strong>Eliminate Distractions</strong> - Close unnecessary tabs and notifications</li>
+                <li><strong>Prepare in Advance</strong> - Know what you'll work on before starting</li>
+                <li><strong>Take Breaks</strong> - Use the completion as a natural break point</li>
+            </ul>
+
+            <h3>Workflow Integration</h3>
+            <ul>
+                <li><strong>Morning Planning</strong> - Use <code>T</code> to add tasks, then <code>Space</code> to start timer</li>
+                <li><strong>Deep Work Blocks</strong> - Chain multiple sessions for extended focus periods</li>
+                <li><strong>Task Completion</strong> - Check off todo items during breaks between sessions</li>
+                <li><strong>Progress Tracking</strong> - Note how many sessions different tasks require</li>
+            </ul>
+
+            <h2>Troubleshooting</h2>
+
+            <h3>Timer Not Responding</h3>
+            <ul>
+                <li>Ensure the new tab page has focus (click on it first)</li>
+                <li>Check that the Focus Timer feature is enabled in settings</li>
+                <li>Verify no input fields are focused when pressing <code>Space</code></li>
+                <li>Try clicking the timer controls instead of keyboard shortcuts</li>
+            </ul>
+
+            <h3>Visual Issues</h3>
+            <ul>
+                <li>Refresh the page if the progress ring appears stuck</li>
+                <li>Check browser zoom level (100% recommended for best visuals)</li>
+                <li>Ensure hardware acceleration is enabled for smooth animations</li>
+                <li>Try disabling other extensions that might interfere with CSS</li>
+            </ul>
+
+            <h2>Accessibility Features</h2>
+            <ul>
+                <li><strong>Screen Reader Support</strong> - Time updates announced via aria-live</li>
+                <li><strong>Keyboard Navigation</strong> - Full functionality without mouse</li>
+                <li><strong>High Contrast</strong> - Works with high contrast browser modes</li>
+                <li><strong>Focus Indicators</strong> - Clear visual focus states for controls</li>
+                <li><strong>Semantic HTML</strong> - Proper ARIA labels and roles</li>
+            </ul>
+
+            <div class="highlight-box">
+                <h4>Focus Session Success</h4>
+                <p>The key to successful focus sessions is consistency. Start with one session per day and gradually build the habit. The visual feedback and completion celebration help reinforce the positive behavior.</p>
+            </div>
+
+            <h2>Next Steps</h2>
+            <p>Now that you understand the Focus Timer, explore these related features:</p>
+
+            <ul>
+                <li><a href="todo-list.html">Todo List</a> - Plan tasks for your focus sessions</li>
+                <li><a href="daily-quotes.html">Daily Quotes</a> - Get motivated before starting sessions</li>
+                <li><a href="../getting-started/keyboard-shortcuts.html">Keyboard Shortcuts</a> - Master all productivity shortcuts</li>
+                <li><a href="../customization/advanced-settings.html">Advanced Settings</a> - Customize timer behavior</li>
+            </ul>
+        </div>
+    </article>
+</main>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="footer-content">
+        <div class="footer-main">
+            <p class="footer-tagline">Built with passion by Mosaddique</p>
+            <div class="footer-links">
+                <a href="https://github.com/hellomosaddiq/nexus-new-tab" target="_blank" rel="noopener noreferrer"
+                   class="footer-link">NEXUS Extension</a>
+                <a href="../getting-started/faq.html" class="footer-link">FAQ</a>
+                <a href="../privacy.html" class="footer-link">Privacy Policy</a>
+                <a href="../blog/index.html" class="footer-link">Blog</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copyright">© 2025 Mosaddique. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<!-- JavaScript -->
+<script src="../assets/js/docs.js"></script>
+
+</body>
+</html>

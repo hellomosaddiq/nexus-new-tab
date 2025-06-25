@@ -266,11 +266,8 @@ submission-strategy.md
 blog-posts/
 blog/
 
-# Blog content (temporary - remove after blog series complete)
+# Documentation - Allow docs/ but keep blog content private
 docs/blog/
-
-# Documentation (temporary - remove after blog series complete)
-docs/
 
 # Release packages
 *.zip

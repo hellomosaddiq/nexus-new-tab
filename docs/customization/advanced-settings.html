@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Settings — NEXUS Documentation</title>
+    <meta name="description" content="Complete guide to advanced configuration options, feature toggles, data management, and power user customization techniques">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../../assets/icons/nexus-32.png">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../assets/css/docs-page.css">
+</head>
+<body>
+<!-- Minimal Preloader -->
+<div class="preloader" id="preloader">
+    <div class="preloader-content">
+        <div class="preloader-counter" id="preloaderCounter">0%</div>
+    </div>
+</div>
+
+<!-- Back Navigation -->
+<nav class="back-nav">
+    <a href="../index.html" class="back-link">
+        <span class="back-arrow">←</span>
+        <span class="back-text">Back to Documentation</span>
+    </a>
+</nav>
+
+<!-- Main Content -->
+<main class="main">
+    <article class="article">
+        <header class="article-header">
+            <h1 class="article-title">Advanced Settings</h1>
+            <p class="article-subtitle">Power user configuration and system management options</p>
+            <div class="article-meta">
+                <span class="meta-category">Customization</span>
+                <span class="meta-separator">•</span>
+                <span class="meta-read-time">9 min read</span>
+                <span class="meta-separator">•</span>
+                <span class="meta-updated">Updated June 25, 2025</span>
+            </div>
+        </header>
+
+        <div class="article-content">
+            <div class="highlight-box">
+                <h4>Power User Configuration</h4>
+                <p>NEXUS provides comprehensive advanced settings for power users, including feature toggles, data management, system controls, and debugging tools. Configure every aspect of your NEXUS experience with precision.</p>
+            </div>
+
+            <h2>Overview</h2>
+            <p>Advanced Settings in NEXUS provide granular control over every aspect of the extension. From feature toggles and visual effects to data management and AI system controls, these settings allow power users to customize their experience precisely to their needs.</p>
+
+            <h3>Key Features</h3>
+            <ul>
+                <li><strong>Comprehensive Feature Toggles</strong> - Enable/disable any NEXUS feature</li>
+                <li><strong>Visual Effect Controls</strong> - Fine-tune animations and visual elements</li>
+                <li><strong>Data Management</strong> - Reset, backup, and manage all user data</li>
+                <li><strong>AI System Controls</strong> - Manage machine learning and tab prediction</li>
+                <li><strong>Debug Tools</strong> - Advanced debugging and analytics access</li>
+                <li><strong>Storage Management</strong> - Monitor and control data storage</li>
+            </ul>
+
+            <h2>Accessing Advanced Settings</h2>
+
+            <h3>Settings Panel Navigation</h3>
+            <ol class="installation-steps">
+                <li>
+                    <strong>Open Settings</strong>
+                    <p>Press <code>S</code> or click the gear icon to open the settings panel</p>
+                </li>
+                <li>
+                    <strong>Navigate Tabs</strong>
+                    <p>Use the tab navigation to access different setting categories</p>
+                </li>
+                <li>
+                    <strong>System Tab</strong>
+                    <p>Advanced controls are primarily located in the "System" tab</p>
+                </li>
+                <li>
+                    <strong>Apply Changes</strong>
+                    <p>Most settings apply immediately without requiring confirmation</p>
+                </li>
+            </ol>
+
+            <h2>Feature Management</h2>
+
+            <!-- Features Settings Screenshot -->
+            <div class="feature-screenshot">
+                <img src="../assets/screenshots/nexus-settings-features-2025.png"
+                     alt="NEXUS Features Settings showing toggles for Focus Timer, Quick Notes, Daily Quotes, and Todo List"
+                     class="docs-image">
+                <p class="screenshot-caption">Features settings panel with toggles for Focus Timer, Quick Notes, Daily Quotes, and Todo List</p>
+            </div>
+
+            <h3>Core Feature Toggles</h3>
+            <p>Enable or disable major NEXUS features:</p>
+
+            <h4>Smart Date Features</h4>
+            <ul>
+                <li><strong>Master Toggle</strong> - Enable/disable all smart date insights</li>
+                <li><strong>Individual Selection</strong> - Choose specific insights to display</li>
+                <li><strong>Limit Control</strong> - Maximum 3 features for clean interface</li>
+                <li><strong>Real-time Counter</strong> - Shows current selection count</li>
+            </ul>
+
+            <h4>Productivity Features</h4>
+            <ul>
+                <li><strong>Focus Timer</strong> - Enable/disable Pomodoro timer functionality</li>
+                <li><strong>Todo List</strong> - Toggle task management system</li>
+                <li><strong>Quick Notes</strong> - Enable/disable note-taking overlay</li>
+                <li><strong>Daily Quotes</strong> - Control motivational quote system</li>
+            </ul>
+
+            <h4>AI and Intelligence</h4>
+            <ul>
+                <li><strong>Tab Prediction</strong> - Enable/disable AI tab prediction</li>
+                <li><strong>Quick Shortcuts</strong> - Control command palette functionality</li>
+                <li><strong>Learning System</strong> - Manage AI behavior learning</li>
+                <li><strong>Analytics Collection</strong> - Control usage pattern analysis</li>
+            </ul>
+
+            <h2>Visual and Interface Controls</h2>
+
+            <h3>Animation Settings</h3>
+            <p>Fine-tune visual effects and animations:</p>
+            <ul>
+                <li><strong>Smooth Animations</strong> - Enable/disable all transition effects</li>
+                <li><strong>Accessibility Compliance</strong> - Respects prefers-reduced-motion</li>
+                <li><strong>Performance Impact</strong> - Disabling improves performance on slower devices</li>
+                <li><strong>Keyboard Toggle</strong> - Press <code>A</code> to quickly toggle animations</li>
+            </ul>
+
+            <h3>Background and Visual Effects</h3>
+            <ul>
+                <li><strong>Grid Background</strong> - Toggle static grid pattern</li>
+                <li><strong>Visual Appeal</strong> - Modern aesthetic enhancement</li>
+                <li><strong>Performance Consideration</strong> - Minimal impact on performance</li>
+                <li><strong>Keyboard Toggle</strong> - Press <code>G</code> to quickly toggle grid</li>
+            </ul>
+
+            <h3>Time Display Configuration</h3>
+            <ul>
+                <li><strong>Time Format</strong> - Switch between 12-hour and 24-hour formats</li>
+                <li><strong>Seconds Display</strong> - Show/hide seconds in time display</li>
+                <li><strong>Font Selection</strong> - Choose from multiple monospace fonts</li>
+                <li><strong>Typography Integration</strong> - Coordinates with typography themes</li>
+            </ul>
+
+            <h2>Data Management</h2>
+
+            <h3>Settings Reset</h3>
+            <p>Comprehensive reset options for different scenarios:</p>
+
+            <h4>Complete Settings Reset</h4>
+            <ul>
+                <li><strong>Reset Button</strong> - Restore all settings to factory defaults</li>
+                <li><strong>Keyboard Shortcut</strong> - Press <code>R</code> for quick reset</li>
+                <li><strong>Confirmation Dialog</strong> - Prevents accidental resets</li>
+                <li><strong>Immediate Application</strong> - Changes apply instantly</li>
+            </ul>
+
+            <h4>Selective Reset Options</h4>
+            <ul>
+                <li><strong>Theme Reset</strong> - Reset only appearance settings</li>
+                <li><strong>Feature Reset</strong> - Reset only feature toggles</li>
+                <li><strong>AI Reset</strong> - Clear only machine learning data</li>
+                <li><strong>Preserve Preferences</strong> - Keep important user data</li>
+            </ul>
+
+            <h3>AI Memory Management</h3>
+            <p>Control the AI learning system and data:</p>
+
+            <h4>Tab Memory Reset</h4>
+            <ul>
+                <li><strong>Complete AI Reset</strong> - Clear all learned patterns</li>
+                <li><strong>Privacy Compliance</strong> - Complete data erasure</li>
+                <li><strong>Fresh Start</strong> - Begin AI learning from scratch</li>
+                <li><strong>Confirmation Required</strong> - Prevents accidental data loss</li>
+            </ul>
+
+            <h4>Learning Data Analytics</h4>
+            <ul>
+                <li><strong>Usage Statistics</strong> - View AI learning progress</li>
+                <li><strong>Pattern Analysis</strong> - Understand detected patterns</li>
+                <li><strong>Confidence Metrics</strong> - See prediction accuracy</li>
+                <li><strong>Debug Information</strong> - Advanced analytics for power users</li>
+            </ul>
+
+            <h2>Storage and Performance</h2>
+
+            <h3>Storage Strategy</h3>
+            <p>NEXUS uses a sophisticated multi-tier storage system:</p>
+
+            <h4>Primary Storage (Sync)</h4>
+            <ul>
+                <li><strong>Chrome Sync Storage</strong> - 8KB limit, cross-device synchronization</li>
+                <li><strong>Settings Sync</strong> - Themes, preferences, and configurations</li>
+                <li><strong>Automatic Backup</strong> - Redundant storage for reliability</li>
+                <li><strong>Quota Management</strong> - Intelligent space usage</li>
+            </ul>
+
+            <h4>Local Storage (Fallback)</h4>
+            <ul>
+                <li><strong>Extension Storage</strong> - 10MB limit, device-specific</li>
+                <li><strong>AI Learning Data</strong> - Tab memory and usage patterns</li>
+                <li><strong>Performance Cache</strong> - Favicon cache and temporary data</li>
+                <li><strong>Offline Functionality</strong> - Works without internet</li>
+            </ul>
+
+            <h4>Emergency Fallback</h4>
+            <ul>
+                <li><strong>localStorage</strong> - Browser-native storage</li>
+                <li><strong>Critical Settings</strong> - Essential configuration only</li>
+                <li><strong>Graceful Degradation</strong> - Maintains functionality</li>
+                <li><strong>Automatic Recovery</strong> - Restores when storage available</li>
+            </ul>
+
+            <h2>Keyboard Shortcuts for Advanced Users</h2>
+
+            <div class="shortcuts-grid">
+                <div class="shortcut-item">
+                    <kbd>R</kbd>
+                    <div>
+                        <strong>Reset Settings</strong>
+                        <p>Quick reset to default configuration</p>
+                    </div>
+                </div>
+                <div class="shortcut-item">
+                    <kbd>G</kbd>
+                    <div>
+                        <strong>Toggle Grid</strong>
+                        <p>Show/hide background grid pattern</p>
+                    </div>
+                </div>
+                <div class="shortcut-item">
+                    <kbd>A</kbd>
+                    <div>
+                        <strong>Toggle Animations</strong>
+                        <p>Enable/disable smooth animations</p>
+                    </div>
+                </div>
+                <div class="shortcut-item">
+                    <kbd>F</kbd>
+                    <div>
+                        <strong>Cycle Fonts</strong>
+                        <p>Cycle through typography themes</p>
+                    </div>
+                </div>
+                <div class="shortcut-item">
+                    <kbd>S</kbd>
+                    <div>
+                        <strong>Settings Panel</strong>
+                        <p>Open/close settings interface</p>
+                    </div>
+                </div>
+            </div>
+
+            <h2>Debug and Development Tools</h2>
+
+            <h3>Debug Mode</h3>
+            <p>Advanced debugging tools for power users and developers:</p>
+
+            <h4>Enabling Debug Mode</h4>
+            <ol class="installation-steps">
+                <li>
+                    <strong>Open Browser Console</strong>
+                    <p>Press F12 or right-click → Inspect → Console</p>
+                </li>
+                <li>
+                    <strong>Enable Debug Mode</strong>
+                    <p>Run: <code>localStorage.setItem('nexus-debug-mode', 'true')</code></p>
+                </li>
+                <li>
+                    <strong>Refresh Page</strong>
+                    <p>Reload the new tab to activate debug features</p>
+                </li>
+                <li>
+                    <strong>Access Debug Tools</strong>
+                    <p>Use <code>window.debugNexus</code> object for advanced functions</p>
+                </li>
+            </ol>
+
+            <h4>Available Debug Functions</h4>
+            <ul>
+                <li><strong>Tab Memory Analytics</strong> - <code>debugNexus.getTabMemoryAnalytics()</code></li>
+                <li><strong>Reset Tab Memory</strong> - <code>debugNexus.resetTabMemory()</code></li>
+                <li><strong>Settings Inspection</strong> - <code>debugNexus.getSettings()</code></li>
+                <li><strong>Performance Metrics</strong> - <code>debugNexus.getPerformanceData()</code></li>
+            </ul>
+
+            <h3>Analytics and Monitoring</h3>
+            <p>Monitor NEXUS performance and usage:</p>
+            <ul>
+                <li><strong>AI Learning Progress</strong> - Track machine learning improvements</li>
+                <li><strong>Storage Usage</strong> - Monitor data storage consumption</li>
+                <li><strong>Performance Metrics</strong> - Loading times and responsiveness</li>
+                <li><strong>Error Tracking</strong> - Identify and resolve issues</li>
+            </ul>
+
+            <h2>Privacy and Security</h2>
+
+            <h3>Data Privacy Controls</h3>
+            <ul>
+                <li><strong>Local Processing</strong> - All data processing happens on your device</li>
+                <li><strong>No External Transmission</strong> - Data never leaves your computer</li>
+                <li><strong>Complete Reset Options</strong> - Full data erasure capabilities</li>
+                <li><strong>Granular Controls</strong> - Choose what data to keep or delete</li>
+            </ul>
+
+            <h3>Security Features</h3>
+            <ul>
+                <li><strong>Secure Storage</strong> - Browser extension security model</li>
+                <li><strong>Permission Management</strong> - Minimal required permissions</li>
+                <li><strong>Cross-Site Protection</strong> - Isolated from web content</li>
+                <li><strong>Update Security</strong> - Automatic security updates</li>
+            </ul>
+
+            <h2>Performance Optimization</h2>
+
+            <h3>Performance Settings</h3>
+            <p>Optimize NEXUS for your system:</p>
+
+            <h4>For High Performance</h4>
+            <ul>
+                <li><strong>Disable Animations</strong> - Reduces CPU usage</li>
+                <li><strong>Minimize Features</strong> - Disable unused functionality</li>
+                <li><strong>Reduce AI Learning</strong> - Lower memory usage</li>
+                <li><strong>Simple Themes</strong> - Use minimal visual effects</li>
+            </ul>
+
+            <h4>For Maximum Features</h4>
+            <ul>
+                <li><strong>Enable All Features</strong> - Full NEXUS experience</li>
+                <li><strong>Smooth Animations</strong> - Enhanced visual experience</li>
+                <li><strong>AI Learning</strong> - Maximum intelligence and adaptation</li>
+                <li><strong>Rich Themes</strong> - Full visual customization</li>
+            </ul>
+
+            <h2>Troubleshooting Advanced Issues</h2>
+
+            <h3>Settings Not Saving</h3>
+            <ul>
+                <li>Check browser permissions for NEXUS extension</li>
+                <li>Ensure sufficient storage space available</li>
+                <li>Try disabling other extensions temporarily</li>
+                <li>Reset to defaults and reconfigure gradually</li>
+            </ul>
+
+            <h3>Performance Issues</h3>
+            <ul>
+                <li>Disable animations if experiencing lag</li>
+                <li>Reduce number of enabled features</li>
+                <li>Clear browser cache and restart</li>
+                <li>Check for conflicting extensions</li>
+            </ul>
+
+            <h3>AI System Issues</h3>
+            <ul>
+                <li>Reset tab memory if predictions seem incorrect</li>
+                <li>Allow 2-3 days for AI to learn new patterns</li>
+                <li>Check that Quick Shortcuts is enabled</li>
+                <li>Verify sufficient usage data exists</li>
+            </ul>
+
+            <h2>Advanced Configuration Examples</h2>
+
+            <h3>Minimal Setup</h3>
+            <p>For users who prefer simplicity:</p>
+            <ul>
+                <li>Disable animations and grid background</li>
+                <li>Enable only essential features (time, basic shortcuts)</li>
+                <li>Use system fonts and default theme</li>
+                <li>Disable AI learning for privacy</li>
+            </ul>
+
+            <h3>Power User Setup</h3>
+            <p>For maximum productivity:</p>
+            <ul>
+                <li>Enable all features and AI learning</li>
+                <li>Customize themes and typography</li>
+                <li>Use all keyboard shortcuts</li>
+                <li>Enable debug mode for analytics</li>
+            </ul>
+
+            <h3>Developer Setup</h3>
+            <p>For development workflows:</p>
+            <ul>
+                <li>Modern Tech typography theme</li>
+                <li>Enable Quick Shortcuts with AI</li>
+                <li>Focus Timer for coding sessions</li>
+                <li>Debug mode for system monitoring</li>
+            </ul>
+
+            <div class="highlight-box">
+                <h4>Configuration Philosophy</h4>
+                <p>NEXUS advanced settings follow a "progressive disclosure" philosophy - essential features are easily accessible, while power user options are available but not overwhelming. Every setting has a purpose and provides real value to specific use cases.</p>
+            </div>
+
+            <h2>Next Steps</h2>
+            <p>Now that you understand Advanced Settings, explore these related topics:</p>
+
+            <ul>
+                <li><a href="../getting-started/keyboard-shortcuts.html">Keyboard Shortcuts</a> - Master all advanced shortcuts</li>
+                <li><a href="themes-and-colors.html">Themes and Colors</a> - Customize visual appearance</li>
+                <li><a href="typography.html">Typography</a> - Configure font preferences</li>
+                <li><a href="../features/ai-tab-prediction.html">AI Tab Prediction</a> - Understand the AI system you're configuring</li>
+            </ul>
+        </div>
+    </article>
+</main>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="footer-content">
+        <div class="footer-main">
+            <p class="footer-tagline">Built with passion by Mosaddique</p>
+            <div class="footer-links">
+                <a href="https://github.com/hellomosaddiq/nexus-new-tab" target="_blank" rel="noopener noreferrer"
+                   class="footer-link">NEXUS Extension</a>
+                <a href="../getting-started/faq.html" class="footer-link">FAQ</a>
+                <a href="../privacy.html" class="footer-link">Privacy Policy</a>
+                <a href="../blog/index.html" class="footer-link">Blog</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copyright">© 2025 Mosaddique. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<!-- JavaScript -->
+<script src="../assets/js/docs.js"></script>
+
+</body>
+</html>
