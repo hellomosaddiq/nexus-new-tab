@@ -1,0 +1,173 @@
+name: PR Validation
+
+on:
+  pull_request:
+    branches: [ main, develop ]
+    types: [opened, synchronize, reopened]
+
+jobs:
+  pr-checks:
+    name: Pull Request Validation
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout PR code
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0  # Fetch full history for comparison
+        
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20.x'
+        
+    - name: Install dependencies
+      run: npm install
+      
+    - name: Run linting on changed files
+      run: |
+        echo "🔍 Linting changed files..."
+        
+        # Get list of changed JS files
+        CHANGED_JS_FILES=$(git diff --name-only origin/main...HEAD | grep '\.js$' || true)
+        
+        if [ -n "$CHANGED_JS_FILES" ]; then
+          echo "Changed JavaScript files:"
+          echo "$CHANGED_JS_FILES"
+          echo ""
+          
+          # Run ESLint on changed files
+          echo "$CHANGED_JS_FILES" | xargs npx eslint
+        else
+          echo "No JavaScript files changed"
+        fi
+        
+    - name: Check formatting on changed files
+      run: |
+        echo "🎨 Checking formatting on changed files..."
+        
+        # Get list of changed files that Prettier can format
+        CHANGED_FILES=$(git diff --name-only origin/main...HEAD | grep -E '\.(js|html|css|json)$' || true)
+        
+        if [ -n "$CHANGED_FILES" ]; then
+          echo "Changed files to check:"
+          echo "$CHANGED_FILES"
+          echo ""
+          
+          # Check formatting
+          echo "$CHANGED_FILES" | xargs npx prettier --check
+        else
+          echo "No formattable files changed"
+        fi
+        
+    - name: Validate PR changes
+      run: |
+        echo "📋 Validating PR changes..."
+        
+        # Check if manifest.json was modified
+        if git diff --name-only origin/main...HEAD | grep -q "manifest.json"; then
+          echo "⚠️ manifest.json was modified"
+          echo "Please ensure version number is updated appropriately"
+          
+          # Show manifest changes
+          echo "Manifest changes:"
+          git diff origin/main...HEAD -- manifest.json
+        fi
+        
+        # Check if package.json was modified
+        if git diff --name-only origin/main...HEAD | grep -q "package.json"; then
+          echo "⚠️ package.json was modified"
+          echo "Please ensure dependencies are necessary and secure"
+        fi
+        
+        # Check for large file additions
+        LARGE_FILES=$(git diff --name-only origin/main...HEAD | xargs -I {} sh -c 'if [ -f "{}" ] && [ $(wc -c < "{}") -gt 1048576 ]; then echo "{}"; fi' 2>/dev/null || true)
+        
+        if [ -n "$LARGE_FILES" ]; then
+          echo "⚠️ Large files added (>1MB):"
+          echo "$LARGE_FILES"
+          echo "Consider if these files are necessary for the extension"
+        fi
+        
+    - name: Test extension packaging
+      run: |
+        echo "📦 Testing extension packaging..."
+        npm run package
+        
+        # Check package size
+        PACKAGE_SIZE=$(ls -la NEXUS-New-Tab-v*.zip | awk '{print $5}')
+        PACKAGE_MB=$((PACKAGE_SIZE / 1024 / 1024))
+        
+        echo "Package size: ${PACKAGE_MB} MB"
+        
+        if [ $PACKAGE_MB -gt 10 ]; then
+          echo "⚠️ Package is quite large (${PACKAGE_MB}MB)"
+          echo "Consider optimizing assets or excluding unnecessary files"
+        fi
+        
+    - name: PR Summary
+      run: |
+        echo "## 📊 PR Validation Summary" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        
+        # Count changed files
+        TOTAL_CHANGED=$(git diff --name-only origin/main...HEAD | wc -l)
+        JS_CHANGED=$(git diff --name-only origin/main...HEAD | grep '\.js$' | wc -l || echo "0")
+        CSS_CHANGED=$(git diff --name-only origin/main...HEAD | grep '\.css$' | wc -l || echo "0")
+        HTML_CHANGED=$(git diff --name-only origin/main...HEAD | grep '\.html$' | wc -l || echo "0")
+        
+        echo "- **Total files changed:** $TOTAL_CHANGED" >> $GITHUB_STEP_SUMMARY
+        echo "- **JavaScript files:** $JS_CHANGED" >> $GITHUB_STEP_SUMMARY
+        echo "- **CSS files:** $CSS_CHANGED" >> $GITHUB_STEP_SUMMARY
+        echo "- **HTML files:** $HTML_CHANGED" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        
+        # Package info
+        if [ -f NEXUS-New-Tab-v*.zip ]; then
+          PACKAGE_SIZE=$(ls -la NEXUS-New-Tab-v*.zip | awk '{print $5}')
+          PACKAGE_MB=$((PACKAGE_SIZE / 1024 / 1024))
+          echo "- **Package size:** ${PACKAGE_MB} MB" >> $GITHUB_STEP_SUMMARY
+        fi
+        
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "✅ All validation checks passed!" >> $GITHUB_STEP_SUMMARY
+
+  auto-format-suggestion:
+    name: Auto-format Suggestion
+    runs-on: ubuntu-latest
+    if: failure()  # Only run if main checks fail due to formatting
+    
+    steps:
+    - name: Checkout PR code
+      uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20.x'
+        
+    - name: Install dependencies
+      run: npm install
+      
+    - name: Auto-format code
+      run: |
+        echo "🎨 Auto-formatting code..."
+        npm run format
+        
+    - name: Check for formatting changes
+      run: |
+        if git diff --quiet; then
+          echo "No formatting changes needed"
+        else
+          echo "## 🎨 Formatting Suggestions" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "The following files can be auto-formatted:" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
+          git diff --name-only >> $GITHUB_STEP_SUMMARY
+          echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "Run \`npm run format\` to apply these changes." >> $GITHUB_STEP_SUMMARY
+        fi

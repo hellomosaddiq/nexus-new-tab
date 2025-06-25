@@ -1,0 +1,288 @@
+# ===== NEXUS NEW TAB .gitignore =====
+# Comprehensive gitignore for browser extension development
+# Covers development tools, build artifacts, and sensitive data
+
+# ===== OPERATING SYSTEM FILES =====
+# macOS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msm
+*.msp
+*.lnk
+
+# Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+# ===== EDITOR & IDE FILES =====
+# Visual Studio Code
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+# JetBrains IDEs
+.idea/
+*.swp
+*.swo
+*~
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+*.swp
+*.swo
+*.tmp
+*.bak
+
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+.\#*
+
+# ===== NODE.JS & NPM (if used for development tools) =====
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.npm
+.yarn-integrity
+package-lock.json
+yarn.lock
+
+# ===== BUILD & DISTRIBUTION =====
+# Build outputs
+build/
+dist/
+out/
+target/
+
+# Chrome extension packaging
+*.crx
+*.pem
+key.pem
+*.zip
+
+# Web store icons (keep originals, ignore compressed)
+web-store-assets/compressed/
+web-store-assets/optimized/
+
+# ===== DEVELOPMENT & TESTING =====
+# Test coverage
+coverage/
+.nyc_output/
+*.lcov
+
+# Jest
+jest.config.js
+__tests__/
+*.test.js
+*.spec.js
+
+# Cypress
+cypress/videos/
+cypress/screenshots/
+cypress/downloads/
+
+# Playwright
+test-results/
+playwright-report/
+
+# ===== LOGS & DEBUGGING =====
+# Log files
+*.log
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# Runtime data
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# ===== TEMPORARY & CACHE FILES =====
+# Temporary files
+tmp/
+temp/
+.tmp/
+.temp/
+
+# Cache directories
+.cache/
+.parcel-cache/
+.eslintcache
+.stylelintcache
+
+# ===== ENVIRONMENT & CONFIGURATION =====
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Configuration files with sensitive data
+config.local.js
+secrets.json
+private-keys/
+
+# ===== CHROME EXTENSION SPECIFIC =====
+# Extension development
+manifest.v2.json
+manifest.backup.json
+
+# Chrome extension store icons (working files)
+store-assets/working/
+screenshots/raw/
+icons/source/
+
+# Extension packaging artifacts
+extension.zip
+extension.crx
+private-key.pem
+
+# Chrome extension development
+chrome-extension-output/
+extension-build/
+
+# ===== DOCUMENTATION & ASSETS =====
+# Documentation build outputs
+docs/_site/
+docs/.jekyll-cache/
+docs/.jekyll-metadata
+site/
+
+# Asset source files (keep final icons, ignore sources)
+assets/source/
+assets/raw/
+assets/psd/
+assets/ai/
+assets/sketch/
+assets/figma/
+
+# ===== VERSION CONTROL =====
+# Git
+.git/
+.gitattributes
+
+# SVN
+.svn/
+
+# Mercurial
+.hg/
+
+# ===== SECURITY & SENSITIVE DATA =====
+# API keys and secrets
+*.key
+*.pem
+*.p12
+*.pfx
+secrets/
+private/
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+
+# ===== ANALYTICS & TRACKING =====
+# Analytics data
+analytics/
+metrics/
+usage-data/
+
+# ===== BACKUP FILES =====
+# Backup files
+*.backup
+*.bak
+*.old
+*.orig
+*~
+
+# ===== COMPRESSION & ARCHIVES =====
+# Compressed files
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# ===== NEXUS SPECIFIC =====
+# Development screenshots (keep final ones)
+screenshots/dev/
+screenshots/test/
+
+# Performance profiling
+performance-logs/
+memory-snapshots/
+
+# User data from testing
+test-user-data/
+dev-storage/
+
+# Marketing materials working files
+marketing/working/
+marketing/drafts/
+marketing-strategy/
+
+# Chrome Web Store submission materials (confidential)
+CHROME_WEB_STORE_SUBMISSION_GUIDE.md
+chrome-web-store-assets/
+store-submission-notes.md
+submission-strategy.md
+
+# Blog content and social media strategy (confidential)
+blog-posts/
+blog/
+
+# Blog content (temporary - remove after blog series complete)
+docs/blog/
+
+# Documentation (temporary - remove after blog series complete)
+docs/
+
+# Release packages
+*.zip
+
+# ===== KEEP THESE IMPORTANT FILES =====
+# Explicitly keep important files that might be ignored by patterns above
+!assets/icons/
+!assets/screenshots/
+!assets/fonts/
+!docs/assets/
+!src/lib/browser-polyfill.js
+!manifest.json
+!LICENSE
+!README.md
+!CONTRIBUTING.md

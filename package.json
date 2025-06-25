@@ -1,0 +1,61 @@
+{
+  "name": "nexus-new-tab",
+  "version": "1.0.0",
+  "description": "Transform your browser's new tab into a productivity powerhouse with intelligent features, beautiful design, and powerful customization options.",
+  "main": "src/pages/newtab/script.js",
+  "scripts": {
+    "lint": "eslint src/ --ext .js",
+    "lint:fix": "eslint src/ --ext .js --fix",
+    "format": "prettier --write \"src/**/*.{js,html,css,json}\"",
+    "format:check": "prettier --check \"src/**/*.{js,html,css,json}\"",
+    "validate": "npm run lint && npm run format:check",
+    "prepare": "husky",
+    "test": "echo \"Tests not yet implemented\" && exit 0",
+    "dev": "echo \"No build process needed - load extension directly in browser\"",
+    "package": "node scripts/package-extension.js",
+    "clean": "echo \"No build artifacts to clean\""
+  },
+  "keywords": [
+    "browser-extension",
+    "chrome-extension",
+    "new-tab",
+    "productivity",
+    "vanilla-javascript",
+    "no-build"
+  ],
+  "author": "hellomosaddiq",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hellomosaddiq/nexus-new-tab.git"
+  },
+  "bugs": {
+    "url": "https://github.com/hellomosaddiq/nexus-new-tab/issues"
+  },
+  "homepage": "https://github.com/hellomosaddiq/nexus-new-tab#readme",
+  "devDependencies": {
+    "archiver": "^6.0.1",
+    "eslint": "^8.57.0",
+    "prettier": "^3.2.5",
+    "husky": "^9.0.11",
+    "lint-staged": "^15.2.2"
+  },
+  "lint-staged": {
+    "src/**/*.js": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "src/**/*.{html,css,json}": [
+      "prettier --write"
+    ]
+  },
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=8.0.0"
+  },
+  "browserslist": [
+    "Chrome >= 88",
+    "Edge >= 88",
+    "Firefox >= 85"
+  ]
+}

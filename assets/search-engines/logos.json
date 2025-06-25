@@ -1,0 +1,40 @@
+{
+  "searchEngineLogos": {
+    "duckduckgo": {
+      "name": "DuckDuckGo",
+      "filename": "duckduckgo.svg",
+      "format": "SVG",
+      "description": "Privacy-focused search engine logo"
+    },
+    "youtube": {
+      "name": "YouTube", 
+      "filename": "youtube.svg",
+      "format": "SVG",
+      "description": "Video platform logo"
+    },
+    "wikipedia": {
+      "name": "Wikipedia",
+      "filename": "wikipedia.svg",
+      "format": "SVG",
+      "description": "Free encyclopedia logo"
+    },
+    "amazon": {
+      "name": "Amazon",
+      "filename": "amazon.svg",
+      "format": "SVG", 
+      "description": "E-commerce platform logo"
+    },
+    "ecosia": {
+      "name": "Ecosia",
+      "filename": "ecosia.png",
+      "format": "PNG",
+      "description": "Eco-friendly search engine logo"
+    }
+  },
+  "usage": {
+    "purpose": "Search engine logos for NEXUS Quick Shortcuts feature",
+    "formats": "SVG (preferred) and PNG",
+    "advantages": "SVG files are scalable, smaller, and crisp at any resolution",
+    "license": "Fair use for functionality purposes"
+  }
+}

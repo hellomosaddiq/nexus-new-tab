@@ -1,0 +1,160 @@
+name: CI - Quality Checks
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  quality-checks:
+    name: Code Quality & Validation
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20.x'
+        
+    - name: Install dependencies
+      run: npm install
+      
+    - name: Run ESLint
+      run: npm run lint
+      
+    - name: Check code formatting
+      run: npm run format:check
+      
+    - name: Validate package structure
+      run: |
+        echo "Checking required files..."
+        test -f manifest.json || (echo "❌ manifest.json missing" && exit 1)
+        test -f src/pages/newtab/index.html || (echo "❌ Main HTML missing" && exit 1)
+        test -f src/pages/newtab/script.js || (echo "❌ Main script missing" && exit 1)
+        test -f src/background/background.js || (echo "❌ Background script missing" && exit 1)
+        echo "✅ All required files present"
+        
+    - name: Validate manifest.json
+      run: |
+        echo "Validating manifest.json structure..."
+        node -e "
+          const manifest = require('./manifest.json');
+          const required = ['manifest_version', 'name', 'version', 'description'];
+          const missing = required.filter(key => !manifest[key]);
+          if (missing.length > 0) {
+            console.error('❌ Missing required manifest fields:', missing);
+            process.exit(1);
+          }
+          if (manifest.manifest_version !== 3) {
+            console.error('❌ Must use Manifest V3');
+            process.exit(1);
+          }
+          console.log('✅ Manifest validation passed');
+        "
+        
+    - name: Check extension size
+      run: |
+        echo "Checking extension size..."
+        TOTAL_SIZE=$(du -sb src/ assets/icons/ assets/fonts/ manifest.json LICENSE README.md | awk '{sum += $1} END {print sum}')
+        SIZE_MB=$((TOTAL_SIZE / 1024 / 1024))
+        echo "Extension size: ${SIZE_MB} MB"
+        if [ $SIZE_MB -gt 10 ]; then
+          echo "⚠️ Warning: Extension size (${SIZE_MB}MB) is quite large"
+        else
+          echo "✅ Extension size is reasonable"
+        fi
+        
+    - name: Test extension packaging
+      run: npm run package
+      
+    - name: Upload package artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: nexus-extension
+        path: NEXUS-New-Tab-*.zip
+        retention-days: 7
+
+  security-scan:
+    name: Security Scan
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20.x'
+        
+    - name: Install dependencies
+      run: npm install
+      
+    - name: Run npm audit
+      run: npm audit --audit-level=moderate
+      
+    - name: Check for sensitive files
+      run: |
+        echo "Checking for sensitive files..."
+        SENSITIVE_FILES=$(find . -name "*.key" -o -name "*.pem" -o -name "*.p12" -o -name ".env*" | grep -v node_modules || true)
+        if [ -n "$SENSITIVE_FILES" ]; then
+          echo "❌ Sensitive files found:"
+          echo "$SENSITIVE_FILES"
+          exit 1
+        else
+          echo "✅ No sensitive files found"
+        fi
+
+  cross-platform-test:
+    name: Cross-Platform Validation
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20.x'
+        
+    - name: Install dependencies
+      run: npm install
+      
+    - name: Test packaging on ${{ matrix.os }}
+      run: npm run package
+      
+    - name: Verify package contents (Unix)
+      if: runner.os != 'Windows'
+      run: |
+        echo "Package created successfully"
+        ZIP_FILE=$(ls NEXUS-New-Tab-*.zip 2>/dev/null | head -1)
+        if [ -n "$ZIP_FILE" ]; then
+          echo "✅ ZIP file found: $ZIP_FILE"
+          ls -la "$ZIP_FILE"
+        else
+          echo "❌ ZIP file not found"
+          exit 1
+        fi
+
+    - name: Verify package contents (Windows)
+      if: runner.os == 'Windows'
+      run: |
+        echo "Package created successfully"
+        $zipFile = Get-ChildItem -Name "NEXUS-New-Tab-*.zip" | Select-Object -First 1
+        if ($zipFile) {
+          echo "✅ ZIP file found: $zipFile"
+          Get-ChildItem -Name "NEXUS-New-Tab-*.zip" | Format-List
+        } else {
+          echo "❌ ZIP file not found"
+          exit 1
+        }
+      shell: pwsh

@@ -1,0 +1,86 @@
+# Configuration for GitHub's automatically generated release notes
+# This complements our custom release notes with PR categorization
+
+changelog:
+  exclude:
+    labels:
+      - ignore-for-release
+      - duplicate
+      - invalid
+      - wontfix
+      - documentation
+    authors:
+      - dependabot[bot]
+      - github-actions[bot]
+  
+  categories:
+    - title: 🚨 Breaking Changes
+      labels:
+        - breaking-change
+        - major
+        - semver-major
+    
+    - title: 🎉 New Features
+      labels:
+        - feature
+        - enhancement
+        - new-feature
+        - minor
+        - semver-minor
+    
+    - title: 🐛 Bug Fixes
+      labels:
+        - bug
+        - bugfix
+        - fix
+        - patch
+        - semver-patch
+    
+    - title: 🔧 Improvements
+      labels:
+        - improvement
+        - optimization
+        - performance
+        - refactor
+    
+    - title: 🎨 UI/UX Changes
+      labels:
+        - ui
+        - ux
+        - design
+        - styling
+        - accessibility
+    
+    - title: 📚 Documentation
+      labels:
+        - docs
+        - documentation
+        - readme
+    
+    - title: 🔒 Security
+      labels:
+        - security
+        - vulnerability
+    
+    - title: 🏗️ Infrastructure
+      labels:
+        - ci
+        - cd
+        - build
+        - infrastructure
+        - workflow
+    
+    - title: 📦 Dependencies
+      labels:
+        - dependencies
+        - deps
+    
+    - title: 🧪 Testing
+      labels:
+        - test
+        - testing
+        - tests
+    
+    - title: 🔄 Other Changes
+      labels:
+        - "*"

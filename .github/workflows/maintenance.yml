@@ -1,0 +1,180 @@
+name: Maintenance - Dependencies & Security
+
+on:
+  schedule:
+    # Run weekly on Sundays at 2 AM UTC
+    - cron: '0 2 * * 0'
+  workflow_dispatch:  # Allow manual triggering
+
+jobs:
+  dependency-audit:
+    name: Dependency Security Audit
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20.x'
+        
+    - name: Install dependencies
+      run: npm install
+      
+    - name: Run security audit
+      run: |
+        echo "🔍 Running npm security audit..."
+        npm audit --audit-level=moderate
+        
+    - name: Check for outdated packages
+      run: |
+        echo "📦 Checking for outdated packages..."
+        npm outdated || true
+        
+    - name: Generate dependency report
+      run: |
+        echo "📋 Generating dependency report..."
+        echo "## Dependency Report - $(date)" > dependency-report.md
+        echo "" >> dependency-report.md
+        echo "### Installed Packages" >> dependency-report.md
+        npm list --depth=0 >> dependency-report.md 2>/dev/null || true
+        echo "" >> dependency-report.md
+        echo "### Security Audit" >> dependency-report.md
+        npm audit --json > audit.json 2>/dev/null || true
+        if [ -f audit.json ]; then
+          VULNERABILITIES=$(cat audit.json | jq -r '.metadata.vulnerabilities | to_entries[] | "\(.key): \(.value)"' 2>/dev/null || echo "No vulnerabilities data")
+          echo "$VULNERABILITIES" >> dependency-report.md
+        fi
+        
+    - name: Upload dependency report
+      uses: actions/upload-artifact@v4
+      with:
+        name: dependency-report
+        path: dependency-report.md
+        retention-days: 30
+
+  code-quality-check:
+    name: Code Quality Monitoring
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20.x'
+        
+    - name: Install dependencies
+      run: npm install
+      
+    - name: Run comprehensive linting
+      run: |
+        echo "🔍 Running ESLint analysis..."
+        npm run lint > lint-report.txt 2>&1 || true
+        
+        echo "📊 Lint Report Summary:"
+        if grep -q "✨" lint-report.txt; then
+          echo "✅ No linting issues found"
+        else
+          echo "⚠️ Linting issues detected:"
+          cat lint-report.txt
+        fi
+        
+    - name: Check code formatting
+      run: |
+        echo "🎨 Checking code formatting..."
+        npm run format:check > format-report.txt 2>&1 || true
+        
+        if [ $? -eq 0 ]; then
+          echo "✅ All files are properly formatted"
+        else
+          echo "⚠️ Formatting issues detected:"
+          cat format-report.txt
+        fi
+        
+    - name: Analyze code complexity
+      run: |
+        echo "📈 Analyzing code complexity..."
+        
+        # Count lines of code
+        TOTAL_LINES=$(find src/ -name "*.js" -exec wc -l {} + | tail -1 | awk '{print $1}')
+        echo "Total lines of JavaScript: $TOTAL_LINES"
+        
+        # Count files
+        JS_FILES=$(find src/ -name "*.js" | wc -l)
+        echo "JavaScript files: $JS_FILES"
+        
+        # Check for large files (>500 lines)
+        echo "Large files (>500 lines):"
+        find src/ -name "*.js" -exec wc -l {} + | awk '$1 > 500 {print $2 ": " $1 " lines"}' || echo "None"
+        
+    - name: Extension health check
+      run: |
+        echo "🏥 Extension health check..."
+        
+        # Check manifest version
+        MANIFEST_VERSION=$(node -p "require('./manifest.json').manifest_version")
+        echo "Manifest version: $MANIFEST_VERSION"
+        
+        # Check extension size
+        TOTAL_SIZE=$(du -sb src/ assets/icons/ assets/fonts/ manifest.json LICENSE README.md | awk '{sum += $1} END {print sum}')
+        SIZE_MB=$((TOTAL_SIZE / 1024 / 1024))
+        echo "Extension size: ${SIZE_MB} MB"
+        
+        # Check for required files
+        REQUIRED_FILES=("manifest.json" "src/pages/newtab/index.html" "src/pages/newtab/script.js" "src/background/background.js")
+        for file in "${REQUIRED_FILES[@]}"; do
+          if [ -f "$file" ]; then
+            echo "✅ $file exists"
+          else
+            echo "❌ $file missing"
+          fi
+        done
+
+  performance-check:
+    name: Performance Monitoring
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Analyze bundle size
+      run: |
+        echo "📦 Analyzing extension size..."
+        
+        # Main script size
+        MAIN_SCRIPT_SIZE=$(wc -c < src/pages/newtab/script.js)
+        MAIN_SCRIPT_KB=$((MAIN_SCRIPT_SIZE / 1024))
+        echo "Main script: ${MAIN_SCRIPT_KB} KB"
+        
+        # CSS size
+        CSS_SIZE=$(wc -c < src/pages/newtab/styles.css)
+        CSS_KB=$((CSS_SIZE / 1024))
+        echo "CSS: ${CSS_KB} KB"
+        
+        # Font sizes
+        echo "Font sizes:"
+        find assets/fonts/ -name "*.ttf" -exec du -h {} + 2>/dev/null || echo "No fonts found"
+        
+        # Total package size
+        TOTAL_SIZE=$(du -sb src/ assets/icons/ assets/fonts/ manifest.json LICENSE README.md | awk '{sum += $1} END {print sum}')
+        TOTAL_MB=$((TOTAL_SIZE / 1024 / 1024))
+        echo "Total extension: ${TOTAL_MB} MB"
+        
+        # Performance recommendations
+        if [ $MAIN_SCRIPT_KB -gt 500 ]; then
+          echo "⚠️ Main script is large (${MAIN_SCRIPT_KB}KB). Consider code splitting."
+        fi
+        
+        if [ $CSS_KB -gt 200 ]; then
+          echo "⚠️ CSS is large (${CSS_KB}KB). Consider optimization."
+        fi
+        
+        if [ $TOTAL_MB -gt 5 ]; then
+          echo "⚠️ Extension is large (${TOTAL_MB}MB). Consider asset optimization."
+        fi

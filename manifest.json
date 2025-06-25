@@ -1,0 +1,56 @@
+{
+  "manifest_version": 3,
+  "name": "NEXUS New Tab",
+  "version": "1.0.0",
+  "description": "Transform your new tab into a productivity powerhouse",
+  "author": "mosaddiq",
+  "homepage_url": "https://hellomosaddiq.github.io/nexus-new-tab/",
+  "chrome_url_overrides": {
+    "newtab": "src/pages/newtab/index.html"
+  },
+  "permissions": [
+    "bookmarks",
+    "topSites",
+    "sessions",
+    "storage",
+    "history",
+    "tabs"
+  ],
+  "host_permissions": [
+    "https://*/*"
+  ],
+  "background": {
+    "service_worker": "src/background/background.js"
+  },
+  "action": {
+    "default_title": "NEXUS New Tab",
+    "default_icon": {
+      "16": "assets/icons/nexus-16.png",
+      "32": "assets/icons/nexus-32.png",
+      "48": "assets/icons/nexus-48.png",
+      "128": "assets/icons/nexus-128.png"
+    }
+  },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; style-src 'self' 'unsafe-inline'; object-src 'self'; img-src 'self' data: https: http:; connect-src 'self' https: http:; default-src 'self';"
+  },
+  "icons": {
+    "16": "assets/icons/nexus-16.png",
+    "32": "assets/icons/nexus-32.png",
+    "48": "assets/icons/nexus-48.png",
+    "128": "assets/icons/nexus-128.png"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "assets/icons/*.png",
+        "assets/icons/favicon.ico",
+        "assets/search-engines/*.svg",
+        "assets/search-engines/*.png"
+      ],
+      "matches": [
+        "<all_urls>"
+      ]
+    }
+  ]
+}

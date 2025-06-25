@@ -1,0 +1,245 @@
+name: Release - Build & Deploy
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'  # Triggers on version tags like v1.0.0, v1.2.3
+  workflow_dispatch:  # Allow manual triggering
+    inputs:
+      version:
+        description: 'Version to release (e.g., 1.0.1)'
+        required: true
+        type: string
+
+jobs:
+  validate-release:
+    name: Validate Release
+    runs-on: ubuntu-latest
+
+    outputs:
+      version: ${{ steps.get-version.outputs.version }}
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Get version
+      id: get-version
+      run: |
+        if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+          VERSION="${{ github.event.inputs.version }}"
+        else
+          VERSION=${GITHUB_REF#refs/tags/v}
+        fi
+        echo "version=$VERSION" >> $GITHUB_OUTPUT
+        echo "Release version: $VERSION"
+
+    - name: Validate version format
+      run: |
+        VERSION="${{ steps.get-version.outputs.version }}"
+        if [[ ! $VERSION =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+          echo "❌ Invalid version format: $VERSION"
+          echo "Expected format: X.Y.Z (e.g., 1.0.0)"
+          exit 1
+        fi
+        echo "✅ Version format is valid: $VERSION"
+
+    - name: Check if version matches package.json
+      run: |
+        PACKAGE_VERSION=$(node -p "require('./package.json').version")
+        RELEASE_VERSION="${{ steps.get-version.outputs.version }}"
+        if [ "$PACKAGE_VERSION" != "$RELEASE_VERSION" ]; then
+          echo "❌ Version mismatch:"
+          echo "  package.json: $PACKAGE_VERSION"
+          echo "  Release tag:  $RELEASE_VERSION"
+          echo "Please update package.json version to match the release tag"
+          exit 1
+        fi
+        echo "✅ Version matches package.json: $RELEASE_VERSION"
+
+  build-release:
+    name: Build Release Package
+    runs-on: ubuntu-latest
+    needs: validate-release
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20.x'
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Run quality checks
+      run: |
+        npm run lint
+        npm run format:check
+
+    - name: Build release package
+      run: npm run package
+
+    - name: Verify package contents
+      run: |
+        echo "📦 Package contents:"
+        unzip -l NEXUS-New-Tab-v*.zip
+
+        echo ""
+        echo "📊 Package size:"
+        ls -lh NEXUS-New-Tab-v*.zip
+
+    - name: Upload release artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: nexus-extension-release
+        path: NEXUS-New-Tab-v*.zip
+        retention-days: 30
+
+  create-github-release:
+    name: Create GitHub Release
+    runs-on: ubuntu-latest
+    needs: [validate-release, build-release]
+
+    permissions:
+      contents: write
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Download release artifact
+      uses: actions/download-artifact@v4
+      with:
+        name: nexus-extension-release
+
+    - name: Generate release notes
+      id: release-notes
+      run: |
+        VERSION="${{ needs.validate-release.outputs.version }}"
+
+        # Extract changelog section for this version
+        CHANGELOG_SECTION=""
+        if [ -f "CHANGELOG.md" ]; then
+          # Try to extract version-specific changes from CHANGELOG.md
+          CHANGELOG_SECTION=$(awk "/## \[${VERSION}\]/,/## \[/{if(/## \[${VERSION}\]/) next; if(/## \[/ && !/## \[${VERSION}\]/) exit; print}" CHANGELOG.md | sed '/^$/d' | head -20)
+        fi
+
+        # Create comprehensive release notes
+        cat > release-notes.md << EOF
+        Transform your browser's new tab into a productivity powerhouse with intelligent features, beautiful design, and powerful customization options.
+
+        ## 🆕 What's New in v${VERSION}
+
+        $(if [ ! -z "$CHANGELOG_SECTION" ]; then
+          echo "$CHANGELOG_SECTION"
+        else
+          echo "This release includes improvements, bug fixes, and optimizations to enhance your browsing experience."
+          echo ""
+          echo "For detailed changes, see the [full changelog](https://github.com/hellomosaddiq/nexus-new-tab/blob/main/CHANGELOG.md)."
+        fi)
+
+        ## ✨ Core Features
+
+        ### 🧠 AI-Powered Intelligence
+        - **Smart Tab Prediction** - Machine learning algorithms that learn your browsing patterns
+        - **Contextual Insights** - 12 intelligent date features including week progress and moon phases
+        - **Adaptive Learning** - System improves predictions based on your usage patterns
+
+        ### ⚡ Productivity Tools
+        - **Quick Shortcuts (K)** - AI-powered command palette for instant navigation
+        - **Focus Timer** - Built-in Pomodoro timer with visual progress indicators
+        - **Smart Todo List** - Persistent task management with keyboard shortcuts
+        - **Daily Quotes** - 200+ curated motivational quotes with intelligent selection
+
+        ### 🎨 Beautiful Customization
+        - **9 Accent Colors** - Purple, Blue, Green, Orange, Red, Pink, Teal, Indigo, Yellow
+        - **5 Typography Themes** - From Classic Professional to Modern Tech aesthetics
+        - **Accessibility First** - WCAG 2.1 AA compliant with full keyboard navigation
+
+        ## 📦 Installation
+
+        ### Quick Install (Recommended)
+        1. **Download** \`NEXUS-New-Tab-v${VERSION}.zip\` from the assets below
+        2. **Extract** the ZIP file to a folder on your computer
+        3. **Open Chrome** and navigate to \`chrome://extensions/\`
+        4. **Enable** "Developer mode" (toggle in top-right corner)
+        5. **Click** "Load unpacked" and select the extracted NEXUS folder
+        6. **Open** a new tab to see NEXUS in action! 🎉
+
+        ### First-Time Setup
+        - Press **K** to open Quick Shortcuts and explore AI predictions
+        - Click the **⚙️ Settings** icon to customize themes and features
+        - Visit our **[Quick Start Guide](https://hellomosaddiq.github.io/nexus-new-tab/getting-started/quick-start.html)** for tips
+
+        ## 🔧 System Requirements
+
+        | Requirement | Specification |
+        |-------------|---------------|
+        | **Browser** | Chrome 88+ or Edge 88+ (Chromium-based) |
+        | **Storage** | 50MB free disk space |
+        | **Memory** | <50MB typical usage (optimized for efficiency) |
+        | **Performance** | Loads in <100ms consistently |
+
+        ## 📊 Technical Highlights
+
+        - **23,000+ lines** of hand-crafted vanilla JavaScript
+        - **Zero external dependencies** - pure web standards for maximum performance
+        - **Enterprise-grade caching** - 45MB IndexedDB quota with intelligent cleanup
+        - **Cross-browser compatibility** - Polyfills for maximum compatibility
+        - **Privacy-first design** - All data stored locally, no external servers
+
+        ## 📝 Package Contents
+
+        **Package Size:** $(ls -lh NEXUS-New-Tab-v*.zip | awk '{print $5}')
+
+        This release contains only essential files for end users:
+        - ✅ Extension source code and manifest
+        - ✅ Optimized assets and icons
+        - ✅ Premium fonts and typography
+        - ✅ Core documentation and license
+        - ❌ Development tools and build scripts (excluded)
+        - ❌ Screenshots and marketing assets (excluded)
+
+        ## 🆘 Need Help?
+
+        - 📖 **[Complete Documentation](https://hellomosaddiq.github.io/nexus-new-tab/)** - Installation, features, and customization
+        - 🚀 **[Quick Start Guide](https://hellomosaddiq.github.io/nexus-new-tab/getting-started/quick-start.html)** - Get up and running in minutes
+        - 🐛 **[Report Issues](https://github.com/hellomosaddiq/nexus-new-tab/issues)** - Bug reports and feature requests
+        - 💬 **[Community Discussions](https://github.com/hellomosaddiq/nexus-new-tab/discussions)** - Questions and community support
+        - 📝 **[Developer Blog](https://hellomosaddiq.github.io/nexus-new-tab/blog/)** - Technical deep-dives and development journey
+
+        ## ⚠️ Important Notes
+
+        - **Student Developer**: Response times may be slower during exam periods (6-8 months)
+        - **Long-term Commitment**: This project is maintained long-term with guaranteed support
+        - **Chrome Web Store**: Coming soon once developer fee is available
+        - **Firefox Support**: In development for future releases
+
+        ---
+
+        **⭐ Star this repository if NEXUS enhances your browsing experience!**
+
+        Built with passion by **[Mosaddique](https://github.com/hellomosaddiq)** • Transform your browsing experience with NEXUS
+        EOF
+
+        echo "✅ Comprehensive release notes generated for v${VERSION}"
+
+    - name: Create GitHub Release
+      uses: softprops/action-gh-release@v2
+      with:
+        tag_name: v${{ needs.validate-release.outputs.version }}
+        name: NEXUS v${{ needs.validate-release.outputs.version }}
+        body_path: release-notes.md
+        files: NEXUS-New-Tab-v*.zip
+        draft: false
+        prerelease: false
+        generate_release_notes: true
+
+    - name: Release Summary
+      run: |
+        echo "🎉 Release v${{ needs.validate-release.outputs.version }} created successfully!"
+        echo "📦 Package: NEXUS-New-Tab-v${{ needs.validate-release.outputs.version }}.zip"
+        echo "🔗 Release URL: https://github.com/hellomosaddiq/nexus-new-tab/releases/tag/v${{ needs.validate-release.outputs.version }}"
