@@ -199,7 +199,7 @@ Soon! We're waiting for the developer fee and completing our blog series first.
 - 📖 **Documentation**: [hellomosaddiq.github.io/nexus-new-tab](https://hellomosaddiq.github.io/nexus-new-tab/)
 - 🐛 **Bug Reports**: [GitHub Issues](https://github.com/hellomosaddiq/nexus-new-tab/issues)
 - 💬 **Discussions**: [GitHub Discussions](https://github.com/hellomosaddiq/nexus-new-tab/discussions)
-- 📝 **Blog**: [Developer Journey](https://hellomosaddiq.github.io/nexus-new-tab/blog/) (Coming Soon)
+- 📝 **Blog**: [Developer Journey](https://hellomosaddiq.github.io/nexus-new-tab/blog/) (Starting July 5, 2025)
 
 ### **Response Times**
 As a student developer with upcoming exams, response times may be slower over the next 6-8 months. However, I'm committed to maintaining NEXUS long-term and will address all issues post-exam.
@@ -223,7 +223,7 @@ Comprehensive documentation is available at **[hellomosaddiq.github.io/nexus-new
 - [📅 Smart Date Features](https://hellomosaddiq.github.io/nexus-new-tab/features/smart-date-features.html)
 - [⚙️ Advanced Settings](https://hellomosaddiq.github.io/nexus-new-tab/customization/advanced-settings.html)
 
-### **📝 Developer Blog Series (Coming Soon)**
+### **📝 Developer Blog Series (Starting July 5, 2025)**
 
 Follow the complete development journey through our weekly blog series:
 
@@ -233,7 +233,7 @@ Follow the complete development journey through our weekly blog series:
 - 🤖 AI-Powered Tab Prediction: Building Smart Features That Actually Work
 - 🎨 Why I Chose 9 Accent Colors Over Full Themes (And How I Built Them)
 
-*Blog series will be published weekly on [dev.to](https://dev.to) and archived at [hellomosaddiq.github.io/nexus-new-tab/blog/](https://hellomosaddiq.github.io/nexus-new-tab/blog/)*
+*Blog series will be published weekly starting July 5, 2025 on [dev.to](https://dev.to) and archived at [hellomosaddiq.github.io/nexus-new-tab/blog/](https://hellomosaddiq.github.io/nexus-new-tab/blog/)*
 
 ---
 
@@ -301,7 +301,7 @@ NEXUS stands on the shoulders of giants. Special thanks to:
 
 **⭐ Star this repository if NEXUS enhances your browsing experience!**
 
-[🌐 **Documentation**](https://hellomosaddiq.github.io/nexus-new-tab/) • [📝 **Developer Blog**](https://hellomosaddiq.github.io/nexus-new-tab/blog/) (Coming Soon) • [🐛 **Report Issues**](https://github.com/hellomosaddiq/nexus-new-tab/issues)
+[🌐 **Documentation**](https://hellomosaddiq.github.io/nexus-new-tab/) • [📝 **Developer Blog**](https://hellomosaddiq.github.io/nexus-new-tab/blog/) (July 5, 2025) • [🐛 **Report Issues**](https://github.com/hellomosaddiq/nexus-new-tab/issues)
 
 **Built with passion by [Mosaddique](https://github.com/hellomosaddiq) • Transform your browsing experience with NEXUS**
 

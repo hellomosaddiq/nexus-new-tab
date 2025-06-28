@@ -1,210 +1,321 @@
 {
-  "faq": {
-    "meta": {
-      "title": "NEXUS New Tab - Frequently Asked Questions",
-      "description": "Common questions and answers about NEXUS New Tab Extension",
-      "lastUpdated": "2025-01-24",
-      "totalQuestions": 24
-    },
-    "categories": [
-      {
-        "id": "installation",
-        "title": "Installation & Setup",
-        "icon": "download",
-        "questions": [
-          {
-            "id": "install-chrome",
-            "question": "How do I install NEXUS New Tab Extension?",
-            "answer": "Currently, NEXUS is available for manual installation. Download the latest version from our GitHub releases, extract the ZIP file, open Chrome's extension page (<code>chrome://extensions/</code>), enable Developer mode, and click <code>Load unpacked</code> to select the NEXUS folder. Chrome Web Store release is coming soon.",
-            "tags": ["installation", "chrome", "setup"]
-          },
-          {
-            "id": "not-working-after-install",
-            "question": "NEXUS isn't working after installation. What should I do?",
-            "answer": "First, ensure you've enabled the extension in <code>chrome://extensions/</code>. If it's enabled but not working, try refreshing your browser or opening a new tab. Check that no other new tab extensions are conflicting. If issues persist, disable other extensions temporarily to identify conflicts.",
-            "tags": ["troubleshooting", "installation", "conflicts"]
-          },
-          {
-            "id": "browser-compatibility",
-            "question": "Which browsers support NEXUS?",
-            "answer": "NEXUS currently supports Chrome and Edge (Chromium-based browsers). Firefox support is planned for future releases. The extension uses Manifest V3 and modern web APIs for optimal performance and security.",
-            "tags": ["compatibility", "browsers", "chrome", "edge"]
-          },
-          {
-            "id": "update-extension",
-            "question": "How do I update NEXUS to the latest version?",
-            "answer": "For manual installations, download the latest version from GitHub releases and replace your existing installation. Once available on Chrome Web Store, updates will be automatic. Check our GitHub repository for release notifications and changelog information.",
-            "tags": ["updates", "installation", "github"]
-          }
+    "faq": {
+        "meta": {
+            "title": "NEXUS New Tab - Frequently Asked Questions",
+            "description": "Common questions and answers about NEXUS New Tab Extension",
+            "lastUpdated": "2025-06-28",
+            "totalQuestions": 24
+        },
+        "categories": [
+            {
+                "id": "installation",
+                "title": "Installation & Setup",
+                "icon": "download",
+                "questions": [
+                    {
+                        "id": "install-chrome",
+                        "question": "How do I install NEXUS New Tab Extension?",
+                        "answer": "Currently, NEXUS is available for manual installation. Download the latest version from our GitHub releases, extract the ZIP file, open Chrome's extension page (<code>chrome://extensions/</code>), enable Developer mode, and click <code>Load unpacked</code> to select the NEXUS folder. Chrome Web Store release is coming soon.",
+                        "tags": [
+                            "installation",
+                            "chrome",
+                            "setup"
+                        ]
+                    },
+                    {
+                        "id": "not-working-after-install",
+                        "question": "NEXUS isn't working after installation. What should I do?",
+                        "answer": "First, ensure you've enabled the extension in <code>chrome://extensions/</code>. If it's enabled but not working, try refreshing your browser or opening a new tab. Check that no other new tab extensions are conflicting. If issues persist, disable other extensions temporarily to identify conflicts.",
+                        "tags": [
+                            "troubleshooting",
+                            "installation",
+                            "conflicts"
+                        ]
+                    },
+                    {
+                        "id": "browser-compatibility",
+                        "question": "Which browsers support NEXUS?",
+                        "answer": "NEXUS currently supports Chrome and Edge (Chromium-based browsers). Firefox support is planned for future releases. The extension uses Manifest V3 and modern web APIs for optimal performance and security.",
+                        "tags": [
+                            "compatibility",
+                            "browsers",
+                            "chrome",
+                            "edge"
+                        ]
+                    },
+                    {
+                        "id": "update-extension",
+                        "question": "How do I update NEXUS to the latest version?",
+                        "answer": "For manual installations, download the latest version from GitHub releases and replace your existing installation. Once available on Chrome Web Store, updates will be automatic. Check our GitHub repository for release notifications and changelog information.",
+                        "tags": [
+                            "updates",
+                            "installation",
+                            "github"
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": "privacy-security",
+                "title": "Privacy & Security",
+                "icon": "shield",
+                "questions": [
+                    {
+                        "id": "data-collection",
+                        "question": "What data does NEXUS collect?",
+                        "answer": "NEXUS prioritizes your privacy. All data is stored locally on your device using Chrome's storage API. We collect no personal information, send no data to external servers, and don't track your browsing habits. Your bookmarks, settings, and usage patterns stay completely private.",
+                        "tags": [
+                            "privacy",
+                            "data",
+                            "security",
+                            "local-storage"
+                        ]
+                    },
+                    {
+                        "id": "permissions-needed",
+                        "question": "Why does NEXUS need certain permissions?",
+                        "answer": "NEXUS requires specific permissions for productivity features: <strong>bookmarks</strong> (read-only access for Quick Shortcuts), <strong>topSites</strong> (frequently visited sites for intelligent suggestions), <strong>sessions</strong> (recently closed tabs recovery), <strong>storage</strong> (save your preferences locally), <strong>history</strong> (7 days only, for enhanced shortcuts when other sources insufficient), <strong>tabs</strong> (new tab creation), and <strong>host_permissions</strong> (favicon fetching only). All permissions are used responsibly with minimal scope and no data transmission.",
+                        "tags": [
+                            "permissions",
+                            "security",
+                            "functionality",
+                            "privacy"
+                        ]
+                    },
+                    {
+                        "id": "external-connections",
+                        "question": "Does NEXUS connect to external services?",
+                        "answer": "NEXUS operates entirely offline with minimal external connections. The only external requests are for loading Google Fonts (if selected) and favicon fetching for bookmarks/sites. No analytics, tracking, or data transmission occurs. All features work without internet connectivity.",
+                        "tags": [
+                            "privacy",
+                            "offline",
+                            "external-services"
+                        ]
+                    },
+                    {
+                        "id": "delete-data",
+                        "question": "How can I delete my NEXUS data?",
+                        "answer": "You have full control over your data. Uninstalling the extension removes all stored data automatically. You can also manually clear specific data through Chrome's extension settings or reset NEXUS to defaults in the advanced settings panel.",
+                        "tags": [
+                            "data-deletion",
+                            "privacy",
+                            "settings"
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": "features",
+                "title": "Features & Functionality",
+                "icon": "star",
+                "questions": [
+                    {
+                        "id": "keyboard-shortcuts",
+                        "question": "What keyboard shortcuts are available?",
+                        "answer": "NEXUS offers efficient keyboard shortcuts: <code>K</code> for Quick Shortcuts, <code>S</code> for Settings, <code>Q</code> for new daily quote, <code>T</code> for Todo List, <code>N</code> for Quick Notes, <code>F</code> to cycle typography themes, <code>G</code> to toggle grid background, <code>A</code> to toggle animations, and <code>R</code> to reset settings. For focus timer control, use <code>Tab</code> to navigate to timer buttons, then <code>Space</code> to activate them.",
+                        "tags": [
+                            "keyboard",
+                            "shortcuts",
+                            "productivity"
+                        ]
+                    },
+                    {
+                        "id": "space-key-behavior",
+                        "question": "Why does pressing Space refresh quotes instead of controlling the focus timer?",
+                        "answer": "The Space key activates whatever button currently has focus. If pressing Space refreshes quotes, it means the quote refresh button has focus. To control the focus timer: 1) Press <code>Tab</code> to navigate to the Start or Pause button, 2) Then press <code>Space</code> to activate it. This is standard web accessibility behavior.",
+                        "tags": [
+                            "keyboard",
+                            "focus-timer",
+                            "troubleshooting"
+                        ]
+                    },
+                    {
+                        "id": "quick-shortcuts-not-filtering",
+                        "question": "Why doesn't Quick Shortcuts filter my bookmarks when I type?",
+                        "answer": "Quick Shortcuts currently doesn't filter bookmarks/tabs in real-time. The search box is designed for web searches - type your query and press <code>Enter</code> for Google search, or click any search engine below. Real-time filtering is planned for future updates.",
+                        "tags": [
+                            "quick-shortcuts",
+                            "search",
+                            "filtering",
+                            "functionality"
+                        ]
+                    },
+                    {
+                        "id": "smart-date-features",
+                        "question": "How do Smart Date Features work?",
+                        "answer": "Smart Date Features provide 12 intelligent time insights like week progress, year progress, days to weekend, moon phases, and seasonal information. Choose up to 3 features that appear below the date. They update automatically and help with time awareness and planning.",
+                        "tags": [
+                            "smart-date",
+                            "features",
+                            "time-tracking"
+                        ]
+                    },
+                    {
+                        "id": "focus-timer-usage",
+                        "question": "How does the Focus Timer work?",
+                        "answer": "The Focus Timer is a 25-minute Pomodoro timer for productivity. Enable it in settings, then use <code>Space</code> to start/pause or click the timer controls. It features visual progress indication, automatic completion notifications, and helps maintain focused work sessions.",
+                        "tags": [
+                            "focus-timer",
+                            "pomodoro",
+                            "productivity"
+                        ]
+                    },
+                    {
+                        "id": "ai-tab-prediction",
+                        "question": "What is AI Tab Prediction and how does it work?",
+                        "answer": "AI Tab Prediction learns your browsing patterns to intelligently suggest which tab type (Bookmarks, Top Sites, Recent) you're most likely to use. It analyzes your usage history locally using machine learning algorithms, with all processing happening on your device for privacy.",
+                        "tags": [
+                            "ai",
+                            "machine-learning",
+                            "tab-prediction",
+                            "privacy"
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": "customization",
+                "title": "Themes & Customization",
+                "icon": "palette",
+                "questions": [
+                    {
+                        "id": "available-themes",
+                        "question": "What themes and colors are available?",
+                        "answer": "NEXUS offers 9 beautiful color themes: Blue (default), Purple, Green, Orange, Red, Pink, Teal, Indigo, and Gray. Each theme includes carefully selected accent colors and maintains excellent readability across all interface elements.",
+                        "tags": [
+                            "themes",
+                            "colors",
+                            "customization"
+                        ]
+                    },
+                    {
+                        "id": "typography-options",
+                        "question": "Can I change the fonts in NEXUS?",
+                        "answer": "Yes! NEXUS includes 5 premium typography themes: Classic Professional (Inter + SF Mono), Modern Tech (Geist + JetBrains Mono), Creative Designer (Satoshi + Cascadia Code), Apple Ecosystem (SF Pro + SF Mono), and Microsoft Modern (Segoe UI + Cascadia Code). All fonts are bundled locally for privacy and performance. Use <code>F</code> to cycle through themes quickly.",
+                        "tags": [
+                            "typography",
+                            "fonts",
+                            "customization"
+                        ]
+                    },
+                    {
+                        "id": "grid-background",
+                        "question": "What is the grid background feature?",
+                        "answer": "The grid background adds a subtle geometric pattern to enhance visual appeal. It's enabled by default and can be toggled using the <code>G</code> key or in settings. The grid is designed to be non-distracting while adding modern visual depth to your new tab experience.",
+                        "tags": [
+                            "background",
+                            "visual",
+                            "customization"
+                        ]
+                    },
+                    {
+                        "id": "reset-settings",
+                        "question": "How do I reset NEXUS to default settings?",
+                        "answer": "Access the Settings panel (press <code>S</code>), scroll to Advanced Settings, and click <code>Reset to Defaults</code>. This restores all settings to their original values including theme, typography, enabled features, and preferences. Your todo items and focus timer data will be preserved.",
+                        "tags": [
+                            "reset",
+                            "defaults",
+                            "settings"
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": "troubleshooting",
+                "title": "Troubleshooting",
+                "icon": "tool",
+                "questions": [
+                    {
+                        "id": "extension-slow",
+                        "question": "NEXUS feels slow or laggy. How can I improve performance?",
+                        "answer": "NEXUS is optimized for performance, but you can improve speed by: disabling smooth animations (press <code>A</code>), reducing enabled Smart Date Features, clearing browser cache, or disabling other extensions temporarily. The extension uses efficient caching and should perform well on most systems.",
+                        "tags": [
+                            "performance",
+                            "speed",
+                            "optimization"
+                        ]
+                    },
+                    {
+                        "id": "settings-not-saving",
+                        "question": "My settings aren't being saved. What's wrong?",
+                        "answer": "NEXUS uses multiple storage methods for reliability. If settings aren't saving, check if Chrome's storage quota is full, try disabling sync temporarily, or clear browser data. The extension automatically falls back to local storage if sync storage fails.",
+                        "tags": [
+                            "settings",
+                            "storage",
+                            "troubleshooting"
+                        ]
+                    },
+                    {
+                        "id": "fonts-not-loading",
+                        "question": "Fonts aren't displaying correctly. How do I fix this?",
+                        "answer": "All NEXUS fonts are bundled locally, so internet connectivity isn't required. If fonts appear incorrect, try refreshing the page, clearing browser cache, or switching to a different typography theme and back. Check if other extensions are interfering with font loading.",
+                        "tags": [
+                            "fonts",
+                            "display",
+                            "troubleshooting"
+                        ]
+                    },
+                    {
+                        "id": "quick-shortcuts-empty",
+                        "question": "Quick Shortcuts shows no bookmarks or recent tabs. Why?",
+                        "answer": "Quick Shortcuts requires browser permissions to access bookmarks, top sites, and browsing history. Ensure NEXUS has all required permissions in <code>chrome://extensions/</code>. If permissions are granted but data is missing, try refreshing the page or restarting your browser.",
+                        "tags": [
+                            "quick-shortcuts",
+                            "permissions",
+                            "data"
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": "advanced",
+                "title": "Advanced Usage",
+                "icon": "settings",
+                "questions": [
+                    {
+                        "id": "storage-usage",
+                        "question": "How much storage does NEXUS use?",
+                        "answer": "NEXUS uses minimal storage: settings use Chrome's sync storage (8KB limit), cache uses IndexedDB (45MB quota with automatic cleanup), and local data uses extension storage. The extension automatically manages storage efficiently and cleans up old data when needed.",
+                        "tags": [
+                            "storage",
+                            "cache",
+                            "performance"
+                        ]
+                    },
+                    {
+                        "id": "export-import-settings",
+                        "question": "Can I export or import my NEXUS settings?",
+                        "answer": "Currently, NEXUS doesn't have built-in export/import functionality. Settings sync automatically across devices when using Chrome sync. For manual backup, you can access settings data through Chrome's developer tools, though this requires technical knowledge.",
+                        "tags": [
+                            "export",
+                            "import",
+                            "backup",
+                            "sync"
+                        ]
+                    },
+                    {
+                        "id": "development-mode",
+                        "question": "Can I modify or contribute to NEXUS development?",
+                        "answer": "Yes! NEXUS is open source on GitHub. You can fork the repository, make modifications, and submit pull requests. The codebase is well-documented with modern JavaScript, comprehensive comments, and modular architecture for easy contribution.",
+                        "tags": [
+                            "development",
+                            "open-source",
+                            "github",
+                            "contribution"
+                        ]
+                    },
+                    {
+                        "id": "chrome-web-store",
+                        "question": "When will NEXUS be available on Chrome Web Store?",
+                        "answer": "NEXUS Chrome Web Store submission is currently in progress. We've completed all compliance requirements, prepared comprehensive store assets, and are ready for review. The extension will be available on Chrome Web Store pending approval. Follow our GitHub repository for updates on the official release.",
+                        "tags": [
+                            "chrome-web-store",
+                            "release",
+                            "timeline"
+                        ]
+                    }
+                ]
+            }
         ]
-      },
-      {
-        "id": "privacy-security",
-        "title": "Privacy & Security",
-        "icon": "shield",
-        "questions": [
-          {
-            "id": "data-collection",
-            "question": "What data does NEXUS collect?",
-            "answer": "NEXUS prioritizes your privacy. All data is stored locally on your device using Chrome's storage API. We collect no personal information, send no data to external servers, and don't track your browsing habits. Your bookmarks, settings, and usage patterns stay completely private.",
-            "tags": ["privacy", "data", "security", "local-storage"]
-          },
-          {
-            "id": "permissions-needed",
-            "question": "Why does NEXUS need certain permissions?",
-            "answer": "NEXUS requires specific permissions for core functionality: 'bookmarks' for Quick Shortcuts access, 'topSites' for frequently visited sites, 'sessions' for recent tabs, 'storage' for settings, 'history' for recent browsing, and 'tabs' for tab management. All permissions are used solely for local functionality.",
-            "tags": ["permissions", "security", "functionality"]
-          },
-          {
-            "id": "external-connections",
-            "question": "Does NEXUS connect to external services?",
-            "answer": "NEXUS operates entirely offline with minimal external connections. The only external requests are for loading Google Fonts (if selected) and favicon fetching for bookmarks/sites. No analytics, tracking, or data transmission occurs. All features work without internet connectivity.",
-            "tags": ["privacy", "offline", "external-services"]
-          },
-          {
-            "id": "delete-data",
-            "question": "How can I delete my NEXUS data?",
-            "answer": "You have full control over your data. Uninstalling the extension removes all stored data automatically. You can also manually clear specific data through Chrome's extension settings or reset NEXUS to defaults in the advanced settings panel.",
-            "tags": ["data-deletion", "privacy", "settings"]
-          }
-        ]
-      },
-      {
-        "id": "features",
-        "title": "Features & Functionality",
-        "icon": "star",
-        "questions": [
-          {
-            "id": "keyboard-shortcuts",
-            "question": "What keyboard shortcuts are available?",
-            "answer": "NEXUS offers efficient keyboard shortcuts: <code>K</code> for Quick Shortcuts, <code>S</code> for Settings, <code>Q</code> for new daily quote, <code>T</code> for Todo List, <code>N</code> for Quick Notes, <code>F</code> to cycle typography themes, <code>G</code> to toggle grid background, <code>A</code> to toggle animations, and <code>R</code> to reset settings. For focus timer control, use <code>Tab</code> to navigate to timer buttons, then <code>Space</code> to activate them.",
-            "tags": ["keyboard", "shortcuts", "productivity"]
-          },
-          {
-            "id": "space-key-behavior",
-            "question": "Why does pressing Space refresh quotes instead of controlling the focus timer?",
-            "answer": "The Space key activates whatever button currently has focus. If pressing Space refreshes quotes, it means the quote refresh button has focus. To control the focus timer: 1) Press <code>Tab</code> to navigate to the Start or Pause button, 2) Then press <code>Space</code> to activate it. This is standard web accessibility behavior.",
-            "tags": ["keyboard", "focus-timer", "troubleshooting"]
-          },
-          {
-            "id": "quick-shortcuts-not-filtering",
-            "question": "Why doesn't Quick Shortcuts filter my bookmarks when I type?",
-            "answer": "Quick Shortcuts currently doesn't filter bookmarks/tabs in real-time. The search box is designed for web searches - type your query and press <code>Enter</code> for Google search, or click any search engine below. Real-time filtering is planned for future updates.",
-            "tags": ["quick-shortcuts", "search", "filtering", "functionality"]
-          },
-          {
-            "id": "smart-date-features",
-            "question": "How do Smart Date Features work?",
-            "answer": "Smart Date Features provide 12 intelligent time insights like week progress, year progress, days to weekend, moon phases, and seasonal information. Choose up to 3 features that appear below the date. They update automatically and help with time awareness and planning.",
-            "tags": ["smart-date", "features", "time-tracking"]
-          },
-          {
-            "id": "focus-timer-usage",
-            "question": "How does the Focus Timer work?",
-            "answer": "The Focus Timer is a 25-minute Pomodoro timer for productivity. Enable it in settings, then use <code>Space</code> to start/pause or click the timer controls. It features visual progress indication, automatic completion notifications, and helps maintain focused work sessions.",
-            "tags": ["focus-timer", "pomodoro", "productivity"]
-          },
-          {
-            "id": "ai-tab-prediction",
-            "question": "What is AI Tab Prediction and how does it work?",
-            "answer": "AI Tab Prediction learns your browsing patterns to intelligently suggest which tab type (Bookmarks, Top Sites, Recent) you're most likely to use. It analyzes your usage history locally using machine learning algorithms, with all processing happening on your device for privacy.",
-            "tags": ["ai", "machine-learning", "tab-prediction", "privacy"]
-          }
-        ]
-      },
-      {
-        "id": "customization",
-        "title": "Themes & Customization",
-        "icon": "palette",
-        "questions": [
-          {
-            "id": "available-themes",
-            "question": "What themes and colors are available?",
-            "answer": "NEXUS offers 9 beautiful color themes: Blue (default), Purple, Green, Orange, Red, Pink, Teal, Indigo, and Gray. Each theme includes carefully selected accent colors and maintains excellent readability across all interface elements.",
-            "tags": ["themes", "colors", "customization"]
-          },
-          {
-            "id": "typography-options",
-            "question": "Can I change the fonts in NEXUS?",
-            "answer": "Yes! NEXUS includes 5 premium typography themes: Classic Professional (Inter + SF Mono), Modern Tech (Geist + JetBrains Mono), Creative Designer (Satoshi + Cascadia Code), Apple Ecosystem (SF Pro + SF Mono), and Microsoft Modern (Segoe UI + Cascadia Code). All fonts are bundled locally for privacy and performance. Use <code>F</code> to cycle through themes quickly.",
-            "tags": ["typography", "fonts", "customization"]
-          },
-          {
-            "id": "grid-background",
-            "question": "What is the grid background feature?",
-            "answer": "The grid background adds a subtle geometric pattern to enhance visual appeal. It's enabled by default and can be toggled using the <code>G</code> key or in settings. The grid is designed to be non-distracting while adding modern visual depth to your new tab experience.",
-            "tags": ["background", "visual", "customization"]
-          },
-          {
-            "id": "reset-settings",
-            "question": "How do I reset NEXUS to default settings?",
-            "answer": "Access the Settings panel (press <code>S</code>), scroll to Advanced Settings, and click <code>Reset to Defaults</code>. This restores all settings to their original values including theme, typography, enabled features, and preferences. Your todo items and focus timer data will be preserved.",
-            "tags": ["reset", "defaults", "settings"]
-          }
-        ]
-      },
-      {
-        "id": "troubleshooting",
-        "title": "Troubleshooting",
-        "icon": "tool",
-        "questions": [
-          {
-            "id": "extension-slow",
-            "question": "NEXUS feels slow or laggy. How can I improve performance?",
-            "answer": "NEXUS is optimized for performance, but you can improve speed by: disabling smooth animations (press <code>A</code>), reducing enabled Smart Date Features, clearing browser cache, or disabling other extensions temporarily. The extension uses efficient caching and should perform well on most systems.",
-            "tags": ["performance", "speed", "optimization"]
-          },
-          {
-            "id": "settings-not-saving",
-            "question": "My settings aren't being saved. What's wrong?",
-            "answer": "NEXUS uses multiple storage methods for reliability. If settings aren't saving, check if Chrome's storage quota is full, try disabling sync temporarily, or clear browser data. The extension automatically falls back to local storage if sync storage fails.",
-            "tags": ["settings", "storage", "troubleshooting"]
-          },
-          {
-            "id": "fonts-not-loading",
-            "question": "Fonts aren't displaying correctly. How do I fix this?",
-            "answer": "All NEXUS fonts are bundled locally, so internet connectivity isn't required. If fonts appear incorrect, try refreshing the page, clearing browser cache, or switching to a different typography theme and back. Check if other extensions are interfering with font loading.",
-            "tags": ["fonts", "display", "troubleshooting"]
-          },
-          {
-            "id": "quick-shortcuts-empty",
-            "question": "Quick Shortcuts shows no bookmarks or recent tabs. Why?",
-            "answer": "Quick Shortcuts requires browser permissions to access bookmarks, top sites, and browsing history. Ensure NEXUS has all required permissions in <code>chrome://extensions/</code>. If permissions are granted but data is missing, try refreshing the page or restarting your browser.",
-            "tags": ["quick-shortcuts", "permissions", "data"]
-          }
-        ]
-      },
-      {
-        "id": "advanced",
-        "title": "Advanced Usage",
-        "icon": "settings",
-        "questions": [
-          {
-            "id": "storage-usage",
-            "question": "How much storage does NEXUS use?",
-            "answer": "NEXUS uses minimal storage: settings use Chrome's sync storage (8KB limit), cache uses IndexedDB (45MB quota with automatic cleanup), and local data uses extension storage. The extension automatically manages storage efficiently and cleans up old data when needed.",
-            "tags": ["storage", "cache", "performance"]
-          },
-          {
-            "id": "export-import-settings",
-            "question": "Can I export or import my NEXUS settings?",
-            "answer": "Currently, NEXUS doesn't have built-in export/import functionality. Settings sync automatically across devices when using Chrome sync. For manual backup, you can access settings data through Chrome's developer tools, though this requires technical knowledge.",
-            "tags": ["export", "import", "backup", "sync"]
-          },
-          {
-            "id": "development-mode",
-            "question": "Can I modify or contribute to NEXUS development?",
-            "answer": "Yes! NEXUS is open source on GitHub. You can fork the repository, make modifications, and submit pull requests. The codebase is well-documented with modern JavaScript, comprehensive comments, and modular architecture for easy contribution.",
-            "tags": ["development", "open-source", "github", "contribution"]
-          },
-          {
-            "id": "chrome-web-store",
-            "question": "When will NEXUS be available on Chrome Web Store?",
-            "answer": "NEXUS Chrome Web Store release is planned for early 2025. We're currently finalizing compliance requirements, conducting thorough testing, and preparing store assets. Follow our GitHub repository for updates on the official release timeline.",
-            "tags": ["chrome-web-store", "release", "timeline"]
-          }
-        ]
-      }
-    ]
-  }
+    }
 }

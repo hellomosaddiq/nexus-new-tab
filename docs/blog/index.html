@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Building NEXUS — Developer Blog</title>
+    <meta name="description"
+          content="Follow the complete journey of building NEXUS New Tab Extension - 23,000+ lines of vanilla JavaScript, AI predictions, and real developer challenges. Technical deep-dives and lessons learned.">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../assets/icons/favicon.png">
+
+    <!-- Local Premium Fonts -->
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="src/css/main.css">
+</head>
+<body>
+<!-- Minimal Preloader -->
+<div class="preloader" id="preloader">
+    <div class="preloader-content">
+        <div class="preloader-counter" id="preloaderCounter">0%</div>
+    </div>
+</div>
+
+<!-- Hero Section -->
+<section class="hero">
+    <div class="hero-content">
+        <h1 class="hero-title">Building NEXUS</h1>
+        <p class="hero-subtitle">A Developer's Journey</p>
+        <p class="hero-description">Follow my journey building a 23,000+ line Chrome extension from scratch. Real challenges, technical deep-dives, and lessons learned along the way.</p>
+
+        <!-- Hero Image -->
+        <div class="hero-image">
+            <img src="../assets/screenshots/nexus-main-interface-2025.png"
+                 alt="NEXUS New Tab Extension - Main Interface with Smart Features"
+                 class="hero-screenshot">
+        </div>
+    </div>
+</section>
+
+<!-- Floating Navigation -->
+<nav class="floating-nav" id="floatingNav">
+    <div class="floating-nav-content">
+        <button class="nav-item active" data-filter="all">
+            <span class="nav-text">All</span>
+            <span class="nav-count">11</span>
+        </button>
+        <button class="nav-item" data-filter="development">
+            <span class="nav-text">Development</span>
+            <span class="nav-count">4</span>
+        </button>
+        <button class="nav-item" data-filter="technical">
+            <span class="nav-text">Technical</span>
+            <span class="nav-count">4</span>
+        </button>
+        <button class="nav-item" data-filter="design">
+            <span class="nav-text">Design</span>
+            <span class="nav-count">3</span>
+        </button>
+    </div>
+</nav>
+
+<!-- Posts Section -->
+<main class="posts-section" id="posts">
+    <div class="posts-container">
+        <div class="posts-grid" id="postsGrid">
+            <!-- Posts will be loaded here -->
+        </div>
+    </div>
+</main>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="footer-content">
+        <div class="footer-main">
+            <p class="footer-tagline">Built with passion by Mosaddique</p>
+            <div class="footer-links">
+                <a href="https://github.com/hellomosaddiq/nexus-new-tab" target="_blank" rel="noopener noreferrer"
+                   class="footer-link">NEXUS Extension</a>
+                <a href="../index.html" class="footer-link">Documentation</a>
+                <a href="https://mosaddique.vercel.app" target="_blank" rel="noopener noreferrer" class="footer-link">Portfolio</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copyright">© 2025 Mosaddique. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<!-- JavaScript -->
+<script src="src/js/main.js"></script>
+</body>
+</html>
