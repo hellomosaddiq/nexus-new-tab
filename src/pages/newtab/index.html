@@ -1,38 +1,15 @@
 <!--
-===== NEXUS NEW TAB =====
+NEXUS New Tab
+Main interface for the productivity extension
 
-Advanced HTML5 document structure with comprehensive accessibility compliance,
-performance optimizations, and semantic markup for optimal user experience
-across all devices and assistive technologies.
-
-DOCUMENT ARCHITECTURE:
-- Semantic HTML5 with proper landmark roles and ARIA attributes
-- Performance-optimized resource loading with critical path optimization
-- Accessibility-first design with comprehensive screen reader support
-- Cross-browser compatibility with modern web standards
-- Progressive enhancement with graceful degradation
-
-PERFORMANCE FEATURES:
-- Critical font preloading to prevent FOUT (Flash of Unstyled Text)
-- Pre-CSS theme initialization to prevent FOUC (Flash of Unstyled Content)
-- Optimized resource loading order for fastest perceived performance
-- Efficient DOM structure for minimal layout thrashing
-
-ACCESSIBILITY COMPLIANCE:
-- WCAG 2.1 AA compliance with comprehensive ARIA attributes
-- Semantic HTML5 landmarks for screen reader navigation
-- Proper heading hierarchy and content structure
-- Keyboard navigation support throughout all interactive elements
-- High contrast support and color scheme preferences
-
-AUTHOR: mosaddiq
-VERSION: 1.0.0
-STANDARDS: HTML5, WCAG 2.1 AA, Performance Best Practices
+@author mosaddiq
+@version 1.0.0
 -->
 
 <!doctype html>
 <html lang="en">
-  <head>
+
+<head>
     <!-- ===== DOCUMENT METADATA ===== -->
     <!-- Essential document encoding and viewport configuration -->
     <meta charset="UTF-8" />
@@ -57,12 +34,12 @@ STANDARDS: HTML5, WCAG 2.1 AA, Performance Best Practices
     <!-- ===== MAIN STYLESHEET ===== -->
     <!-- Load main CSS after theme initialization for optimal visual consistency -->
     <link rel="stylesheet" href="styles.css" />
-  </head>
+</head>
 
-  <!-- ===== DOCUMENT BODY ===== -->
-  <!-- Main document body with semantic structure and accessibility landmarks -->
+<!-- ===== DOCUMENT BODY ===== -->
+<!-- Main document body with semantic structure and accessibility landmarks -->
 
-  <body>
+<body>
     <!-- ===== DECORATIVE BACKGROUND SYSTEM ===== -->
     <!-- Aceternity-inspired static grid background for visual appeal -->
     <!-- Hidden from screen readers as it's purely decorative -->
@@ -71,923 +48,792 @@ STANDARDS: HTML5, WCAG 2.1 AA, Performance Best Practices
     <!-- ===== MAIN APPLICATION CONTAINER ===== -->
     <!-- Primary content area with semantic main landmark for screen readers -->
     <main class="clock-container" role="main">
-      <!-- ===== DIGITAL CLOCK SECTION ===== -->
-      <!-- Central time and date display with live updates and accessibility support -->
-      <section class="digital-clock" aria-label="Current time and date">
-        <!-- Real-time clock display with polite live region for screen readers -->
-        <div class="time-display" id="time" aria-live="polite" aria-label="Current time"></div>
+        <!-- ===== DIGITAL CLOCK SECTION ===== -->
+        <!-- Central time and date display with live updates and accessibility support -->
+        <section class="digital-clock" aria-label="Current time and date">
+            <!-- Real-time clock display with polite live region for screen readers -->
+            <div class="time-display" id="time" aria-live="polite" aria-label="Current time"></div>
 
-        <!-- Current date display with accessible labeling -->
-        <div class="date-display" id="date" aria-live="polite" aria-label="Current date"></div>
+            <!-- Current date display with accessible labeling -->
+            <div class="date-display" id="date" aria-live="polite" aria-label="Current date"></div>
 
-        <!-- Smart date insights with dynamic content and accessibility -->
-        <div
-          id="smart-date-info"
-          class="smart-date-info"
-          aria-live="polite"
-          aria-label="Additional date information"
-        ></div>
+            <!-- Smart date insights with dynamic content and accessibility -->
+            <div id="smart-date-info" class="smart-date-info" aria-live="polite"
+                aria-label="Additional date information"></div>
 
-        <!-- Daily inspirational quote with accessibility support -->
-        <div id="daily-quote" class="daily-quote" aria-live="polite" aria-label="Daily inspirational quote">
-          <div class="quote-text" id="quote-text"></div>
-          <div class="quote-author" id="quote-author"></div>
-          <button class="quote-refresh" id="quote-refresh" aria-label="Get new quote" title="Get new quote (Q)">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <polyline points="23 4 23 10 17 10"></polyline>
-              <polyline points="1 20 1 14 7 14"></polyline>
-              <path d="m3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
-            </svg>
-          </button>
-        </div>
-      </section>
+            <!-- Daily inspirational quote with accessibility support -->
+            <div id="daily-quote" class="daily-quote" aria-live="polite" aria-label="Daily inspirational quote">
+                <div class="quote-text" id="quote-text"></div>
+                <div class="quote-author" id="quote-author"></div>
+                <button class="quote-refresh" id="quote-refresh" aria-label="Get new quote" title="Get new quote (Q)">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="23 4 23 10 17 10"></polyline>
+                        <polyline points="1 20 1 14 7 14"></polyline>
+                        <path d="m3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
+                    </svg>
+                </button>
+            </div>
+        </section>
 
-      <!-- ===== FOCUS TIMER SECTION ===== -->
-      <!-- Pomodoro-style focus timer with SVG progress visualization and accessibility -->
-      <section id="focus-timer-container" class="focus-timer-container" aria-label="Focus timer">
-        <!-- ===== TIMER VISUAL DISPLAY ===== -->
-        <!-- Circular progress ring with SVG animation and visual effects -->
-        <div class="focus-timer-ring">
-          <!-- SVG progress circle with multiple visual layers -->
-          <svg class="focus-timer-svg" viewBox="0 0 160 160" aria-hidden="true">
-            <!-- Background circle for visual reference -->
-            <circle
-              class="focus-timer-bg"
-              cx="80"
-              cy="80"
-              r="70"
-              fill="none"
-              stroke="rgba(255, 255, 255, 0.08)"
-              stroke-width="3"
-            />
+        <!-- ===== FOCUS TIMER SECTION ===== -->
+        <!-- Pomodoro-style focus timer with SVG progress visualization and accessibility -->
+        <section id="focus-timer-container" class="focus-timer-container" aria-label="Focus timer">
+            <!-- ===== TIMER VISUAL DISPLAY ===== -->
+            <!-- Circular progress ring with SVG animation and visual effects -->
+            <div class="focus-timer-ring">
+                <!-- SVG progress circle with multiple visual layers -->
+                <svg class="focus-timer-svg" viewBox="0 0 160 160" aria-hidden="true">
+                    <!-- Background circle for visual reference -->
+                    <circle class="focus-timer-bg" cx="80" cy="80" r="70" fill="none" stroke="rgba(255, 255, 255, 0.08)"
+                        stroke-width="3" />
 
-            <!-- Animated progress circle with theme-aware accent color -->
-            <circle
-              class="focus-timer-progress"
-              cx="80"
-              cy="80"
-              r="70"
-              fill="none"
-              stroke="var(--accent)"
-              stroke-width="3"
-              stroke-linecap="round"
-              stroke-dasharray="439.82"
-              stroke-dashoffset="439.82"
-              transform="rotate(-90 80 80)"
-            />
+                    <!-- Animated progress circle with theme-aware accent color -->
+                    <circle class="focus-timer-progress" cx="80" cy="80" r="70" fill="none" stroke="var(--accent)"
+                        stroke-width="3" stroke-linecap="round" stroke-dasharray="439.82" stroke-dashoffset="439.82"
+                        transform="rotate(-90 80 80)" />
 
-            <!-- Glow effect for enhanced visual appeal -->
-            <circle
-              class="focus-timer-glow"
-              cx="80"
-              cy="80"
-              r="70"
-              fill="none"
-              stroke="var(--accent)"
-              stroke-width="6"
-              stroke-linecap="round"
-              stroke-dasharray="439.82"
-              stroke-dashoffset="439.82"
-              transform="rotate(-90 80 80)"
-              opacity="0.3"
-              filter="blur(2px)"
-            />
-          </svg>
+                    <!-- Glow effect for enhanced visual appeal -->
+                    <circle class="focus-timer-glow" cx="80" cy="80" r="70" fill="none" stroke="var(--accent)"
+                        stroke-width="6" stroke-linecap="round" stroke-dasharray="439.82" stroke-dashoffset="439.82"
+                        transform="rotate(-90 80 80)" opacity="0.3" filter="blur(2px)" />
+                </svg>
 
-          <!-- ===== TIMER CONTENT OVERLAY ===== -->
-          <!-- Central timer display with accessible live updates -->
-          <div class="focus-timer-content">
-            <!-- Timer countdown display with screen reader support -->
-            <div class="focus-timer-time" aria-live="polite" aria-label="Timer display">25:00</div>
-            <!-- Timer mode label for context -->
-            <div class="focus-timer-label">Focus</div>
-          </div>
-        </div>
-        <!-- ===== TIMER CONTROL BUTTONS ===== -->
-        <!-- Accessible button group for timer control with keyboard navigation -->
-        <div class="focus-timer-controls" role="group" aria-label="Focus timer controls">
-          <!-- Start button with play icon and accessible labeling -->
-          <button id="focus-timer-start" class="focus-timer-btn" aria-label="Start focus timer">
-            <svg
-              class="focus-timer-icon"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              aria-hidden="true"
-            >
-              <polygon points="6,3 20,12 6,21"></polygon>
-            </svg>
-            Start
-          </button>
+                <!-- ===== TIMER CONTENT OVERLAY ===== -->
+                <!-- Central timer display with accessible live updates -->
+                <div class="focus-timer-content">
+                    <!-- Timer countdown display with screen reader support -->
+                    <div class="focus-timer-time" aria-live="polite" aria-label="Timer display">25:00</div>
+                    <!-- Timer mode label for context -->
+                    <div class="focus-timer-label">Focus</div>
+                </div>
+            </div>
+            <!-- ===== TIMER CONTROL BUTTONS ===== -->
+            <!-- Accessible button group for timer control with keyboard navigation -->
+            <div class="focus-timer-controls" role="group" aria-label="Focus timer controls">
+                <!-- Start button with play icon and accessible labeling -->
+                <button id="focus-timer-start" class="focus-timer-btn" aria-label="Start focus timer">
+                    <svg class="focus-timer-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        aria-hidden="true">
+                        <polygon points="6,3 20,12 6,21"></polygon>
+                    </svg>
+                    Start
+                </button>
 
-          <!-- Pause button with pause icon and accessible labeling -->
-          <button id="focus-timer-pause" class="focus-timer-btn" aria-label="Pause focus timer">
-            <svg
-              class="focus-timer-icon"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              aria-hidden="true"
-            >
-              <rect x="14" y="4" width="4" height="16" rx="1"></rect>
-              <rect x="6" y="4" width="4" height="16" rx="1"></rect>
-            </svg>
-            Pause
-          </button>
+                <!-- Pause button with pause icon and accessible labeling -->
+                <button id="focus-timer-pause" class="focus-timer-btn" aria-label="Pause focus timer">
+                    <svg class="focus-timer-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        aria-hidden="true">
+                        <rect x="14" y="4" width="4" height="16" rx="1"></rect>
+                        <rect x="6" y="4" width="4" height="16" rx="1"></rect>
+                    </svg>
+                    Pause
+                </button>
 
-          <!-- Reset button with refresh icon and accessible labeling -->
-          <button id="focus-timer-reset" class="focus-timer-btn" aria-label="Reset focus timer">
-            <svg
-              class="focus-timer-icon"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              aria-hidden="true"
-            >
-              <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"></path>
-              <path d="M21 3v5h-5"></path>
-              <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"></path>
-              <path d="M3 21v-5h5"></path>
-            </svg>
-            Reset
-          </button>
-        </div>
-      </section>
+                <!-- Reset button with refresh icon and accessible labeling -->
+                <button id="focus-timer-reset" class="focus-timer-btn" aria-label="Reset focus timer">
+                    <svg class="focus-timer-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        aria-hidden="true">
+                        <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"></path>
+                        <path d="M21 3v5h-5"></path>
+                        <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"></path>
+                        <path d="M3 21v-5h5"></path>
+                    </svg>
+                    Reset
+                </button>
+            </div>
+        </section>
     </main>
 
     <!-- ===== SETTINGS ACCESS BUTTON ===== -->
     <!-- Floating settings button with keyboard shortcut support and accessibility -->
     <button class="settings-btn" id="settings-btn" aria-label="Open settings" title="Settings (S)">
-      <svg
-        width="20"
-        height="20"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        aria-hidden="true"
-      >
-        <circle cx="12" cy="12" r="3" />
-        <path d="M12 1v6m0 6v6m11-7h-6m-6 0H1" />
-      </svg>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            aria-hidden="true">
+            <circle cx="12" cy="12" r="3" />
+            <path d="M12 1v6m0 6v6m11-7h-6m-6 0H1" />
+        </svg>
     </button>
 
     <!-- ===== COMPREHENSIVE SETTINGS PANEL ===== -->
     <!-- Modal dialog panel with tabbed interface and full accessibility support -->
-    <div
-      class="settings-panel"
-      id="settings-panel"
-      role="dialog"
-      aria-labelledby="settings-title"
-      aria-hidden="true"
-      inert
-    >
-      <!-- Modal backdrop for focus trapping and visual separation -->
-      <div class="panel-backdrop" aria-hidden="true"></div>
+    <div class="settings-panel" id="settings-panel" role="dialog" aria-labelledby="settings-title" aria-hidden="true"
+        inert>
+        <!-- Modal backdrop for focus trapping and visual separation -->
+        <div class="panel-backdrop" aria-hidden="true"></div>
 
-      <!-- Main panel container with document role for screen readers -->
-      <div class="panel-container" role="document">
-        <!-- ===== SETTINGS PANEL HEADER ===== -->
-        <!-- Panel header with title, subtitle, and close button -->
-        <header class="panel-header">
-          <!-- Title section with semantic heading hierarchy -->
-          <div class="panel-title-section">
-            <!-- Main panel title with proper heading level -->
-            <h2 class="panel-title" id="settings-title">Settings</h2>
-            <!-- Descriptive subtitle -->
-            <p class="panel-subtitle">Customize your NEXUS New Tab experience</p>
-          </div>
+        <!-- Main panel container with document role for screen readers -->
+        <div class="panel-container" role="document">
+            <!-- ===== SETTINGS PANEL HEADER ===== -->
+            <!-- Panel header with title, subtitle, and close button -->
+            <header class="panel-header">
+                <!-- Title section with semantic heading hierarchy -->
+                <div class="panel-title-section">
+                    <!-- Main panel title with proper heading level -->
+                    <h2 class="panel-title" id="settings-title">Settings</h2>
+                    <!-- Descriptive subtitle -->
+                    <p class="panel-subtitle">Customize your NEXUS New Tab experience</p>
+                </div>
 
-          <!-- Accessible close button with clear labeling -->
-          <button class="panel-close" id="panel-close" aria-label="Close settings panel">
-            <svg
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              aria-hidden="true"
-            >
-              <line x1="18" y1="6" x2="6" y2="18" />
-              <line x1="6" y1="6" x2="18" y2="18" />
-            </svg>
-          </button>
-        </header>
+                <!-- Accessible close button with clear labeling -->
+                <button class="panel-close" id="panel-close" aria-label="Close settings panel">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        aria-hidden="true">
+                        <line x1="18" y1="6" x2="6" y2="18" />
+                        <line x1="6" y1="6" x2="18" y2="18" />
+                    </svg>
+                </button>
+            </header>
 
-        <!-- ===== SETTINGS PANEL CONTENT ===== -->
-        <!-- Main content area with tabbed interface and scrollable content -->
-        <div class="panel-content">
-          <!-- ===== TABBED NAVIGATION SYSTEM ===== -->
-          <!-- Accessible tab navigation with ARIA support and visual indicators -->
-          <div class="settings-tabs" role="tablist" aria-label="Settings categories">
-            <!-- Visual tab indicator for active tab highlighting -->
-            <div class="settings-tab-indicator" aria-hidden="true"></div>
+            <!-- ===== SETTINGS PANEL CONTENT ===== -->
+            <!-- Main content area with tabbed interface and scrollable content -->
+            <div class="panel-content">
+                <!-- ===== TABBED NAVIGATION SYSTEM ===== -->
+                <!-- Accessible tab navigation with ARIA support and visual indicators -->
+                <div class="settings-tabs" role="tablist" aria-label="Settings categories">
+                    <!-- Visual tab indicator for active tab highlighting -->
+                    <div class="settings-tab-indicator" aria-hidden="true"></div>
 
-            <!-- ===== DISPLAY TAB ===== -->
-            <!-- Time and display configuration options -->
-            <button
-              class="settings-tab active"
-              data-tab="display"
-              role="tab"
-              aria-selected="true"
-              aria-controls="settings-tab-content"
-            >
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
-                <line x1="8" y1="21" x2="16" y2="21"></line>
-                <line x1="12" y1="17" x2="12" y2="21"></line>
-              </svg>
-              <span>Display</span>
-            </button>
-
-            <!-- ===== APPEARANCE TAB ===== -->
-            <!-- Visual styling and theme configuration -->
-            <button
-              class="settings-tab"
-              data-tab="appearance"
-              role="tab"
-              aria-selected="false"
-              aria-controls="settings-tab-content"
-            >
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <circle cx="12" cy="12" r="5"></circle>
-                <path
-                  d="M12 1v2m0 18v2M4.22 4.22l1.42 1.42m12.72 12.72l1.42 1.42M1 12h2m18 0h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"
-                ></path>
-              </svg>
-              <span>Appearance</span>
-            </button>
-
-            <!-- ===== FEATURES TAB ===== -->
-            <!-- Productivity features and functionality toggles -->
-            <button
-              class="settings-tab"
-              data-tab="features"
-              role="tab"
-              aria-selected="false"
-              aria-controls="settings-tab-content"
-            >
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path
-                  d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
-                ></path>
-              </svg>
-              <span>Features</span>
-            </button>
-
-            <!-- ===== SYSTEM TAB ===== -->
-            <!-- System settings, data management, and help -->
-            <button
-              class="settings-tab"
-              data-tab="system"
-              role="tab"
-              aria-selected="false"
-              aria-controls="settings-tab-content"
-            >
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <circle cx="12" cy="12" r="3"></circle>
-                <path
-                  d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1 1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"
-                ></path>
-              </svg>
-              <span>System</span>
-            </button>
-          </div>
-
-          <!-- ===== TAB CONTENT CONTAINER ===== -->
-          <!-- Main content area with tabpanel role for accessibility -->
-          <div class="settings-tab-content" id="settings-tab-content" role="tabpanel">
-            <!-- Scrollable content area for overflow handling -->
-            <div class="panel-scroll-area">
-              <!-- ===== DISPLAY TAB CONTENT ===== -->
-              <!-- Time and display configuration panel -->
-              <div class="tab-panel active" data-panel="display">
-                <!-- ===== TIME & DISPLAY SECTION ===== -->
-                <!-- Core time and date display configuration -->
-                <section class="settings-section">
-                  <div class="section-header">
-                    <h3 class="section-title">Time & Display</h3>
-                    <p class="section-description">Configure how time and date are displayed</p>
-                  </div>
-                  <div class="section-content">
-                    <!-- ===== 24-HOUR FORMAT TOGGLE ===== -->
-                    <!-- Time format preference with accessible toggle -->
-                    <div class="setting-item">
-                      <div class="setting-info">
-                        <label class="setting-label" for="time-format">24-Hour Format</label>
-                        <p class="setting-description">Use 24-hour time format instead of 12-hour</p>
-                      </div>
-                      <div class="setting-control">
-                        <input
-                          type="checkbox"
-                          id="time-format"
-                          class="setting-toggle"
-                          aria-describedby="time-format-desc"
-                        />
-                        <label for="time-format" class="toggle-slider" aria-hidden="true"></label>
-                      </div>
-                    </div>
-
-                    <!-- ===== SECONDS DISPLAY TOGGLE ===== -->
-                    <!-- Seconds visibility control with accessible toggle -->
-                    <div class="setting-item">
-                      <div class="setting-info">
-                        <label class="setting-label" for="show-seconds">Show Seconds</label>
-                        <p class="setting-description">Display seconds in the time display</p>
-                      </div>
-                      <div class="setting-control">
-                        <input
-                          type="checkbox"
-                          id="show-seconds"
-                          class="setting-toggle"
-                          aria-describedby="show-seconds-desc"
-                        />
-                        <label for="show-seconds" class="toggle-slider" aria-hidden="true"></label>
-                      </div>
-                    </div>
-
-                    <!-- ===== SMART DATE FEATURES MASTER TOGGLE ===== -->
-                    <!-- Main toggle for smart date insights functionality -->
-                    <div class="setting-item">
-                      <div class="setting-info">
-                        <label class="setting-label" for="smart-date-features">Smart Date Features</label>
-                        <p class="setting-description">Enable additional date information and insights</p>
-                      </div>
-                      <div class="setting-control">
-                        <input
-                          type="checkbox"
-                          id="smart-date-features"
-                          class="setting-toggle"
-                          aria-describedby="smart-date-desc"
-                        />
-                        <label for="smart-date-features" class="toggle-slider" aria-hidden="true"></label>
-                      </div>
-                    </div>
-
-                    <!-- ===== SMART DATE FEATURE SELECTION ===== -->
-                    <!-- Advanced feature selection interface with categorization and limits -->
-                    <div class="setting-item setting-item-full smart-date-options" id="smart-date-options">
-                      <div class="setting-info">
-                        <label class="setting-label">Choose Features to Display</label>
-                        <p class="setting-description">Select up to 3 features to show on your main screen</p>
-                        <!-- Real-time selection counter for user feedback -->
-                        <div class="selection-counter"><span id="selection-count">0</span>/3 selected</div>
-                      </div>
-
-                      <!-- ===== CATEGORIZED FEATURE OPTIONS ===== -->
-                      <!-- Organized feature categories for better user experience -->
-                      <div class="feature-categories">
-                        <!-- ===== TIME TRACKING CATEGORY ===== -->
-                        <!-- Temporal awareness and time-based insights -->
-                        <div class="feature-category">
-                          <h4 class="category-title">Time Tracking</h4>
-                          <div class="feature-options">
-                            <!-- Week number display with default selection -->
-                            <label class="feature-option">
-                              <input type="checkbox" name="smart-date-feature" value="week-number" checked />
-                              <div class="feature-content">
-                                <span class="feature-name">Week Number</span>
-                                <span class="feature-desc">Current week of the year</span>
-                              </div>
-                            </label>
-                            <!-- Days since New Year tracking -->
-                            <label class="feature-option">
-                              <input type="checkbox" name="smart-date-feature" value="days-since-ny" />
-                              <div class="feature-content">
-                                <span class="feature-name">Days Since New Year</span>
-                                <span class="feature-desc">Days elapsed from January 1st</span>
-                              </div>
-                            </label>
-
-                            <!-- Weekend countdown for work-life balance -->
-                            <label class="feature-option">
-                              <input type="checkbox" name="smart-date-feature" value="days-to-weekend" />
-                              <div class="feature-content">
-                                <span class="feature-name">Days to Weekend</span>
-                                <span class="feature-desc">Countdown to Saturday/Sunday</span>
-                              </div>
-                            </label>
-
-                            <!-- Business days tracking for productivity -->
-                            <label class="feature-option">
-                              <input type="checkbox" name="smart-date-feature" value="working-days" />
-                              <div class="feature-content">
-                                <span class="feature-name">Working Days Left</span>
-                                <span class="feature-desc">Business days remaining in month</span>
-                              </div>
-                            </label>
-                          </div>
-                        </div>
-
-                        <!-- ===== PROGRESS TRACKING CATEGORY ===== -->
-                        <!-- Temporal progress visualization and goal tracking -->
-                        <div class="feature-category">
-                          <h4 class="category-title">Progress Tracking</h4>
-                          <div class="feature-options">
-                            <!-- Annual progress with default selection -->
-                            <label class="feature-option">
-                              <input type="checkbox" name="smart-date-feature" value="year-progress" checked />
-                              <div class="feature-content">
-                                <span class="feature-name">Year Progress</span>
-                                <span class="feature-desc">Percentage of year completed</span>
-                              </div>
-                            </label>
-
-                            <!-- Quarterly business tracking -->
-                            <label class="feature-option">
-                              <input type="checkbox" name="smart-date-feature" value="quarter-progress" />
-                              <div class="feature-content">
-                                <span class="feature-name">Quarter Progress</span>
-                                <span class="feature-desc">Q1/Q2/Q3/Q4 completion status</span>
-                              </div>
-                            </label>
-
-                            <!-- Monthly goal tracking -->
-                            <label class="feature-option">
-                              <input type="checkbox" name="smart-date-feature" value="month-progress" />
-                              <div class="feature-content">
-                                <span class="feature-name">Month Progress</span>
-                                <span class="feature-desc">Monthly completion percentage</span>
-                              </div>
-                            </label>
-
-                            <!-- Weekly productivity tracking -->
-                            <label class="feature-option">
-                              <input type="checkbox" name="smart-date-feature" value="week-progress" />
-                              <div class="feature-content">
-                                <span class="feature-name">Week Progress</span>
-                                <span class="feature-desc">Weekly completion percentage</span>
-                              </div>
-                            </label>
-                          </div>
-                        </div>
-
-                        <!-- ===== CONTEXT & AWARENESS CATEGORY ===== -->
-                        <!-- Environmental and contextual information for enhanced awareness -->
-                        <div class="feature-category">
-                          <h4 class="category-title">Context & Awareness</h4>
-                          <div class="feature-options">
-                            <!-- Weekend status with default selection -->
-                            <label class="feature-option">
-                              <input type="checkbox" name="smart-date-feature" value="weekend-status" checked />
-                              <div class="feature-content">
-                                <span class="feature-name">Weekend Status</span>
-                                <span class="feature-desc">Today's day type (weekday/weekend)</span>
-                              </div>
-                            </label>
-
-                            <!-- Seasonal awareness for natural rhythm -->
-                            <label class="feature-option">
-                              <input type="checkbox" name="smart-date-feature" value="season-info" />
-                              <div class="feature-content">
-                                <span class="feature-name">Season Info</span>
-                                <span class="feature-desc">Current season and day count</span>
-                              </div>
-                            </label>
-
-                            <!-- Lunar cycle tracking for natural awareness -->
-                            <label class="feature-option">
-                              <input type="checkbox" name="smart-date-feature" value="moon-phase" />
-                              <div class="feature-content">
-                                <span class="feature-name">Moon Phase</span>
-                                <span class="feature-desc">Current lunar cycle stage</span>
-                              </div>
-                            </label>
-
-                            <!-- Daylight information for circadian awareness -->
-                            <label class="feature-option">
-                              <input type="checkbox" name="smart-date-feature" value="daylight-info" />
-                              <div class="feature-content">
-                                <span class="feature-name">Daylight Info</span>
-                                <span class="feature-desc">Sunrise/sunset times</span>
-                              </div>
-                            </label>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </section>
-              </div>
-
-              <!-- ===== APPEARANCE TAB CONTENT ===== -->
-              <!-- Visual customization and theming options -->
-              <div class="tab-panel" data-panel="appearance">
-                <!-- ===== APPEARANCE SECTION ===== -->
-                <!-- Core visual styling and theme configuration -->
-                <section class="settings-section">
-                  <div class="section-header">
-                    <h3 class="section-title">Appearance</h3>
-                    <p class="section-description">Customize colors, fonts, and visual style</p>
-                  </div>
-                  <div class="section-content">
-                    <!-- ===== COLOR THEME SELECTION ===== -->
-                    <!-- Dynamic color scheme selector with visual previews -->
-                    <div class="setting-item setting-item-full">
-                      <div class="setting-info">
-                        <label class="setting-label">Color Theme</label>
-                        <p class="setting-description">Choose your preferred color scheme</p>
-                      </div>
-                      <!-- JavaScript-populated color theme grid with interactive previews -->
-                      <div class="color-theme-grid" id="color-theme-grid">
-                        <!-- Color themes will be populated by JavaScript -->
-                      </div>
-                    </div>
-
-                    <!-- ===== TYPOGRAPHY THEME SELECTION ===== -->
-                    <!-- Advanced font selection with modern typography options -->
-                    <div class="setting-item setting-item-full">
-                      <div class="setting-info">
-                        <label class="setting-label">Typography</label>
-                        <p class="setting-description">Choose your font style</p>
-                      </div>
-                      <!-- JavaScript-populated typography selector with font previews -->
-                      <div class="typography-selector" id="typography-selector">
-                        <!-- Modern typography selector will be populated by JavaScript -->
-                      </div>
-                    </div>
-                  </div>
-                </section>
-
-                <!-- ===== INTERFACE SECTION ===== -->
-                <!-- Visual effects and animation controls -->
-                <section class="settings-section">
-                  <div class="section-header">
-                    <h3 class="section-title">Interface</h3>
-                    <p class="section-description">Control visual effects and animations</p>
-                  </div>
-                  <div class="section-content">
-                    <!-- ===== GRID BACKGROUND TOGGLE ===== -->
-                    <!-- Static background pattern control with default enabled -->
-                    <div class="setting-item">
-                      <div class="setting-info">
-                        <label class="setting-label" for="grid-background">Grid Background</label>
-                        <p class="setting-description">Show static grid background pattern</p>
-                      </div>
-                      <div class="setting-control">
-                        <input
-                          type="checkbox"
-                          id="grid-background"
-                          class="setting-toggle"
-                          checked
-                          aria-describedby="grid-background-desc"
-                        />
-                        <label for="grid-background" class="toggle-slider" aria-hidden="true"></label>
-                      </div>
-                    </div>
-
-                    <!-- ===== SMOOTH ANIMATIONS TOGGLE ===== -->
-                    <!-- Animation and transition control with default enabled -->
-                    <div class="setting-item">
-                      <div class="setting-info">
-                        <label class="setting-label" for="smooth-animations">Smooth Animations</label>
-                        <p class="setting-description">Enable smooth transitions and micro-interactions</p>
-                      </div>
-                      <div class="setting-control">
-                        <input
-                          type="checkbox"
-                          id="smooth-animations"
-                          class="setting-toggle"
-                          checked
-                          aria-describedby="smooth-animations-desc"
-                        />
-                        <label for="smooth-animations" class="toggle-slider" aria-hidden="true"></label>
-                      </div>
-                    </div>
-                  </div>
-                </section>
-              </div>
-
-              <!-- ===== FEATURES TAB CONTENT ===== -->
-              <!-- Productivity features and functionality toggles -->
-              <div class="tab-panel" data-panel="features">
-                <!-- ===== FEATURES SECTION ===== -->
-                <!-- Productivity and enhancement feature controls -->
-                <section class="settings-section">
-                  <div class="section-header">
-                    <h3 class="section-title">Features</h3>
-                    <p class="section-description">Enable or disable productivity features</p>
-                  </div>
-                  <div class="section-content">
-                    <!-- ===== FOCUS TIMER TOGGLE ===== -->
-                    <!-- Pomodoro-style productivity timer feature -->
-                    <div class="setting-item">
-                      <div class="setting-info">
-                        <label class="setting-label" for="focus-timer">Focus Timer</label>
-                        <p class="setting-description">Enable Pomodoro-style focus timer</p>
-                      </div>
-                      <div class="setting-control">
-                        <input
-                          type="checkbox"
-                          id="focus-timer"
-                          class="setting-toggle"
-                          aria-describedby="focus-timer-desc"
-                        />
-                        <label for="focus-timer" class="toggle-slider" aria-hidden="true"></label>
-                      </div>
-                    </div>
-
-                    <!-- ===== QUICK NOTES TOGGLE ===== -->
-                    <!-- Rapid note-taking overlay feature -->
-                    <div class="setting-item">
-                      <div class="setting-info">
-                        <label class="setting-label" for="quick-notes">Quick Notes</label>
-                        <p class="setting-description">Enable quick note-taking overlay</p>
-                      </div>
-                      <div class="setting-control">
-                        <input
-                          type="checkbox"
-                          id="quick-notes"
-                          class="setting-toggle"
-                          aria-describedby="quick-notes-desc"
-                        />
-                        <label for="quick-notes" class="toggle-slider" aria-hidden="true"></label>
-                      </div>
-                    </div>
-
-                    <!-- ===== DAILY QUOTES TOGGLE ===== -->
-                    <!-- Inspirational quotes display feature -->
-                    <div class="setting-item">
-                      <div class="setting-info">
-                        <label class="setting-label" for="daily-quotes">Daily Quotes</label>
-                        <p class="setting-description">Add inspirational quotes to motivate your day</p>
-                      </div>
-                      <div class="setting-control">
-                        <input
-                          type="checkbox"
-                          id="daily-quotes"
-                          class="setting-toggle"
-                          aria-describedby="daily-quotes-desc"
-                        />
-                        <label for="daily-quotes" class="toggle-slider" aria-hidden="true"></label>
-                      </div>
-                    </div>
-
-                    <!-- ===== TODO LIST TOGGLE ===== -->
-                    <!-- Task management side panel feature -->
-                    <div class="setting-item">
-                      <div class="setting-info">
-                        <label class="setting-label" for="todo-list">Todo List</label>
-                        <p class="setting-description">Add task management for better productivity</p>
-                      </div>
-                      <div class="setting-control">
-                        <input
-                          type="checkbox"
-                          id="todo-list"
-                          class="setting-toggle"
-                          aria-describedby="todo-list-desc"
-                        />
-                        <label for="todo-list" class="toggle-slider" aria-hidden="true"></label>
-                      </div>
-                    </div>
-                  </div>
-                </section>
-              </div>
-
-              <!-- ===== SYSTEM TAB CONTENT ===== -->
-              <!-- System settings, data management, and help documentation -->
-              <div class="tab-panel" data-panel="system">
-                <!-- ===== DATA & PRIVACY SECTION ===== -->
-                <!-- AI data management and privacy controls -->
-                <section class="settings-section">
-                  <div class="section-header">
-                    <h3 class="section-title">Data & Privacy</h3>
-                    <p class="section-description">Manage your data and learning preferences</p>
-                  </div>
-                  <div class="section-content">
-                    <!-- ===== TAB MEMORY MANAGEMENT ===== -->
-                    <!-- AI learning data control with reset functionality -->
-                    <div class="setting-item setting-item-full">
-                      <div class="setting-info">
-                        <label class="setting-label">Tab Memory</label>
-                        <p class="setting-description">AI learns your browsing patterns to provide better shortcuts</p>
-                      </div>
-                      <!-- Reset button with confirmation dialog integration -->
-                      <button class="reset-memory-btn" id="reset-memory-btn" aria-describedby="reset-memory-desc">
-                        <svg
-                          width="16"
-                          height="16"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          stroke-width="2"
-                          aria-hidden="true"
-                        >
-                          <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8" />
-                          <path d="M21 3v5h-5" />
-                          <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16" />
-                          <path d="M3 21v-5h5" />
+                    <!-- ===== DISPLAY TAB ===== -->
+                    <!-- Time and display configuration options -->
+                    <button class="settings-tab active" data-tab="display" role="tab" aria-selected="true"
+                        aria-controls="settings-tab-content">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                            <line x1="8" y1="21" x2="16" y2="21"></line>
+                            <line x1="12" y1="17" x2="12" y2="21"></line>
                         </svg>
-                        <span>Reset Tab Memory</span>
-                      </button>
-                    </div>
-                  </div>
-                </section>
+                        <span>Display</span>
+                    </button>
 
-                <!-- ===== HELP & DOCUMENTATION SECTION ===== -->
-                <!-- User guidance, shortcuts, and feature explanations -->
-                <section class="settings-section">
-                  <div class="section-header">
-                    <h3 class="section-title">Help & Documentation</h3>
-                    <p class="section-description">Learn about features, shortcuts, and tips</p>
-                  </div>
-                  <div class="section-content">
-                    <!-- JavaScript-populated help content with interactive guides -->
-                    <div class="help-section" id="help-section">
-                      <!-- Modern help content will be populated by JavaScript -->
+                    <!-- ===== APPEARANCE TAB ===== -->
+                    <!-- Visual styling and theme configuration -->
+                    <button class="settings-tab" data-tab="appearance" role="tab" aria-selected="false"
+                        aria-controls="settings-tab-content">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <path
+                                d="M12 1v2m0 18v2M4.22 4.22l1.42 1.42m12.72 12.72l1.42 1.42M1 12h2m18 0h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42">
+                            </path>
+                        </svg>
+                        <span>Appearance</span>
+                    </button>
+
+                    <!-- ===== FEATURES TAB ===== -->
+                    <!-- Productivity features and functionality toggles -->
+                    <button class="settings-tab" data-tab="features" role="tab" aria-selected="false"
+                        aria-controls="settings-tab-content">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path
+                                d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z">
+                            </path>
+                        </svg>
+                        <span>Features</span>
+                    </button>
+
+                    <!-- ===== SYSTEM TAB ===== -->
+                    <!-- System settings, data management, and help -->
+                    <button class="settings-tab" data-tab="system" role="tab" aria-selected="false"
+                        aria-controls="settings-tab-content">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <circle cx="12" cy="12" r="3"></circle>
+                            <path
+                                d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1 1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z">
+                            </path>
+                        </svg>
+                        <span>System</span>
+                    </button>
+                </div>
+
+                <!-- ===== TAB CONTENT CONTAINER ===== -->
+                <!-- Main content area with tabpanel role for accessibility -->
+                <div class="settings-tab-content" id="settings-tab-content" role="tabpanel">
+                    <!-- Scrollable content area for overflow handling -->
+                    <div class="panel-scroll-area">
+                        <!-- ===== DISPLAY TAB CONTENT ===== -->
+                        <!-- Time and display configuration panel -->
+                        <div class="tab-panel active" data-panel="display">
+                            <!-- ===== TIME & DISPLAY SECTION ===== -->
+                            <!-- Core time and date display configuration -->
+                            <section class="settings-section">
+                                <div class="section-header">
+                                    <h3 class="section-title">Time & Display</h3>
+                                    <p class="section-description">Configure how time and date are displayed</p>
+                                </div>
+                                <div class="section-content">
+                                    <!-- ===== 24-HOUR FORMAT TOGGLE ===== -->
+                                    <!-- Time format preference with accessible toggle -->
+                                    <div class="setting-item">
+                                        <div class="setting-info">
+                                            <label class="setting-label" for="time-format">24-Hour Format</label>
+                                            <p class="setting-description">Use 24-hour time format instead of 12-hour
+                                            </p>
+                                        </div>
+                                        <div class="setting-control">
+                                            <input type="checkbox" id="time-format" class="setting-toggle"
+                                                aria-describedby="time-format-desc" />
+                                            <label for="time-format" class="toggle-slider" aria-hidden="true"></label>
+                                        </div>
+                                    </div>
+
+                                    <!-- ===== SECONDS DISPLAY TOGGLE ===== -->
+                                    <!-- Seconds visibility control with accessible toggle -->
+                                    <div class="setting-item">
+                                        <div class="setting-info">
+                                            <label class="setting-label" for="show-seconds">Show Seconds</label>
+                                            <p class="setting-description">Display seconds in the time display</p>
+                                        </div>
+                                        <div class="setting-control">
+                                            <input type="checkbox" id="show-seconds" class="setting-toggle"
+                                                aria-describedby="show-seconds-desc" />
+                                            <label for="show-seconds" class="toggle-slider" aria-hidden="true"></label>
+                                        </div>
+                                    </div>
+
+                                    <!-- ===== SMART DATE FEATURES MASTER TOGGLE ===== -->
+                                    <!-- Main toggle for smart date insights functionality -->
+                                    <div class="setting-item">
+                                        <div class="setting-info">
+                                            <label class="setting-label" for="smart-date-features">Smart Date
+                                                Features</label>
+                                            <p class="setting-description">Enable additional date information and
+                                                insights</p>
+                                        </div>
+                                        <div class="setting-control">
+                                            <input type="checkbox" id="smart-date-features" class="setting-toggle"
+                                                aria-describedby="smart-date-desc" />
+                                            <label for="smart-date-features" class="toggle-slider"
+                                                aria-hidden="true"></label>
+                                        </div>
+                                    </div>
+
+                                    <!-- ===== SMART DATE FEATURE SELECTION ===== -->
+                                    <!-- Advanced feature selection interface with categorization and limits -->
+                                    <div class="setting-item setting-item-full smart-date-options"
+                                        id="smart-date-options">
+                                        <div class="setting-info">
+                                            <label class="setting-label">Choose Features to Display</label>
+                                            <p class="setting-description">Select up to 3 features to show on your main
+                                                screen</p>
+                                            <!-- Real-time selection counter for user feedback -->
+                                            <div class="selection-counter"><span id="selection-count">0</span>/3
+                                                selected</div>
+                                        </div>
+
+                                        <!-- ===== CATEGORIZED FEATURE OPTIONS ===== -->
+                                        <!-- Organized feature categories for better user experience -->
+                                        <div class="feature-categories">
+                                            <!-- ===== TIME TRACKING CATEGORY ===== -->
+                                            <!-- Temporal awareness and time-based insights -->
+                                            <div class="feature-category">
+                                                <h4 class="category-title">Time Tracking</h4>
+                                                <div class="feature-options">
+                                                    <!-- Week number display with default selection -->
+                                                    <label class="feature-option">
+                                                        <input type="checkbox" name="smart-date-feature"
+                                                            value="week-number" checked />
+                                                        <div class="feature-content">
+                                                            <span class="feature-name">Week Number</span>
+                                                            <span class="feature-desc">Current week of the year</span>
+                                                        </div>
+                                                    </label>
+                                                    <!-- Days since New Year tracking -->
+                                                    <label class="feature-option">
+                                                        <input type="checkbox" name="smart-date-feature"
+                                                            value="days-since-ny" />
+                                                        <div class="feature-content">
+                                                            <span class="feature-name">Days Since New Year</span>
+                                                            <span class="feature-desc">Days elapsed from January
+                                                                1st</span>
+                                                        </div>
+                                                    </label>
+
+                                                    <!-- Weekend countdown for work-life balance -->
+                                                    <label class="feature-option">
+                                                        <input type="checkbox" name="smart-date-feature"
+                                                            value="days-to-weekend" />
+                                                        <div class="feature-content">
+                                                            <span class="feature-name">Days to Weekend</span>
+                                                            <span class="feature-desc">Countdown to
+                                                                Saturday/Sunday</span>
+                                                        </div>
+                                                    </label>
+
+                                                    <!-- Business days tracking for productivity -->
+                                                    <label class="feature-option">
+                                                        <input type="checkbox" name="smart-date-feature"
+                                                            value="working-days" />
+                                                        <div class="feature-content">
+                                                            <span class="feature-name">Working Days Left</span>
+                                                            <span class="feature-desc">Business days remaining in
+                                                                month</span>
+                                                        </div>
+                                                    </label>
+                                                </div>
+                                            </div>
+
+                                            <!-- ===== PROGRESS TRACKING CATEGORY ===== -->
+                                            <!-- Temporal progress visualization and goal tracking -->
+                                            <div class="feature-category">
+                                                <h4 class="category-title">Progress Tracking</h4>
+                                                <div class="feature-options">
+                                                    <!-- Annual progress with default selection -->
+                                                    <label class="feature-option">
+                                                        <input type="checkbox" name="smart-date-feature"
+                                                            value="year-progress" checked />
+                                                        <div class="feature-content">
+                                                            <span class="feature-name">Year Progress</span>
+                                                            <span class="feature-desc">Percentage of year
+                                                                completed</span>
+                                                        </div>
+                                                    </label>
+
+                                                    <!-- Quarterly business tracking -->
+                                                    <label class="feature-option">
+                                                        <input type="checkbox" name="smart-date-feature"
+                                                            value="quarter-progress" />
+                                                        <div class="feature-content">
+                                                            <span class="feature-name">Quarter Progress</span>
+                                                            <span class="feature-desc">Q1/Q2/Q3/Q4 completion
+                                                                status</span>
+                                                        </div>
+                                                    </label>
+
+                                                    <!-- Monthly goal tracking -->
+                                                    <label class="feature-option">
+                                                        <input type="checkbox" name="smart-date-feature"
+                                                            value="month-progress" />
+                                                        <div class="feature-content">
+                                                            <span class="feature-name">Month Progress</span>
+                                                            <span class="feature-desc">Monthly completion
+                                                                percentage</span>
+                                                        </div>
+                                                    </label>
+
+                                                    <!-- Weekly productivity tracking -->
+                                                    <label class="feature-option">
+                                                        <input type="checkbox" name="smart-date-feature"
+                                                            value="week-progress" />
+                                                        <div class="feature-content">
+                                                            <span class="feature-name">Week Progress</span>
+                                                            <span class="feature-desc">Weekly completion
+                                                                percentage</span>
+                                                        </div>
+                                                    </label>
+                                                </div>
+                                            </div>
+
+                                            <!-- ===== CONTEXT & AWARENESS CATEGORY ===== -->
+                                            <!-- Environmental and contextual information for enhanced awareness -->
+                                            <div class="feature-category">
+                                                <h4 class="category-title">Context & Awareness</h4>
+                                                <div class="feature-options">
+                                                    <!-- Weekend status with default selection -->
+                                                    <label class="feature-option">
+                                                        <input type="checkbox" name="smart-date-feature"
+                                                            value="weekend-status" checked />
+                                                        <div class="feature-content">
+                                                            <span class="feature-name">Weekend Status</span>
+                                                            <span class="feature-desc">Today's day type
+                                                                (weekday/weekend)</span>
+                                                        </div>
+                                                    </label>
+
+                                                    <!-- Seasonal awareness for natural rhythm -->
+                                                    <label class="feature-option">
+                                                        <input type="checkbox" name="smart-date-feature"
+                                                            value="season-info" />
+                                                        <div class="feature-content">
+                                                            <span class="feature-name">Season Info</span>
+                                                            <span class="feature-desc">Current season and day
+                                                                count</span>
+                                                        </div>
+                                                    </label>
+
+                                                    <!-- Lunar cycle tracking for natural awareness -->
+                                                    <label class="feature-option">
+                                                        <input type="checkbox" name="smart-date-feature"
+                                                            value="moon-phase" />
+                                                        <div class="feature-content">
+                                                            <span class="feature-name">Moon Phase</span>
+                                                            <span class="feature-desc">Current lunar cycle stage</span>
+                                                        </div>
+                                                    </label>
+
+                                                    <!-- Daylight information for circadian awareness -->
+                                                    <label class="feature-option">
+                                                        <input type="checkbox" name="smart-date-feature"
+                                                            value="daylight-info" />
+                                                        <div class="feature-content">
+                                                            <span class="feature-name">Daylight Info</span>
+                                                            <span class="feature-desc">Sunrise/sunset times</span>
+                                                        </div>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+
+                        <!-- ===== APPEARANCE TAB CONTENT ===== -->
+                        <!-- Visual customization and theming options -->
+                        <div class="tab-panel" data-panel="appearance">
+                            <!-- ===== APPEARANCE SECTION ===== -->
+                            <!-- Core visual styling and theme configuration -->
+                            <section class="settings-section">
+                                <div class="section-header">
+                                    <h3 class="section-title">Appearance</h3>
+                                    <p class="section-description">Customize colors, fonts, and visual style</p>
+                                </div>
+                                <div class="section-content">
+                                    <!-- ===== COLOR THEME SELECTION ===== -->
+                                    <!-- Dynamic color scheme selector with visual previews -->
+                                    <div class="setting-item setting-item-full">
+                                        <div class="setting-info">
+                                            <label class="setting-label">Color Theme</label>
+                                            <p class="setting-description">Choose your preferred color scheme</p>
+                                        </div>
+                                        <!-- JavaScript-populated color theme grid with interactive previews -->
+                                        <div class="color-theme-grid" id="color-theme-grid">
+                                            <!-- Color themes will be populated by JavaScript -->
+                                        </div>
+                                    </div>
+
+                                    <!-- ===== TYPOGRAPHY THEME SELECTION ===== -->
+                                    <!-- Advanced font selection with modern typography options -->
+                                    <div class="setting-item setting-item-full">
+                                        <div class="setting-info">
+                                            <label class="setting-label">Typography</label>
+                                            <p class="setting-description">Choose your font style</p>
+                                        </div>
+                                        <!-- JavaScript-populated typography selector with font previews -->
+                                        <div class="typography-selector" id="typography-selector">
+                                            <!-- Modern typography selector will be populated by JavaScript -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+
+                            <!-- ===== INTERFACE SECTION ===== -->
+                            <!-- Visual effects and animation controls -->
+                            <section class="settings-section">
+                                <div class="section-header">
+                                    <h3 class="section-title">Interface</h3>
+                                    <p class="section-description">Control visual effects and animations</p>
+                                </div>
+                                <div class="section-content">
+                                    <!-- ===== GRID BACKGROUND TOGGLE ===== -->
+                                    <!-- Static background pattern control with default enabled -->
+                                    <div class="setting-item">
+                                        <div class="setting-info">
+                                            <label class="setting-label" for="grid-background">Grid Background</label>
+                                            <p class="setting-description">Show static grid background pattern</p>
+                                        </div>
+                                        <div class="setting-control">
+                                            <input type="checkbox" id="grid-background" class="setting-toggle" checked
+                                                aria-describedby="grid-background-desc" />
+                                            <label for="grid-background" class="toggle-slider"
+                                                aria-hidden="true"></label>
+                                        </div>
+                                    </div>
+
+                                    <!-- ===== SMOOTH ANIMATIONS TOGGLE ===== -->
+                                    <!-- Animation and transition control with default enabled -->
+                                    <div class="setting-item">
+                                        <div class="setting-info">
+                                            <label class="setting-label" for="smooth-animations">Smooth
+                                                Animations</label>
+                                            <p class="setting-description">Enable smooth transitions and
+                                                micro-interactions</p>
+                                        </div>
+                                        <div class="setting-control">
+                                            <input type="checkbox" id="smooth-animations" class="setting-toggle" checked
+                                                aria-describedby="smooth-animations-desc" />
+                                            <label for="smooth-animations" class="toggle-slider"
+                                                aria-hidden="true"></label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+
+                        <!-- ===== FEATURES TAB CONTENT ===== -->
+                        <!-- Productivity features and functionality toggles -->
+                        <div class="tab-panel" data-panel="features">
+                            <!-- ===== FEATURES SECTION ===== -->
+                            <!-- Productivity and enhancement feature controls -->
+                            <section class="settings-section">
+                                <div class="section-header">
+                                    <h3 class="section-title">Features</h3>
+                                    <p class="section-description">Enable or disable productivity features</p>
+                                </div>
+                                <div class="section-content">
+                                    <!-- ===== FOCUS TIMER TOGGLE ===== -->
+                                    <!-- Pomodoro-style productivity timer feature -->
+                                    <div class="setting-item">
+                                        <div class="setting-info">
+                                            <label class="setting-label" for="focus-timer">Focus Timer</label>
+                                            <p class="setting-description">Enable Pomodoro-style focus timer</p>
+                                        </div>
+                                        <div class="setting-control">
+                                            <input type="checkbox" id="focus-timer" class="setting-toggle"
+                                                aria-describedby="focus-timer-desc" />
+                                            <label for="focus-timer" class="toggle-slider" aria-hidden="true"></label>
+                                        </div>
+                                    </div>
+
+                                    <!-- ===== QUICK NOTES TOGGLE ===== -->
+                                    <!-- Rapid note-taking overlay feature -->
+                                    <div class="setting-item">
+                                        <div class="setting-info">
+                                            <label class="setting-label" for="quick-notes">Quick Notes</label>
+                                            <p class="setting-description">Enable quick note-taking overlay</p>
+                                        </div>
+                                        <div class="setting-control">
+                                            <input type="checkbox" id="quick-notes" class="setting-toggle"
+                                                aria-describedby="quick-notes-desc" />
+                                            <label for="quick-notes" class="toggle-slider" aria-hidden="true"></label>
+                                        </div>
+                                    </div>
+
+                                    <!-- ===== DAILY QUOTES TOGGLE ===== -->
+                                    <!-- Inspirational quotes display feature -->
+                                    <div class="setting-item">
+                                        <div class="setting-info">
+                                            <label class="setting-label" for="daily-quotes">Daily Quotes</label>
+                                            <p class="setting-description">Add inspirational quotes to motivate your day
+                                            </p>
+                                        </div>
+                                        <div class="setting-control">
+                                            <input type="checkbox" id="daily-quotes" class="setting-toggle"
+                                                aria-describedby="daily-quotes-desc" />
+                                            <label for="daily-quotes" class="toggle-slider" aria-hidden="true"></label>
+                                        </div>
+                                    </div>
+
+                                    <!-- ===== TODO LIST TOGGLE ===== -->
+                                    <!-- Task management side panel feature -->
+                                    <div class="setting-item">
+                                        <div class="setting-info">
+                                            <label class="setting-label" for="todo-list">Todo List</label>
+                                            <p class="setting-description">Add task management for better productivity
+                                            </p>
+                                        </div>
+                                        <div class="setting-control">
+                                            <input type="checkbox" id="todo-list" class="setting-toggle"
+                                                aria-describedby="todo-list-desc" />
+                                            <label for="todo-list" class="toggle-slider" aria-hidden="true"></label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+
+                        <!-- ===== SYSTEM TAB CONTENT ===== -->
+                        <!-- System settings, data management, and help documentation -->
+                        <div class="tab-panel" data-panel="system">
+                            <!-- ===== DATA & PRIVACY SECTION ===== -->
+                            <!-- AI data management and privacy controls -->
+                            <section class="settings-section">
+                                <div class="section-header">
+                                    <h3 class="section-title">Data & Privacy</h3>
+                                    <p class="section-description">Manage your data and learning preferences</p>
+                                </div>
+                                <div class="section-content">
+                                    <!-- ===== TAB MEMORY MANAGEMENT ===== -->
+                                    <!-- AI learning data control with reset functionality -->
+                                    <div class="setting-item setting-item-full">
+                                        <div class="setting-info">
+                                            <label class="setting-label">Tab Memory</label>
+                                            <p class="setting-description">AI learns your browsing patterns to provide
+                                                better shortcuts</p>
+                                        </div>
+                                        <!-- Reset button with confirmation dialog integration -->
+                                        <button class="reset-memory-btn" id="reset-memory-btn"
+                                            aria-describedby="reset-memory-desc">
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                                stroke="currentColor" stroke-width="2" aria-hidden="true">
+                                                <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8" />
+                                                <path d="M21 3v5h-5" />
+                                                <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16" />
+                                                <path d="M3 21v-5h5" />
+                                            </svg>
+                                            <span>Reset Tab Memory</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </section>
+
+                            <!-- ===== HELP & DOCUMENTATION SECTION ===== -->
+                            <!-- User guidance, shortcuts, and feature explanations -->
+                            <section class="settings-section">
+                                <div class="section-header">
+                                    <h3 class="section-title">Help & Documentation</h3>
+                                    <p class="section-description">Learn about features, shortcuts, and tips</p>
+                                </div>
+                                <div class="section-content">
+                                    <!-- JavaScript-populated help content with interactive guides -->
+                                    <div class="help-section" id="help-section">
+                                        <!-- Modern help content will be populated by JavaScript -->
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
                     </div>
-                  </div>
-                </section>
-              </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
     </div>
 
     <!-- ===== QUICK NOTES PRODUCTIVITY OVERLAY ===== -->
     <!-- Modal overlay for quick note-taking with keyboard shortcuts and auto-save -->
-    <div
-      id="quick-notes-overlay"
-      class="quick-notes-overlay"
-      role="dialog"
-      aria-labelledby="quick-notes-title"
-      aria-hidden="true"
-    >
-      <!-- Main notes container with document role for screen readers -->
-      <div class="quick-notes-container" role="document">
-        <!-- Header with title and accessible close button -->
-        <div class="quick-notes-header">
-          <h3 id="quick-notes-title">Quick Notes</h3>
-          <button id="quick-notes-close" class="quick-notes-close" aria-label="Close quick notes">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-              <line x1="18" y1="6" x2="6" y2="18"></line>
-              <line x1="6" y1="6" x2="18" y2="18"></line>
-            </svg>
-          </button>
-        </div>
-        <!-- Main textarea with accessibility attributes and auto-save functionality -->
-        <textarea
-          id="quick-notes-textarea"
-          class="quick-notes-textarea"
-          placeholder="Start typing your notes..."
-          aria-label="Quick notes text area"
-          aria-describedby="quick-notes-info"
-        ></textarea>
-        <!-- ===== QUICK NOTES FOOTER ===== -->
-        <!-- Keyboard shortcuts and auto-save status information -->
-        <div class="quick-notes-footer">
-          <div class="quick-notes-info-container">
-            <!-- ===== KEYBOARD SHORTCUTS DISPLAY ===== -->
-            <!-- Visual keyboard shortcut reference for user guidance -->
-            <div class="quick-notes-shortcuts">
-              <!-- Toggle shortcut for opening/closing notes -->
-              <span class="shortcut-item">
-                <kbd>N</kbd>
-                <span>Toggle</span>
-              </span>
-
-              <!-- Escape shortcut for quick closing -->
-              <span class="shortcut-item">
-                <kbd>Esc</kbd>
-                <span>Close</span>
-              </span>
-
-              <!-- Select all shortcut for text manipulation -->
-              <span class="shortcut-item">
-                <kbd>Ctrl+A</kbd>
-                <span>Select All</span>
-              </span>
+    <div id="quick-notes-overlay" class="quick-notes-overlay" role="dialog" aria-labelledby="quick-notes-title"
+        aria-hidden="true">
+        <!-- Main notes container with document role for screen readers -->
+        <div class="quick-notes-container" role="document">
+            <!-- Header with title and accessible close button -->
+            <div class="quick-notes-header">
+                <h3 id="quick-notes-title">Quick Notes</h3>
+                <button id="quick-notes-close" class="quick-notes-close" aria-label="Close quick notes">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
             </div>
+            <!-- Main textarea with accessibility attributes and auto-save functionality -->
+            <textarea id="quick-notes-textarea" class="quick-notes-textarea" placeholder="Start typing your notes..."
+                aria-label="Quick notes text area" aria-describedby="quick-notes-info"></textarea>
+            <!-- ===== QUICK NOTES FOOTER ===== -->
+            <!-- Keyboard shortcuts and auto-save status information -->
+            <div class="quick-notes-footer">
+                <div class="quick-notes-info-container">
+                    <!-- ===== KEYBOARD SHORTCUTS DISPLAY ===== -->
+                    <!-- Visual keyboard shortcut reference for user guidance -->
+                    <div class="quick-notes-shortcuts">
+                        <!-- Toggle shortcut for opening/closing notes -->
+                        <span class="shortcut-item">
+                            <kbd>N</kbd>
+                            <span>Toggle</span>
+                        </span>
 
-            <!-- ===== AUTO-SAVE STATUS INDICATOR ===== -->
-            <!-- Real-time save status with visual feedback -->
-            <div class="quick-notes-status">
-              <span id="quick-notes-info" class="quick-notes-info">
-                <!-- Save icon for visual status indication -->
-                <svg
-                  class="save-icon"
-                  width="14"
-                  height="14"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                >
-                  <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path>
-                  <polyline points="17,21 17,13 7,13 7,21"></polyline>
-                  <polyline points="7,3 7,8 15,8"></polyline>
-                </svg>
-                Auto-saved
-              </span>
+                        <!-- Escape shortcut for quick closing -->
+                        <span class="shortcut-item">
+                            <kbd>Esc</kbd>
+                            <span>Close</span>
+                        </span>
 
-              <!-- ===== CHARACTER COUNTER ===== -->
-              <!-- Real-time character count with size limit indicator -->
-              <span id="quick-notes-counter" class="quick-notes-counter"> 0 / 100K </span>
+                        <!-- Select all shortcut for text manipulation -->
+                        <span class="shortcut-item">
+                            <kbd>Ctrl+A</kbd>
+                            <span>Select All</span>
+                        </span>
+                    </div>
+
+                    <!-- ===== AUTO-SAVE STATUS INDICATOR ===== -->
+                    <!-- Real-time save status with visual feedback -->
+                    <div class="quick-notes-status">
+                        <span id="quick-notes-info" class="quick-notes-info">
+                            <!-- Save icon for visual status indication -->
+                            <svg class="save-icon" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path>
+                                <polyline points="17,21 17,13 7,13 7,21"></polyline>
+                                <polyline points="7,3 7,8 15,8"></polyline>
+                            </svg>
+                            Auto-saved
+                        </span>
+
+                        <!-- ===== CHARACTER COUNTER ===== -->
+                        <!-- Real-time character count with size limit indicator -->
+                        <span id="quick-notes-counter" class="quick-notes-counter"> 0 / 100K </span>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
     </div>
 
     <!-- ===== COMPREHENSIVE TODO PANEL ===== -->
     <!-- Modal dialog panel with task management interface and full accessibility support -->
     <div class="todo-panel" id="todo-panel" role="dialog" aria-labelledby="todo-title" aria-hidden="true" inert>
-      <!-- Modal backdrop for focus trapping and visual separation -->
-      <div class="panel-backdrop" aria-hidden="true"></div>
+        <!-- Modal backdrop for focus trapping and visual separation -->
+        <div class="panel-backdrop" aria-hidden="true"></div>
 
-      <!-- Main panel container with document role for screen readers -->
-      <div class="panel-container" role="document">
-        <!-- ===== TODO PANEL HEADER ===== -->
-        <!-- Panel header with title, subtitle, and close button -->
-        <header class="panel-header">
-          <!-- Title section with semantic heading hierarchy -->
-          <div class="panel-title-section">
-            <!-- Main panel title with proper heading level -->
-            <h2 class="panel-title" id="todo-title">Todo List</h2>
-            <!-- Descriptive subtitle with task counter -->
-            <p class="panel-subtitle">Manage your tasks and stay organized</p>
-            <p class="task-counter" id="task-counter">0 tasks</p>
-          </div>
-
-          <!-- Accessible close button with clear labeling -->
-          <button class="panel-close" id="todo-close" aria-label="Close todo panel">
-            <svg
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              aria-hidden="true"
-            >
-              <line x1="18" y1="6" x2="6" y2="18" />
-              <line x1="6" y1="6" x2="18" y2="18" />
-            </svg>
-          </button>
-        </header>
-
-        <!-- ===== TODO PANEL CONTENT ===== -->
-        <!-- Main content area with task management interface -->
-        <div class="panel-content">
-          <!-- Scrollable content area for task list -->
-          <div class="panel-scroll-area">
-            <!-- ===== ADD NEW TASK SECTION ===== -->
-            <!-- Task creation interface with input and add button - STICKY -->
-            <section class="todo-section add-task-section">
-              <div class="add-task-container">
-                <div class="add-task-input-group">
-                  <input
-                    type="text"
-                    id="new-task-input"
-                    class="add-task-input"
-                    placeholder="Add a new task..."
-                    aria-label="New task input"
-                    maxlength="200"
-                  />
-                  <button class="add-task-btn" id="add-task-btn" aria-label="Add task">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                      <line x1="12" y1="5" x2="12" y2="19" />
-                      <line x1="5" y1="12" x2="19" y2="12" />
-                    </svg>
-                  </button>
+        <!-- Main panel container with document role for screen readers -->
+        <div class="panel-container" role="document">
+            <!-- ===== TODO PANEL HEADER ===== -->
+            <!-- Panel header with title, subtitle, and close button -->
+            <header class="panel-header">
+                <!-- Title section with semantic heading hierarchy -->
+                <div class="panel-title-section">
+                    <!-- Main panel title with proper heading level -->
+                    <h2 class="panel-title" id="todo-title">Todo List</h2>
+                    <!-- Descriptive subtitle with task counter -->
+                    <p class="panel-subtitle">Manage your tasks and stay organized</p>
+                    <p class="task-counter" id="task-counter">0 tasks</p>
                 </div>
-              </div>
-            </section>
 
-            <!-- ===== TASK LIST SECTION ===== -->
-            <!-- Main task display area with dynamic content - SCROLLABLE -->
-            <section class="todo-section task-list-section">
-              <div class="task-list-container">
-                <!-- Empty state message (outside task list so it doesn't get cleared) -->
-                <div class="empty-state" id="empty-state">
-                  <div class="empty-state-icon">
-                    <svg
-                      width="48"
-                      height="48"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="1.5"
-                    >
-                      <path d="M9 11l3 3L22 4" />
-                      <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
+                <!-- Accessible close button with clear labeling -->
+                <button class="panel-close" id="todo-close" aria-label="Close todo panel">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        aria-hidden="true">
+                        <line x1="18" y1="6" x2="6" y2="18" />
+                        <line x1="6" y1="6" x2="18" y2="18" />
                     </svg>
-                  </div>
-                  <h3 class="empty-state-title">No tasks yet</h3>
-                  <p class="empty-state-description">Add your first task to get started</p>
+                </button>
+            </header>
+
+            <!-- ===== TODO PANEL CONTENT ===== -->
+            <!-- Main content area with task management interface -->
+            <div class="panel-content">
+                <!-- Scrollable content area for task list -->
+                <div class="panel-scroll-area">
+                    <!-- ===== ADD NEW TASK SECTION ===== -->
+                    <!-- Task creation interface with input and add button - STICKY -->
+                    <section class="todo-section add-task-section">
+                        <div class="add-task-container">
+                            <div class="add-task-input-group">
+                                <input type="text" id="new-task-input" class="add-task-input"
+                                    placeholder="Add a new task..." aria-label="New task input" maxlength="200" />
+                                <button class="add-task-btn" id="add-task-btn" aria-label="Add task">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <line x1="12" y1="5" x2="12" y2="19" />
+                                        <line x1="5" y1="12" x2="19" y2="12" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- ===== TASK LIST SECTION ===== -->
+                    <!-- Main task display area with dynamic content - SCROLLABLE -->
+                    <section class="todo-section task-list-section">
+                        <div class="task-list-container">
+                            <!-- Empty state message (outside task list so it doesn't get cleared) -->
+                            <div class="empty-state" id="empty-state">
+                                <div class="empty-state-icon">
+                                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="1.5">
+                                        <path d="M9 11l3 3L22 4" />
+                                        <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
+                                    </svg>
+                                </div>
+                                <h3 class="empty-state-title">No tasks yet</h3>
+                                <p class="empty-state-description">Add your first task to get started</p>
+                            </div>
+                            <!-- Task list will be populated by JavaScript -->
+                            <div class="task-list" id="task-list" role="list"></div>
+                        </div>
+                    </section>
                 </div>
-                <!-- Task list will be populated by JavaScript -->
-                <div class="task-list" id="task-list" role="list"></div>
-              </div>
-            </section>
-          </div>
+            </div>
         </div>
-      </div>
     </div>
 
     <!-- ===== JAVASCRIPT MODULE LOADING ===== -->
@@ -1008,5 +854,6 @@ STANDARDS: HTML5, WCAG 2.1 AA, Performance Best Practices
 
     <!-- Main application script (loaded last to ensure all dependencies are available) -->
     <script src="script.js"></script>
-  </body>
+</body>
+
 </html>

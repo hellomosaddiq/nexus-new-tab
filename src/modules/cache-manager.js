@@ -1,44 +1,9 @@
 /**
- * ===== NEXUS CACHE MANAGER - ENTERPRISE CACHING SYSTEM =====
- *
- * Advanced IndexedDB-based caching system for optimal performance and storage
- * management. Implements sophisticated caching strategies for favicons, fonts,
- * and external resources with intelligent expiry, quota management, and
- * graceful degradation patterns.
- *
- * CORE FEATURES:
- * - Multi-tier caching with IndexedDB persistence
- * - Intelligent storage quota management (45MB with cleanup)
- * - Singleton pattern for memory efficiency
- * - Advanced expiry management (7 days favicons, 30 days fonts)
- * - CORS-safe fallback strategies with beautiful generated icons
- * - Automatic cleanup when storage reaches 90% capacity
- * - Comprehensive error handling with silent degradation
- *
- * ARCHITECTURE BENEFITS:
- * - Reduces network requests by up to 95% for repeated favicon loads
- * - Improves perceived performance with instant icon display
- * - Offline support for cached resources
- * - Memory-efficient with LRU-style cleanup policies
- * - Cross-browser compatibility with IndexedDB
- *
- * PERFORMANCE OPTIMIZATIONS:
- * - Domain-based deduplication prevents duplicate favicon storage
- * - Efficient blob-to-dataURL conversion with FileReader API
- * - Intelligent timeout handling (3s favicons, 10s fonts)
- * - Batch operations for storage management
- * - Optimized database schema with proper indexing
- *
- * STORAGE STRATEGY:
- * - Favicons: Domain-keyed to prevent duplicates
- * - Fonts: Name-keyed for efficient lookup
- * - Resources: URL-keyed for CSS and external icons
- * - Metadata: Key-value store for system configuration
+ * NEXUS Cache Manager
+ * IndexedDB caching system for favicons and resources
  *
  * @author mosaddiq
- * @repository https://github.com/hellomosaddiq/nexus-new-tab
  * @version 1.0.0
- * @since 1.0.0
  */
 
 class NexusCacheManager {

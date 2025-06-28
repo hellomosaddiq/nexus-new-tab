@@ -10,19 +10,7 @@
  * @version 1.0.0
  */
 
-/**
- * RESEARCH-BACKED OPTIMIZATION:
- * - Confidence threshold: 0.42 (optimal for UI prediction accuracy)
- * - Decay factor: 0.92 (balance between recent and historical data)
- * - Time weight: 12-hour window (research-optimal recency bonus)
- * - Recency decay: 8-hour window (optimal for user behavior patterns)
- * - Frequency weight: 35% (research-backed optimal frequency influence)
- * - Contextual weight: 25% (optimal time-of-day pattern influence)
- *
- * @author mosaddiq
- * @version 1.0.0
- * @since 1.0.0
- */
+
 
 class TabMemorySystem {
     /**
