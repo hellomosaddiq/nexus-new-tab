@@ -330,7 +330,7 @@ class NotificationSystem {
      * @returns {HTMLElement} Complete notification element
      * @private
      */
-    createNotification(id, type, title, message, duration) {
+    createNotification(id, type, title, message, _duration) {
         // ===== ELEMENT CREATION =====
         const notification = document.createElement('div');
         notification.className = `nexus-notification notification-${type}`;

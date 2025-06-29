@@ -7,6 +7,7 @@
  * @since 1.0.0
  */
 
+// eslint-disable-next-line no-unused-vars
 class QuickShortcuts {
     /**
      * Initialize the Quick Shortcuts system
@@ -1124,20 +1125,21 @@ class QuickShortcuts {
             }
 
             // ===== RELIABILITY DETECTION =====
-            // Identify reliable favicon sources for optimized caching
-            const reliableSources = [
-                'gstatic.com', // Google static content
-                'googleapis.com', // Google APIs
-                'github.com', // GitHub platform
-                'stackoverflow.com', // Stack Overflow
-                'youtube.com', // YouTube
-                'reddit.com', // Reddit
-                'google.com', // Google main domain
-                'www.google.com', // Google www variant
-                's2/favicons' // Google's favicon service
-            ];
+            // Identify reliable favicon sources for optimized caching (for future use)
+            // const reliableSources = [
+            //     'gstatic.com', // Google static content
+            //     'googleapis.com', // Google APIs
+            //     'github.com', // GitHub platform
+            //     'stackoverflow.com', // Stack Overflow
+            //     'youtube.com', // YouTube
+            //     'reddit.com', // Reddit
+            //     'google.com', // Google main domain
+            //     'www.google.com', // Google www variant
+            //     's2/favicons' // Google's favicon service
+            // ];
 
-            const isReliableSource = reliableSources.some(source => faviconUrl.includes(source));
+            // Check if source is reliable (for potential future use)
+            // const isReliableSource = reliableSources.some(source => faviconUrl.includes(source));
 
             // ===== TIER 2: PERSISTENT CACHE (INDEXEDDB) =====
             // Try persistent cache for all sources (not just reliable ones)
@@ -2050,7 +2052,7 @@ class QuickShortcuts {
         return `
             <div class="qs-items-grid">
                 ${items
-                    .map((item, index) => {
+                    .map((item, _index) => {
                         const domain = this.getDomainName(item.url);
                         return `
                     <div class="qs-item" data-url="${item.url}" data-session-id="${item.sessionId || ''}" tabindex="0">

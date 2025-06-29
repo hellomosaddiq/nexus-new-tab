@@ -1667,7 +1667,7 @@ class Nexus {
             hintsInProgress: !!hintsInProgress,
             progressTime: progressTime,
             progressAge: progressTime ? now - progressTime : null,
-            isStale: progressTime ? (now - progressTime) > 30000 : false,
+            isStale: progressTime ? now - progressTime > 30000 : false,
 
             // Control methods
             reset: () => {
@@ -1863,7 +1863,8 @@ class Nexus {
         if (toggles.quickNotes) toggles.quickNotes.checked = this.settings.quickNotes;
         if (toggles.dailyQuotes) toggles.dailyQuotes.checked = this.settings.dailyQuotes;
         if (toggles.todoList) toggles.todoList.checked = this.settings.todoList;
-        if (toggles.aiTabPrediction) toggles.aiTabPrediction.checked = this.settings.aiTabPrediction;
+        if (toggles.aiTabPrediction)
+            toggles.aiTabPrediction.checked = this.settings.aiTabPrediction;
 
         // ===== DYNAMIC UI UPDATES =====
 
@@ -2387,11 +2388,19 @@ class Nexus {
 
             // Handle AI data when disabling
             if (e.target.checked) {
-                this.notificationSystem.show('success', 'AI Enabled', 'Tab prediction learning activated');
+                this.notificationSystem.show(
+                    'success',
+                    'AI Enabled',
+                    'Tab prediction learning activated'
+                );
             } else {
                 // Auto-delete AI data for privacy when disabling
                 await this.clearAIDataOnDisable();
-                this.notificationSystem.show('info', 'AI Disabled', 'Tab prediction disabled and all learning data cleared for privacy');
+                this.notificationSystem.show(
+                    'info',
+                    'AI Disabled',
+                    'Tab prediction disabled and all learning data cleared for privacy'
+                );
             }
         });
 
@@ -3143,7 +3152,7 @@ class Nexus {
             { ref: 'tabMemoryInterval', name: 'Tab memory updater' }
         ];
 
-        intervals.forEach(({ ref, name }) => {
+        intervals.forEach(({ ref, name: _name }) => {
             const intervalId = ref.includes('.') ? this.focusTimer.interval : this[ref];
             if (intervalId) {
                 clearInterval(intervalId);
@@ -3454,7 +3463,10 @@ class Nexus {
     async clearAIDataOnDisable() {
         try {
             // Clear AI data through QuickShortcuts if available
-            if (window.quickShortcuts && typeof window.quickShortcuts.resetTabMemory === 'function') {
+            if (
+                window.quickShortcuts &&
+                typeof window.quickShortcuts.resetTabMemory === 'function'
+            ) {
                 await window.quickShortcuts.resetTabMemory();
             }
 
@@ -3546,7 +3558,6 @@ class Nexus {
                 (!results.chromeLocal?.hasData || results.chromeLocal === null) &&
                 (!results.chromeSync?.hasData || results.chromeSync === null) &&
                 !results.localStorage.hasData;
-
         } catch (error) {
             console.warn('Failed to verify AI data clearing:', error);
             results.error = error.message;
@@ -6738,7 +6749,7 @@ class Nexus {
     /**
      * Handle drag end
      */
-    handleDragEnd = e => {
+    handleDragEnd = _e => {
         if (!this.dragState.isDragging) return;
 
         // Remove global event listeners
@@ -6865,59 +6876,6 @@ class Nexus {
         const div = document.createElement('div');
         div.textContent = text;
         return div.innerHTML;
-    }
-
-    /**
-     * Verify AI data has been cleared (exposed for debugging)
-     * @returns {Promise<Object>} Verification results
-     */
-    async verifyAIDataCleared() {
-        const storageKeys = ['nexusTabMemory', 'nexusAnalytics'];
-        const results = {
-            chromeLocal: null,
-            chromeSync: null,
-            localStorage: null,
-            allCleared: false
-        };
-
-        try {
-            // Check chrome.storage.local
-            if (chrome?.storage?.local) {
-                const localData = await chrome.storage.local.get(storageKeys);
-                results.chromeLocal = {
-                    hasData: Object.keys(localData).length > 0,
-                    keys: Object.keys(localData)
-                };
-            }
-
-            // Check chrome.storage.sync
-            if (chrome?.storage?.sync) {
-                const syncData = await chrome.storage.sync.get(storageKeys);
-                results.chromeSync = {
-                    hasData: Object.keys(syncData).length > 0,
-                    keys: Object.keys(syncData)
-                };
-            }
-
-            // Check localStorage
-            const localStorageData = storageKeys.filter(key => localStorage.getItem(key) !== null);
-            results.localStorage = {
-                hasData: localStorageData.length > 0,
-                keys: localStorageData
-            };
-
-            // Determine if all data is cleared
-            results.allCleared =
-                (!results.chromeLocal?.hasData || results.chromeLocal === null) &&
-                (!results.chromeSync?.hasData || results.chromeSync === null) &&
-                !results.localStorage.hasData;
-
-        } catch (error) {
-            console.warn('Failed to verify AI data clearing:', error);
-            results.error = error.message;
-        }
-
-        return results;
     }
 }
 

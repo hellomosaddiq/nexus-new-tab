@@ -10,8 +10,6 @@
  * @version 1.0.0
  */
 
-
-
 class TabMemorySystem {
     /**
      * Initialize the AI-powered tab memory system
@@ -165,13 +163,13 @@ class TabMemorySystem {
                 // ===== BROWSER EXTENSION STORAGE TEST =====
                 // Test write, read, and delete operations
                 await api.storage.local.set({ [testKey]: testData });
-                const result = await api.storage.local.get([testKey]);
+                const _result = await api.storage.local.get([testKey]);
                 await api.storage.local.remove([testKey]);
             } else {
                 // ===== LOCALSTORAGE FALLBACK TEST =====
                 // Test localStorage for development/testing environments
                 localStorage.setItem(testKey, JSON.stringify(testData));
-                const result = JSON.parse(localStorage.getItem(testKey));
+                const _result = JSON.parse(localStorage.getItem(testKey));
                 localStorage.removeItem(testKey);
             }
         } catch (error) {
@@ -495,7 +493,7 @@ class TabMemorySystem {
      * @async
      * @public
      */
-    async recordInteraction(tabType, action = 'click', context = {}) {
+    async recordInteraction(tabType, action = 'click', _context = {}) {
         try {
             // ===== SYSTEM READINESS VALIDATION =====
             // Ensure AI system is properly initialized
