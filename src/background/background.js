@@ -52,7 +52,10 @@ api.runtime.onInstalled.addListener(async details => {
                 focusTimer: false, // Disabled by default - advanced feature
                 quickNotes: false, // Disabled by default - advanced feature
                 dailyQuotes: true, // Enabled by default - low cognitive load, shows personality
-                todoList: false // Disabled by default - advanced feature
+                todoList: false, // Disabled by default - advanced feature
+
+                // ===== AI & MACHINE LEARNING =====
+                aiTabPrediction: true // Enabled by default - intelligent tab suggestions
             });
         } catch (error) {
             // Fallback to local storage

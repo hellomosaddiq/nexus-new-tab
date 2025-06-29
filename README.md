@@ -70,6 +70,12 @@ NEXUS is a **premium Chrome extension** that replaces your new tab page with an 
 - **Accessibility-first** design with WCAG 2.1 AA compliance
 - **Privacy-focused** - zero external dependencies, all data local
 
+### **🔒 Privacy Controls**
+- **AI Toggle**: Enable/disable AI tab prediction with automatic data clearing
+- **Local Processing**: All AI learning happens on your device - no external servers
+- **Data Control**: Complete deletion of AI data when features are disabled
+- **Transparent Privacy**: Clear notifications about data handling and storage
+
 ---
 
 ## 🛠️ **Installation**
@@ -109,8 +115,9 @@ NEXUS will be available on the Chrome Web Store once the developer fee is availa
 ### **Essential Keyboard Shortcuts**
 - `K` - Open Quick Shortcuts panel
 - `S` - Open Settings
-- `T` - Open Todo List
 - `Escape` - Close any open panel
+
+*Note: Additional shortcuts like `T` for Todo List are available when respective features are enabled in settings.*
 
 ---
 
@@ -180,7 +187,7 @@ nexus-new-tab/
 Yes! NEXUS is completely free and open-source under the MIT License.
 
 ### **Does NEXUS collect my data?**
-No. NEXUS is privacy-first - all data stays on your device. No tracking, no external servers.
+No. NEXUS is privacy-first - all data stays on your device. No tracking, no external servers. You can disable AI features entirely with automatic data deletion in Settings → System → Data & Privacy.
 
 ### **Why 23,000+ lines of code?**
 NEXUS is built without frameworks to ensure maximum performance, security, and control. Every feature is hand-crafted for optimal user experience.

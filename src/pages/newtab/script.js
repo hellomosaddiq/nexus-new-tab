@@ -957,7 +957,10 @@ class Nexus {
             focusTimer: false,
             quickNotes: false,
             dailyQuotes: true,
-            todoList: false
+            todoList: false,
+
+            // AI & Machine Learning
+            aiTabPrediction: true // Enabled by default - intelligent tab suggestions
         };
 
         /**
@@ -1521,13 +1524,51 @@ class Nexus {
      *
      * Displays a sequence of helpful hints about keyboard shortcuts.
      * Uses localStorage to ensure hints are only shown once per user.
+     * Implements race condition protection for multiple tabs.
      * Timing is carefully orchestrated to avoid overwhelming the user.
      */
     showKeyboardHints() {
+        // ===== RACE CONDITION PROTECTION =====
+        // Check and immediately claim the onboarding slot to prevent
+        // multiple tabs from showing hints simultaneously
+
+        const hintsKey = 'nexus-hints-seen';
+        const hintsInProgressKey = 'nexus-hints-in-progress';
+
         // Skip if user has already seen the hints
-        const hasSeenHints = localStorage.getItem('nexus-hints-seen');
+        const hasSeenHints = localStorage.getItem(hintsKey);
         if (hasSeenHints) return;
 
+        // Skip if another tab is currently showing hints
+        const hintsInProgress = localStorage.getItem(hintsInProgressKey);
+        if (hintsInProgress) {
+            // Check if the in-progress flag is stale (older than 30 seconds)
+            const progressTime = parseInt(hintsInProgress);
+            const now = Date.now();
+            if (now - progressTime < 30000) {
+                return; // Another tab is actively showing hints
+            }
+            // Stale flag - continue and clean it up
+        }
+
+        // ===== CLAIM THE ONBOARDING SLOT =====
+        // Immediately set in-progress flag to prevent other tabs
+        localStorage.setItem(hintsInProgressKey, Date.now().toString());
+
+        // ===== CLEANUP ON PAGE UNLOAD =====
+        // Ensure in-progress flag is cleared if tab closes unexpectedly
+        const cleanupInProgress = () => {
+            const currentProgress = localStorage.getItem(hintsInProgressKey);
+            if (currentProgress === localStorage.getItem(hintsInProgressKey)) {
+                localStorage.removeItem(hintsInProgressKey);
+            }
+        };
+
+        // Register cleanup handlers
+        window.addEventListener('beforeunload', cleanupInProgress);
+        window.addEventListener('pagehide', cleanupInProgress);
+
+        // ===== HINT SEQUENCE =====
         // Simple, focused hint sequence (2-3 most important shortcuts)
         setTimeout(() => {
             this.showHint('Press S for Settings', 3000);
@@ -1535,8 +1576,14 @@ class Nexus {
             setTimeout(() => {
                 this.showHint('Press K for Quick Shortcuts', 3000);
 
-                // Mark as seen to prevent future displays
-                localStorage.setItem('nexus-hints-seen', 'true');
+                // ===== MARK COMPLETION =====
+                // Mark as seen and clear in-progress flag
+                localStorage.setItem(hintsKey, 'true');
+                localStorage.removeItem(hintsInProgressKey);
+
+                // Remove cleanup handlers since we completed successfully
+                window.removeEventListener('beforeunload', cleanupInProgress);
+                window.removeEventListener('pagehide', cleanupInProgress);
             }, 4000);
         }, 2000); // Initial delay allows UI to settle
     }
@@ -1598,6 +1645,59 @@ class Nexus {
     }
 
     /**
+     * Debug onboarding state (for testing race condition fixes)
+     *
+     * Returns the current state of onboarding flags and provides
+     * methods to reset or test the onboarding system.
+     *
+     * @returns {Object} Onboarding state and control methods
+     */
+    getOnboardingDebugInfo() {
+        const hintsKey = 'nexus-hints-seen';
+        const hintsInProgressKey = 'nexus-hints-in-progress';
+
+        const hasSeenHints = localStorage.getItem(hintsKey);
+        const hintsInProgress = localStorage.getItem(hintsInProgressKey);
+        const progressTime = hintsInProgress ? parseInt(hintsInProgress) : null;
+        const now = Date.now();
+
+        return {
+            // Current state
+            hasSeenHints: !!hasSeenHints,
+            hintsInProgress: !!hintsInProgress,
+            progressTime: progressTime,
+            progressAge: progressTime ? now - progressTime : null,
+            isStale: progressTime ? (now - progressTime) > 30000 : false,
+
+            // Control methods
+            reset: () => {
+                localStorage.removeItem(hintsKey);
+                localStorage.removeItem(hintsInProgressKey);
+                return 'Onboarding reset - hints will show on next page load';
+            },
+
+            clearInProgress: () => {
+                localStorage.removeItem(hintsInProgressKey);
+                return 'Cleared in-progress flag';
+            },
+
+            forceComplete: () => {
+                localStorage.setItem(hintsKey, 'true');
+                localStorage.removeItem(hintsInProgressKey);
+                return 'Marked onboarding as complete';
+            },
+
+            testRaceCondition: () => {
+                // Simulate multiple tabs by clearing flags and triggering hints
+                localStorage.removeItem(hintsKey);
+                localStorage.removeItem(hintsInProgressKey);
+                setTimeout(() => window.nexus.showKeyboardHints(), 100);
+                return 'Race condition test initiated - open multiple tabs quickly to test';
+            }
+        };
+    }
+
+    /**
      * ===== SETTINGS MANAGEMENT =====
      *
      * Handles loading and saving user preferences with multiple fallback
@@ -1627,11 +1727,11 @@ class Nexus {
 
             if (api?.storage?.sync) {
                 // Preferred: sync storage for cross-device settings
-                const result = await api.storage.sync.get(this.settings);
+                const result = await api.storage.sync.get(Object.keys(this.settings));
                 this.settings = { ...this.settings, ...result };
             } else if (api?.storage?.local) {
                 // Fallback: local storage for single-device settings
-                const result = await api.storage.local.get(this.settings);
+                const result = await api.storage.local.get(Object.keys(this.settings));
                 this.settings = { ...this.settings, ...result };
             }
 
@@ -1748,7 +1848,8 @@ class Nexus {
             focusTimer: document.getElementById('focus-timer'),
             quickNotes: document.getElementById('quick-notes'),
             dailyQuotes: document.getElementById('daily-quotes'),
-            todoList: document.getElementById('todo-list')
+            todoList: document.getElementById('todo-list'),
+            aiTabPrediction: document.getElementById('ai-tab-prediction')
         };
 
         // Update toggle states to match settings
@@ -1762,11 +1863,14 @@ class Nexus {
         if (toggles.quickNotes) toggles.quickNotes.checked = this.settings.quickNotes;
         if (toggles.dailyQuotes) toggles.dailyQuotes.checked = this.settings.dailyQuotes;
         if (toggles.todoList) toggles.todoList.checked = this.settings.todoList;
+        if (toggles.aiTabPrediction) toggles.aiTabPrediction.checked = this.settings.aiTabPrediction;
 
         // ===== DYNAMIC UI UPDATES =====
 
         // Smart date feature selection UI
         this.updateSmartDateOptionsVisibility();
+        // Tab memory section visibility
+        this.updateTabMemorySectionVisibility();
         requestAnimationFrame(() => {
             this.updateFeatureSelectionUI(); // Next frame to prevent layout thrashing
         });
@@ -2270,6 +2374,25 @@ class Nexus {
             this.saveSettings();
             this.applySettings();
             this.updateResetButtonState();
+        });
+
+        // ===== AI TAB PREDICTION CONTROLS =====
+
+        // AI tab prediction feature toggle
+        document.getElementById('ai-tab-prediction')?.addEventListener('change', async e => {
+            this.settings.aiTabPrediction = e.target.checked;
+            await this.saveSettings();
+            this.updateTabMemorySectionVisibility();
+            this.updateResetButtonState();
+
+            // Handle AI data when disabling
+            if (e.target.checked) {
+                this.notificationSystem.show('success', 'AI Enabled', 'Tab prediction learning activated');
+            } else {
+                // Auto-delete AI data for privacy when disabling
+                await this.clearAIDataOnDisable();
+                this.notificationSystem.show('info', 'AI Disabled', 'Tab prediction disabled and all learning data cleared for privacy');
+            }
         });
 
         // Todo panel controls
@@ -3295,6 +3418,141 @@ class Nexus {
             ];
             this.saveSettings();
         }
+    }
+
+    /**
+     * Update tab memory section visibility based on AI setting
+     *
+     * Shows or hides the tab memory reset section based on whether
+     * AI tab prediction is enabled. When AI is disabled, the reset
+     * section is hidden since there's no data to manage.
+     */
+    updateTabMemorySectionVisibility() {
+        const tabMemorySection = document.getElementById('tab-memory-section');
+        if (tabMemorySection) {
+            const aiEnabled = this.settings.aiTabPrediction;
+            tabMemorySection.style.display = aiEnabled ? 'flex' : 'none';
+        }
+    }
+
+    /**
+     * Clear AI data when AI is disabled for privacy
+     *
+     * Automatically removes all AI learning data when the user disables
+     * AI tab prediction. This ensures complete privacy by not retaining
+     * any behavioral patterns or usage data when AI features are turned off.
+     *
+     * PRIVACY FEATURES:
+     * - Clears TabMemorySystem data completely
+     * - Removes all learning patterns and preferences
+     * - Ensures no residual AI data remains
+     * - Provides clean slate when re-enabling AI
+     *
+     * @async
+     * @private
+     */
+    async clearAIDataOnDisable() {
+        try {
+            // Clear AI data through QuickShortcuts if available
+            if (window.quickShortcuts && typeof window.quickShortcuts.resetTabMemory === 'function') {
+                await window.quickShortcuts.resetTabMemory();
+            }
+
+            // Also clear data directly from storage as backup
+            const storageKeys = ['nexusTabMemory', 'nexusAnalytics'];
+
+            // Clear from all possible storage locations for complete privacy
+            // Priority: chrome.storage.local (primary) → chrome.storage.sync → localStorage
+
+            // Clear from chrome.storage.local (primary storage for AI data)
+            try {
+                if (chrome?.storage?.local) {
+                    await chrome.storage.local.remove(storageKeys);
+                }
+            } catch (localError) {
+                console.warn('Failed to clear from chrome.storage.local:', localError);
+            }
+
+            // Clear from chrome.storage.sync (backup)
+            try {
+                if (chrome?.storage?.sync) {
+                    await chrome.storage.sync.remove(storageKeys);
+                }
+            } catch (syncError) {
+                console.warn('Failed to clear from chrome.storage.sync:', syncError);
+            }
+
+            // Clear from localStorage (fallback)
+            try {
+                storageKeys.forEach(key => {
+                    localStorage.removeItem(key);
+                });
+            } catch (localStorageError) {
+                console.warn('Failed to clear from localStorage:', localStorageError);
+            }
+        } catch (error) {
+            console.warn('Failed to clear AI data:', error);
+            // Don't throw error - AI disable should still work
+        }
+    }
+
+    /**
+     * Verify AI data has been cleared (for testing/debugging)
+     *
+     * Checks all storage locations to confirm AI data has been completely
+     * removed when AI is disabled. Useful for privacy verification and testing.
+     *
+     * @returns {Promise<Object>} Verification results from all storage locations
+     * @private
+     * @async
+     */
+    async verifyAIDataCleared() {
+        const storageKeys = ['nexusTabMemory', 'nexusAnalytics'];
+        const results = {
+            chromeLocal: null,
+            chromeSync: null,
+            localStorage: null,
+            allCleared: false
+        };
+
+        try {
+            // Check chrome.storage.local
+            if (chrome?.storage?.local) {
+                const localData = await chrome.storage.local.get(storageKeys);
+                results.chromeLocal = {
+                    hasData: Object.keys(localData).length > 0,
+                    keys: Object.keys(localData)
+                };
+            }
+
+            // Check chrome.storage.sync
+            if (chrome?.storage?.sync) {
+                const syncData = await chrome.storage.sync.get(storageKeys);
+                results.chromeSync = {
+                    hasData: Object.keys(syncData).length > 0,
+                    keys: Object.keys(syncData)
+                };
+            }
+
+            // Check localStorage
+            const localStorageData = storageKeys.filter(key => localStorage.getItem(key) !== null);
+            results.localStorage = {
+                hasData: localStorageData.length > 0,
+                keys: localStorageData
+            };
+
+            // Determine if all data is cleared
+            results.allCleared =
+                (!results.chromeLocal?.hasData || results.chromeLocal === null) &&
+                (!results.chromeSync?.hasData || results.chromeSync === null) &&
+                !results.localStorage.hasData;
+
+        } catch (error) {
+            console.warn('Failed to verify AI data clearing:', error);
+            results.error = error.message;
+        }
+
+        return results;
     }
 
     /**
@@ -6608,6 +6866,59 @@ class Nexus {
         div.textContent = text;
         return div.innerHTML;
     }
+
+    /**
+     * Verify AI data has been cleared (exposed for debugging)
+     * @returns {Promise<Object>} Verification results
+     */
+    async verifyAIDataCleared() {
+        const storageKeys = ['nexusTabMemory', 'nexusAnalytics'];
+        const results = {
+            chromeLocal: null,
+            chromeSync: null,
+            localStorage: null,
+            allCleared: false
+        };
+
+        try {
+            // Check chrome.storage.local
+            if (chrome?.storage?.local) {
+                const localData = await chrome.storage.local.get(storageKeys);
+                results.chromeLocal = {
+                    hasData: Object.keys(localData).length > 0,
+                    keys: Object.keys(localData)
+                };
+            }
+
+            // Check chrome.storage.sync
+            if (chrome?.storage?.sync) {
+                const syncData = await chrome.storage.sync.get(storageKeys);
+                results.chromeSync = {
+                    hasData: Object.keys(syncData).length > 0,
+                    keys: Object.keys(syncData)
+                };
+            }
+
+            // Check localStorage
+            const localStorageData = storageKeys.filter(key => localStorage.getItem(key) !== null);
+            results.localStorage = {
+                hasData: localStorageData.length > 0,
+                keys: localStorageData
+            };
+
+            // Determine if all data is cleared
+            results.allCleared =
+                (!results.chromeLocal?.hasData || results.chromeLocal === null) &&
+                (!results.chromeSync?.hasData || results.chromeSync === null) &&
+                !results.localStorage.hasData;
+
+        } catch (error) {
+            console.warn('Failed to verify AI data clearing:', error);
+            results.error = error.message;
+        }
+
+        return results;
+    }
 }
 
 // Add CSS for no-animations class - Enhanced coverage
@@ -6861,6 +7172,18 @@ if (document.readyState === 'loading') {
                         return await qs.cleanupDuplicateFavicons();
                     }
                     return 'Quick shortcuts not available';
+                },
+                verifyAIDataCleared: async () => {
+                    if (window.nexus?.verifyAIDataCleared) {
+                        return await window.nexus.verifyAIDataCleared();
+                    }
+                    return 'Verification method not available';
+                },
+                onboardingDebug: () => {
+                    if (window.nexus?.getOnboardingDebugInfo) {
+                        return window.nexus.getOnboardingDebugInfo();
+                    }
+                    return 'Onboarding debug not available';
                 },
                 getFontStatus: () => {
                     if (window.nexus) {

@@ -85,7 +85,7 @@
                     {
                         "id": "external-connections",
                         "question": "Does NEXUS connect to external services?",
-                        "answer": "NEXUS operates entirely offline with minimal external connections. The only external requests are for loading Google Fonts (if selected) and favicon fetching for bookmarks/sites. No analytics, tracking, or data transmission occurs. All features work without internet connectivity.",
+                        "answer": "NEXUS operates entirely offline with minimal external connections. The only external requests are for favicon fetching for bookmarks/sites and search engine queries. All typography themes use locally bundled fonts - no external font loading required. No analytics, tracking, or data transmission occurs. All features work without internet connectivity.",
                         "tags": [
                             "privacy",
                             "offline",

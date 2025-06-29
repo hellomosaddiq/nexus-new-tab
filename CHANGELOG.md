@@ -16,6 +16,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 🎉 **Initial Public Release** - Transform your browser's new tab into a productivity powerhouse!
 
+### Fixed (Critical Updates)
+- **AI Tab Prediction Toggle Persistence**: Fixed toggle not persisting across new tabs due to missing default setting and incorrect storage API usage
+- **Onboarding Race Condition**: Eliminated multiple tabs showing keyboard hints simultaneously with immediate slot claiming and cleanup handlers
+- **Privacy Policy Accuracy**: Updated external connections documentation to reflect local font usage (removed Google Fonts references)
+- **AI Data Privacy**: Implemented automatic deletion of all AI learning data when AI features are disabled for enhanced privacy protection
+
 ### Added
 - **Core Features**
   - Real-time clock with 12/24 hour format support and seconds display option

@@ -99,6 +99,25 @@ class QuickShortcuts {
     }
 
     /**
+     * Check if AI features are enabled in user settings
+     *
+     * Retrieves the current AI tab prediction setting from storage.
+     * Used to determine whether to use machine learning features.
+     *
+     * @returns {Promise<boolean>} Whether AI features are enabled
+     * @private
+     * @async
+     */
+    async isAIEnabled() {
+        try {
+            const result = await chrome.storage.sync.get(['aiTabPrediction']);
+            return result.aiTabPrediction !== false; // Default to true if not set
+        } catch (error) {
+            return true; // Default to enabled if storage fails
+        }
+    }
+
+    /**
      * Initialize AI-powered tab memory system
      *
      * Sets up the machine learning system that learns user behavior patterns
@@ -121,6 +140,13 @@ class QuickShortcuts {
      */
     async initTabMemory() {
         try {
+            // Check if AI is enabled before initializing
+            const aiEnabled = await this.isAIEnabled();
+            if (!aiEnabled) {
+                this.tabMemoryReady = false;
+                return;
+            }
+
             // Wait for TabMemorySystem to fully initialize with all ML models
             await this.tabMemory.init();
             this.tabMemoryReady = true;
@@ -907,22 +933,22 @@ class QuickShortcuts {
                 {
                     name: 'DuckDuckGo',
                     url: 'https://duckduckgo.com/?q=',
-                    logo: chrome.runtime.getURL('assets/search-engines/duckduckgo.svg')
+                    logo: 'https://duckduckgo.com/favicon.ico'
                 },
                 {
                     name: 'YouTube',
                     url: 'https://youtube.com/results?search_query=',
-                    logo: chrome.runtime.getURL('assets/search-engines/youtube.svg')
+                    logo: 'https://www.youtube.com/favicon.ico'
                 },
                 {
                     name: 'Wikipedia',
                     url: 'https://en.wikipedia.org/wiki/Special:Search?search=',
-                    logo: chrome.runtime.getURL('assets/search-engines/wikipedia.svg')
+                    logo: 'https://en.wikipedia.org/favicon.ico'
                 },
                 {
                     name: 'Amazon',
                     url: 'https://amazon.com/s?k=',
-                    logo: chrome.runtime.getURL('assets/search-engines/amazon.svg')
+                    logo: 'https://www.amazon.com/favicon.ico'
                 },
                 {
                     name: 'Ecosia',
@@ -1594,14 +1620,15 @@ class QuickShortcuts {
         // ===== AI-POWERED TAB PREDICTION =====
         // Use machine learning to predict which tab user wants
 
-        if (this.tabMemoryReady && this.tabMemory) {
+        const aiEnabled = await this.isAIEnabled();
+        if (aiEnabled && this.tabMemoryReady && this.tabMemory) {
             try {
                 this.activeTab = this.tabMemory.getPredictedTab();
             } catch (error) {
                 this.activeTab = 'bookmarks'; // Fallback to bookmarks
             }
         } else {
-            this.activeTab = 'bookmarks'; // Fallback when AI unavailable
+            this.activeTab = 'bookmarks'; // Fallback when AI unavailable or disabled
         }
 
         // ===== FOCUS MANAGEMENT =====
@@ -1614,7 +1641,7 @@ class QuickShortcuts {
 
         // ===== AI LEARNING =====
         // Record panel opening for machine learning
-        if (this.tabMemoryReady && this.tabMemory) {
+        if (aiEnabled && this.tabMemoryReady && this.tabMemory) {
             try {
                 this.tabMemory.recordInteraction(this.activeTab, 'open', {
                     predictedTab: this.activeTab,
@@ -2196,21 +2223,21 @@ class QuickShortcuts {
 
         // Tab switching with smooth animation and AI learning
         panel.querySelectorAll('.qs-tab').forEach(tab => {
-            tab.addEventListener('click', () => {
+            tab.addEventListener('click', async () => {
                 if (tab.dataset.tab === this.activeTab) return; // Prevent unnecessary updates
-                this.smoothTabTransition(tab.dataset.tab);
+                await this.smoothTabTransition(tab.dataset.tab);
             });
         });
 
         // ===== ITEM AND ENGINE CLICKS =====
 
         // Efficient event delegation for dynamic content
-        panel.addEventListener('click', e => {
+        panel.addEventListener('click', async e => {
             const item = e.target.closest('.qs-item');
             const engine = e.target.closest('.qs-engine');
 
             if (item) {
-                this.handleItemClick(item);
+                await this.handleItemClick(item);
             } else if (engine) {
                 this.handleEngineClick(engine);
             }
@@ -2219,8 +2246,8 @@ class QuickShortcuts {
         // ===== KEYBOARD NAVIGATION =====
 
         // Comprehensive keyboard navigation for accessibility
-        panel.addEventListener('keydown', e => {
-            this.handleKeyNavigation(e);
+        panel.addEventListener('keydown', async e => {
+            await this.handleKeyNavigation(e);
         });
 
         // ===== MODAL OVERLAY HANDLING =====
@@ -2272,17 +2299,24 @@ class QuickShortcuts {
      * @param {HTMLElement} item - Clicked item element
      * @private
      */
-    handleItemClick(item) {
+    async handleItemClick(item) {
         const url = item.dataset.url;
         const sessionId = item.dataset.sessionId;
 
         // ===== AI LEARNING INTEGRATION =====
-        // Record user interaction for machine learning
-        this.tabMemory.recordInteraction(this.activeTab, 'click', {
-            url: url,
-            hasSessionId: !!sessionId,
-            timestamp: Date.now()
-        });
+        // Record user interaction for machine learning (only if AI enabled)
+        const aiEnabled = await this.isAIEnabled();
+        if (aiEnabled && this.tabMemoryReady && this.tabMemory) {
+            try {
+                this.tabMemory.recordInteraction(this.activeTab, 'click', {
+                    url: url,
+                    hasSessionId: !!sessionId,
+                    timestamp: Date.now()
+                });
+            } catch (error) {
+                // Silent failure - AI learning is optional
+            }
+        }
 
         // ===== EXTERNAL NOTIFICATIONS =====
         // Notify main app to update button state
@@ -2406,7 +2440,7 @@ class QuickShortcuts {
      * @param {KeyboardEvent} e - Keyboard event object
      * @private
      */
-    handleKeyNavigation(e) {
+    async handleKeyNavigation(e) {
         // ===== NAVIGATION TARGET DETECTION =====
         // Get all navigable items (both content items and search engines)
         const items = document.querySelectorAll('.qs-item, .qs-engine');
@@ -2433,7 +2467,7 @@ class QuickShortcuts {
                 e.preventDefault();
                 // Activate focused item based on type
                 if (focused?.classList.contains('qs-item')) {
-                    this.handleItemClick(focused);
+                    await this.handleItemClick(focused);
                 } else if (focused?.classList.contains('qs-engine')) {
                     this.handleEngineClick(focused);
                 }
@@ -2483,7 +2517,7 @@ class QuickShortcuts {
      * @param {string} newTab - ID of the tab to switch to
      * @private
      */
-    smoothTabTransition(newTab) {
+    async smoothTabTransition(newTab) {
         const contentContainer = document.querySelector('.qs-tab-content');
         const tabs = document.querySelectorAll('.qs-tab');
 
@@ -2491,8 +2525,9 @@ class QuickShortcuts {
         if (!contentContainer) return;
 
         // ===== AI LEARNING INTEGRATION =====
-        // Record tab switch for machine learning
-        if (this.tabMemoryReady && this.tabMemory) {
+        // Record tab switch for machine learning (only if AI enabled)
+        const aiEnabled = await this.isAIEnabled();
+        if (aiEnabled && this.tabMemoryReady && this.tabMemory) {
             try {
                 this.tabMemory.recordInteraction(newTab, 'switch', {
                     previousTab: this.activeTab,

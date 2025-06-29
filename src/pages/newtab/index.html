@@ -645,13 +645,29 @@ Main interface for the productivity extension
                                     <p class="section-description">Manage your data and learning preferences</p>
                                 </div>
                                 <div class="section-content">
+                                    <!-- ===== AI TAB PREDICTION TOGGLE ===== -->
+                                    <!-- Master toggle for AI learning and prediction features -->
+                                    <div class="setting-item">
+                                        <div class="setting-info">
+                                            <label class="setting-label" for="ai-tab-prediction">AI Tab
+                                                Prediction</label>
+                                            <p class="setting-description">Enable machine learning for intelligent tab
+                                                suggestions</p>
+                                        </div>
+                                        <div class="setting-control">
+                                            <input type="checkbox" id="ai-tab-prediction" class="setting-toggle"
+                                                aria-describedby="ai-tab-prediction-desc" />
+                                            <label for="ai-tab-prediction" class="toggle-slider"
+                                                aria-hidden="true"></label>
+                                        </div>
+                                    </div>
+
                                     <!-- ===== TAB MEMORY MANAGEMENT ===== -->
                                     <!-- AI learning data control with reset functionality -->
-                                    <div class="setting-item setting-item-full">
+                                    <div class="setting-item setting-item-full" id="tab-memory-section">
                                         <div class="setting-info">
-                                            <label class="setting-label">Tab Memory</label>
-                                            <p class="setting-description">AI learns your browsing patterns to provide
-                                                better shortcuts</p>
+                                            <label class="setting-label">Tab Memory Data</label>
+                                            <p class="setting-description">Reset AI learning data and start fresh</p>
                                         </div>
                                         <!-- Reset button with confirmation dialog integration -->
                                         <button class="reset-memory-btn" id="reset-memory-btn"
