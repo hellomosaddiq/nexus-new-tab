@@ -119,17 +119,30 @@ jobs:
       run: |
         VERSION="${{ needs.validate-release.outputs.version }}"
 
-        # Modern, reliable changelog extraction using sed
-        if [ -f "CHANGELOG.md" ]; then
-          # Extract section between version headers, handling date format
-          sed -n "/## \[${VERSION}\]/,/^## \[/p" CHANGELOG.md | sed '$d' | sed '1d' > version-changelog.md
+        echo "🔍 Looking for version ${VERSION} in CHANGELOG.md"
 
-          # Remove empty lines at start and end
-          sed -i '/^$/d' version-changelog.md 2>/dev/null || sed '/^$/d' version-changelog.md > temp && mv temp version-changelog.md
+        if [ -f "CHANGELOG.md" ]; then
+          echo "📄 CHANGELOG.md found, extracting content..."
+
+          # Debug: Show the first few lines of CHANGELOG.md
+          echo "🔍 First 10 lines of CHANGELOG.md:"
+          head -10 CHANGELOG.md
+
+          # Debug: Look for our version specifically
+          echo "🔍 Looking for pattern: ## [${VERSION}]"
+          grep -n "## \[${VERSION}\]" CHANGELOG.md || echo "❌ Version pattern not found"
+
+          # Simple and reliable extraction using awk
+          awk "/## \[${VERSION}\]/,/^## \[/ {
+            if (/^## \[${VERSION}\]/) next
+            if (/^## \[/ && !/^## \[${VERSION}\]/) exit
+            print
+          }" CHANGELOG.md > version-changelog.md
 
           echo "✅ Extracted changelog for v${VERSION}"
           echo "📝 Content preview:"
-          head -5 version-changelog.md
+          head -5 version-changelog.md || echo "No content extracted"
+          echo "📊 File size: $(wc -l < version-changelog.md) lines"
         else
           echo "⚠️ CHANGELOG.md not found"
           echo "" > version-changelog.md
@@ -140,10 +153,15 @@ jobs:
       run: |
         VERSION="${{ needs.validate-release.outputs.version }}"
 
+        echo "📝 Generating release notes for v${VERSION}"
+
         # Check if we have version-specific changelog content
         CHANGELOG_SECTION=""
-        if [ -s "version-changelog.md" ]; then
+        if [ -f "version-changelog.md" ] && [ -s "version-changelog.md" ]; then
           CHANGELOG_SECTION=$(cat version-changelog.md)
+          echo "✅ Using extracted changelog content"
+        else
+          echo "⚠️ No changelog content found, using fallback"
         fi
 
         # Create comprehensive release notes
