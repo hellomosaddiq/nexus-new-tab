@@ -12,7 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Optimized favicon and icon assets for better visibility
 - Improved visual hierarchy in icon design
 
-## [1.0.0] - 2025-06-25
+## [1.0.0] - 2025-06-29
 
 🎉 **Initial Public Release** - Transform your browser's new tab into a productivity powerhouse!
 
