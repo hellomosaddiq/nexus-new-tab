@@ -124,7 +124,8 @@ jobs:
         CHANGELOG_SECTION=""
         if [ -f "CHANGELOG.md" ]; then
           # Try to extract version-specific changes from CHANGELOG.md
-          CHANGELOG_SECTION=$(awk "/## \[${VERSION}\]/,/## \[/{if(/## \[${VERSION}\]/) next; if(/## \[/ && !/## \[${VERSION}\]/) exit; print}" CHANGELOG.md | sed '/^$/d' | head -20)
+          # Updated pattern to handle date format: ## [1.0.0] - 2025-06-25
+          CHANGELOG_SECTION=$(awk "/## \[${VERSION}\]( -|$)/,/## \[/{if(/## \[${VERSION}\]( -|$)/) next; if(/## \[/ && !/## \[${VERSION}\]( -|$)/) exit; print}" CHANGELOG.md | sed '/^$/d' | head -20)
         fi
 
         # Create comprehensive release notes
