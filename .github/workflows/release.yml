@@ -115,17 +115,35 @@ jobs:
       with:
         name: nexus-extension-release
 
+    - name: Extract changelog for version
+      run: |
+        VERSION="${{ needs.validate-release.outputs.version }}"
+
+        # Modern, reliable changelog extraction using sed
+        if [ -f "CHANGELOG.md" ]; then
+          # Extract section between version headers, handling date format
+          sed -n "/## \[${VERSION}\]/,/^## \[/p" CHANGELOG.md | sed '$d' | sed '1d' > version-changelog.md
+
+          # Remove empty lines at start and end
+          sed -i '/^$/d' version-changelog.md 2>/dev/null || sed '/^$/d' version-changelog.md > temp && mv temp version-changelog.md
+
+          echo "✅ Extracted changelog for v${VERSION}"
+          echo "📝 Content preview:"
+          head -5 version-changelog.md
+        else
+          echo "⚠️ CHANGELOG.md not found"
+          echo "" > version-changelog.md
+        fi
+
     - name: Generate release notes
       id: release-notes
       run: |
         VERSION="${{ needs.validate-release.outputs.version }}"
 
-        # Extract changelog section for this version
+        # Check if we have version-specific changelog content
         CHANGELOG_SECTION=""
-        if [ -f "CHANGELOG.md" ]; then
-          # Try to extract version-specific changes from CHANGELOG.md
-          # Updated pattern to handle date format: ## [1.0.0] - 2025-06-25
-          CHANGELOG_SECTION=$(awk "/## \[${VERSION}\]( -|$)/,/## \[/{if(/## \[${VERSION}\]( -|$)/) next; if(/## \[/ && !/## \[${VERSION}\]( -|$)/) exit; print}" CHANGELOG.md | sed '/^$/d' | head -20)
+        if [ -s "version-changelog.md" ]; then
+          CHANGELOG_SECTION=$(cat version-changelog.md)
         fi
 
         # Create comprehensive release notes
@@ -237,7 +255,7 @@ jobs:
         files: NEXUS-New-Tab-v*.zip
         draft: false
         prerelease: false
-        generate_release_notes: true
+        generate_release_notes: false
 
     - name: Release Summary
       run: |
